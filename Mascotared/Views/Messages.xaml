@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Messages"
+             BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1C1F2E}"
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarIsVisible="True"
+             Title="Mensajes">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- ══════ HEADER ══════ -->
+        <VerticalStackLayout Grid.Row="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Spacing="0">
+            <Grid Padding="20,14,20,14" ColumnDefinitions="*,Auto">
+                <Label Grid.Column="0"
+                       FontFamily="InterSemiBold" FontSize="22"
+                       VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Mis " TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                            <Span Text="Mensajes" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Border Grid.Column="1"
+                        StrokeShape="RoundRectangle 19"
+                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                        Stroke="Transparent"
+                        WidthRequest="38" HeightRequest="38"
+                        VerticalOptions="Center">
+                    <Label Text="✏️" FontSize="16"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+            <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" />
+        </VerticalStackLayout>
+
+        <!-- ══════ BUSCADOR ══════ -->
+        <Border Grid.Row="1"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                StrokeShape="RoundRectangle 0"
+                Stroke="Transparent"
+                Padding="16,10,16,14">
+            <Border StrokeShape="RoundRectangle 14"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                    Stroke="Transparent"
+                    Padding="12,0">
+                <Grid ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="🔍" FontSize="16"
+                           VerticalOptions="Center" Margin="0,0,8,0" />
+                    <Entry x:Name="EntryBuscar"
+                           Grid.Column="1"
+                           Placeholder="Buscar conversación…"
+                           PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                           FontSize="14"
+                           BackgroundColor="Transparent"
+                           TextChanged="OnBuscarTextChanged" />
+                </Grid>
+            </Border>
+        </Border>
+
+        <!-- ══════ CONTENIDO ══════ -->
+        <Grid Grid.Row="2" RowDefinitions="*,Auto">
+
+            <!-- Estado vacío -->
+            <VerticalStackLayout x:Name="EstadoVacio" Grid.Row="0"
+                                 IsVisible="True"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="16"
+                                 Padding="40,0">
+                <Border StrokeShape="RoundRectangle 50"
+                        BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#1E2040}"
+                        Stroke="Transparent"
+                        WidthRequest="100" HeightRequest="100"
+                        HorizontalOptions="Center">
+                    <Label Text="💬" FontSize="46"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <Label Text="No tienes mensajes"
+                       FontFamily="InterSemiBold" FontSize="18"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       HorizontalOptions="Center" />
+                <Label Text="Reserva o publica una solicitud para contactar con otros usuarios."
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       LineHeight="1.5" />
+                <Border StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        Stroke="Transparent"
+                        Padding="24,14"
+                        HorizontalOptions="Center"
+                        Margin="0,8,0,0">
+                    <Label Text="Explorar cuidadores"
+                           FontFamily="InterSemiBold"
+                           FontSize="14" TextColor="White" />
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnExplorarTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+            </VerticalStackLayout>
+
+            <!-- Lista de conversaciones -->
+            <CollectionView x:Name="ListaConversaciones"
+                            Grid.Row="0"
+                            IsVisible="False"
+                            SelectionMode="Single"
+                            SelectionChanged="OnConversacionSeleccionada"
+                            Margin="0,4,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- SwipeView: desliza izq → Archivar | desliza der → Eliminar -->
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem Text="Archivar"
+                                               BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                               Invoked="OnArchivarChat" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem Text="Eliminar"
+                                               BackgroundColor="#EF4444"
+                                               Invoked="OnEliminarChat" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <VerticalStackLayout BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Spacing="0">
+                                <Grid ColumnDefinitions="Auto,*,Auto"
+                                      ColumnSpacing="14"
+                                      Padding="16,14,16,14">
+
+                                    <!-- Avatar: tap → perfil público del contacto -->
+                                    <Grid Grid.Column="0" WidthRequest="52" HeightRequest="52">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnVerPerfilContacto"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Grid.GestureRecognizers>
+                                        <Border StrokeShape="RoundRectangle 26"
+                                                BackgroundColor="{Binding ColorAvatar}"
+                                                Stroke="Transparent"
+                                                WidthRequest="52" HeightRequest="52"
+                                                IsVisible="{Binding NoTieneFoto}">
+                                            <Label Text="{Binding Inicial}"
+                                                   FontFamily="InterSemiBold"
+                                                   FontSize="20" TextColor="White"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center" />
+                                        </Border>
+                                        <Border StrokeShape="RoundRectangle 26"
+                                                Stroke="Transparent"
+                                                WidthRequest="52" HeightRequest="52"
+                                                IsVisible="{Binding TieneFoto}">
+                                            <Image Source="{Binding FotoSource}"
+                                                   Aspect="AspectFill"
+                                                   WidthRequest="52" HeightRequest="52" />
+                                        </Border>
+                                        <!-- Punto no leído -->
+                                        <Border StrokeShape="RoundRectangle 8"
+                                                BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                                                Stroke="White" StrokeThickness="2"
+                                                WidthRequest="14" HeightRequest="14"
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Start"
+                                                IsVisible="{Binding TieneNoLeidos}" />
+                                    </Grid>
+
+                                    <!-- Nombre + último mensaje + chip mascota -->
+                                    <VerticalStackLayout Grid.Column="1"
+                                                         VerticalOptions="Center"
+                                                         Spacing="3">
+                                        <Label Text="{Binding NombreContacto}"
+                                               FontFamily="InterSemiBold"
+                                               FontSize="15"
+                                               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding UltimoMensaje}"
+                                               FontSize="13"
+                                               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                               LineBreakMode="TailTruncation"
+                                               MaxLines="1" />
+                                        <Border StrokeShape="RoundRectangle 8"
+                                                BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                                Stroke="Transparent"
+                                                Padding="6,2"
+                                                HorizontalOptions="Start"
+                                                IsVisible="{Binding TieneMascota}">
+                                            <Label Text="{Binding EtiquetaMascota}"
+                                                   FontSize="11"
+                                                   FontFamily="InterSemiBold"
+                                                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                                        </Border>
+                                    </VerticalStackLayout>
+
+                                    <!-- Hora + contador -->
+                                    <VerticalStackLayout Grid.Column="2"
+                                                         VerticalOptions="Center"
+                                                         HorizontalOptions="End"
+                                                         Spacing="6">
+                                        <Label Text="{Binding HoraFormateada}"
+                                               FontSize="11"
+                                               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                               HorizontalOptions="End" />
+                                        <Border StrokeShape="RoundRectangle 10"
+                                                BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                                                Stroke="Transparent"
+                                                Padding="6,2"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding MostrarContador}">
+                                            <Label Text="{Binding ContadorNoLeidos}"
+                                                   FontSize="11"
+                                                   FontFamily="InterSemiBold"
+                                                   TextColor="White" />
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Grid>
+
+                                <!-- Separador -->
+                                <BoxView HeightRequest="1"
+                                         BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                                         Margin="82,0,0,0" />
+                            </VerticalStackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- ── Sección archivados ── -->
+            <VerticalStackLayout x:Name="SeccionArchivados" Grid.Row="1"
+                                 IsVisible="False" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}">
+                <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#1E2040}" />
+                <Grid Padding="16,12" BackgroundColor="{AppThemeBinding Light=#F8F9FF, Dark=#1E1E2E}">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label x:Name="LblToggleArchivados"
+                               Text="📦  0 archivados"
+                               FontFamily="InterSemiBold" FontSize="13"
+                               TextColor="#9AA0C4" VerticalOptions="Center" />
+                        <Label x:Name="LblChevronArchivados" Grid.Column="1"
+                               Text="›" FontSize="20" TextColor="#9AA0C4"
+                               VerticalOptions="Center" />
+                    </Grid>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnToggleArchivados" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <!-- Items archivados generados en code-behind -->
+                <VerticalStackLayout x:Name="StackArchivados"
+                                     IsVisible="False" Spacing="0" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <!-- ══════ BOTTOM NAV ══════ -->
+        <Grid Grid.Row="3" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+              ColumnDefinitions="*,*,*,*,*" Padding="0,10,0,30">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+            </Grid.Shadow>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBuscarTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFavoritosTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReservasTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <!-- Icono con badge de no leídos -->
+                <Grid HorizontalOptions="Center">
+                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                    <Border x:Name="BadgeNoLeidos"
+                            BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                            StrokeShape="Ellipse"
+                            Stroke="White" StrokeThickness="1.5"
+                            WidthRequest="10" HeightRequest="10"
+                            HorizontalOptions="End" VerticalOptions="Start"
+                            Margin="0,0,0,0"
+                            IsVisible="False" />
+                </Grid>
+                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCuentaTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

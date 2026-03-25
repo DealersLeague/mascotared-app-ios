@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mascotared"
+             x:Class="Mascotared.ComentariosPage"
+             Title="Comentarios"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}">
+
+    <ContentPage.Resources>
+        <local:BoolToPinkConverter x:Key="BoolToPinkConverter" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header con foto del post -->
+        <Border Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                Padding="16,12"
+                Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                StrokeThickness="1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Border Grid.Column="0"
+                        BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                        Padding="0"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        Stroke="Transparent"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <Label Text="{Binding UsuarioInicial}"
+                           FontFamily="OpenSansSemibold"
+                           FontSize="16"
+                           TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Border>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                    <Label Text="{Binding UsuarioNombre}"
+                           FontFamily="OpenSansSemibold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                    <Label Text="{Binding Descripcion}"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="2" />
+                </VerticalStackLayout>
+
+                <Border Grid.Column="2"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Image Source="{Binding ImagenUrl}"
+                           WidthRequest="60"
+                           HeightRequest="60"
+                           Aspect="AspectFill" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Lista de comentarios -->
+        <CollectionView x:Name="ListaComentarios" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,10"
+                          ColumnDefinitions="Auto,*,Auto"
+                          ColumnSpacing="12">
+
+                        <!-- Avatar: foto real (http) o inicial sobre fondo azul -->
+                        <Grid Grid.Column="0" WidthRequest="36" HeightRequest="36">
+                            <!-- Círculo inicial (visible cuando no hay foto) -->
+                            <Border BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                                    WidthRequest="36" HeightRequest="36"
+                                    Stroke="Transparent" StrokeThickness="0"
+                                    IsVisible="{Binding NoTieneFoto}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="18" />
+                                </Border.StrokeShape>
+                                <Label Text="{Binding UsuarioInicial}"
+                                       FontFamily="OpenSansSemibold"
+                                       FontSize="14"
+                                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <!-- Foto real (visible cuando TieneFoto=true) -->
+                            <Image Source="{Binding UsuarioFoto}"
+                                   WidthRequest="36" HeightRequest="36"
+                                   Aspect="AspectFill"
+                                   IsVisible="{Binding TieneFoto}">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="18,18" RadiusX="18" RadiusY="18" />
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="2">
+                            <HorizontalStackLayout Spacing="6">
+                                <Label Text="{Binding UsuarioNombre}"
+                                       FontFamily="OpenSansSemibold"
+                                       FontSize="13"
+                                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                                <Label Text="{Binding TiempoPublicado}"
+                                       FontSize="11"
+                                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Texto}"
+                                   FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                                   LineBreakMode="WordWrap" />
+                            <!-- Botón Responder -->
+                            <Label Text="Responder"
+                                   FontSize="11"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                   Margin="0,2,0,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnResponderComentarioTapped"
+                                                          CommandParameter="{Binding .}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="2"
+                               Text="♡"
+                               FontSize="16"
+                               TextColor="{Binding EsLikeado, Converter={StaticResource BoolToPinkConverter}}"
+                               VerticalOptions="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLikeComentarioTapped"
+                                                      CommandParameter="{Binding .}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Input de comentario -->
+        <Grid Grid.Row="2"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+              Padding="16,12"
+              ColumnDefinitions="*,Auto"
+              ColumnSpacing="8">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-2" Radius="8" />
+            </Grid.Shadow>
+            <Entry x:Name="EntryComentario"
+                   Grid.Column="0"
+                   Placeholder="Escribe un comentario..."
+                   PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                   BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1C1F2E}"
+                   FontSize="14"
+                   Completed="OnEnviarComentario" />
+            <Button Grid.Column="1"
+                    Text="Enviar"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                    TextColor="White"
+                    FontSize="14"
+                    FontFamily="OpenSansSemibold"
+                    CornerRadius="20"
+                    Padding="20,10"
+                    Clicked="OnEnviarComentario" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

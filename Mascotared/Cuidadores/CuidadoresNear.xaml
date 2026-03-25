@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mascotared"
+             x:Class="Mascotared.CuidadoresNear"
+             Title="Cuidadores cercanos"
+             BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1C1F2E}">
+
+    <ContentPage.Resources>
+        <Color x:Key="Green">#2DCE89</Color>
+        <local:StringToBoolConverter x:Key="StringToBoolConverter" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              Padding="20,12,20,12"
+              ColumnDefinitions="Auto,*,Auto">
+            <Label Grid.Column="0" Text="☰" FontSize="22"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+            <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                <Label Text="Red"     FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+            </HorizontalStackLayout>
+            <Border Grid.Column="2" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                    Padding="0" WidthRequest="38" HeightRequest="38"
+                    Stroke="Transparent" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="19"/>
+                </Border.StrokeShape>
+                <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+        </Grid>
+
+        <!-- TÍTULO -->
+        <Label Grid.Row="1" Text="Descubre"
+               FontFamily="InterSemiBold" FontSize="24"
+               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+               Padding="20,16,20,8" />
+
+        <!-- BÚSQUEDA Y FILTROS -->
+        <VerticalStackLayout Grid.Row="2" Spacing="12" Padding="20,0,20,16">
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                    Padding="12,10" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                    <Label Grid.Column="0" Text="🔍" FontSize="16" VerticalOptions="Center" />
+                    <Entry Grid.Column="1" x:Name="EntryBusqueda"
+                           Placeholder="Buscar..."
+                           PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                           BackgroundColor="Transparent"
+                           TextChanged="OnBusquedaChanged" />
+                    <Border Grid.Column="2" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="8" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Label Text="⚙️" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Filtros -->
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout x:Name="StackCategorias" Spacing="10">
+                    <Border x:Name="FrameTodos" BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                            Padding="16,8" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCategoriaTodosTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="Todos" FontFamily="InterSemiBold" FontSize="13" TextColor="White" />
+                    </Border>
+                    <Border x:Name="FrameCercanos" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="16,8" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCategoriaCercanosTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="Cercanos" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                    </Border>
+                    <Border x:Name="FrameVerificados" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="16,8" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCategoriaVerificadosTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="Verificados" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                    </Border>
+                    <Border x:Name="FrameOnline" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="16,8" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCategoriaOnlineTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="En línea" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                    </Border>
+                </HorizontalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+
+        <!-- GRID DE CUIDADORES -->
+        <CollectionView x:Name="ListaCuidadores" Grid.Row="3" SelectionMode="None" Margin="20,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"
+                                 HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                            Padding="0" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Opacity="0.06" Offset="0,2" Radius="8"/>
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTarjetaTapped" CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout Spacing="0">
+
+                            <!-- Imagen superior -->
+                            <Border StrokeThickness="0" HeightRequest="140">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16,16,0,0" />
+                                </Border.StrokeShape>
+                                <Grid BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}">
+                                    <Label Text="{Binding Inicial}"
+                                           FontFamily="InterSemiBold" FontSize="48"
+                                           TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <!-- Badge online -->
+                                    <Border IsVisible="{Binding Online}"
+                                            BackgroundColor="{StaticResource Green}"
+                                            WidthRequest="20" HeightRequest="20"
+                                            Padding="0" Stroke="White" StrokeThickness="2"
+                                            HorizontalOptions="End" VerticalOptions="Start"
+                                            Margin="0,8,8,0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10"/>
+                                        </Border.StrokeShape>
+                                    </Border>
+                                    <!-- Badge verificado -->
+                                    <Border IsVisible="{Binding Verificado}"
+                                            BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                            WidthRequest="20" HeightRequest="20"
+                                            Padding="0" Stroke="White" StrokeThickness="2"
+                                            HorizontalOptions="Start" VerticalOptions="Start"
+                                            Margin="8,8,0,0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="✓" FontSize="12" TextColor="White"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                            <!-- Info -->
+                            <VerticalStackLayout Padding="12" Spacing="6">
+                                <Label Text="{Binding Nombre}"
+                                       FontFamily="InterSemiBold" FontSize="15"
+                                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                                       LineBreakMode="TailTruncation" />
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="★" TextColor="#FFB800" FontSize="12" />
+                                    <Label Text="{Binding Valoracion}" FontSize="12"
+                                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" FontFamily="InterSemiBold" />
+                                    <Label Text="{Binding ResenasTxt}" FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="EUR" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                                    <Label Text="{Binding TarifaPorHora}" FontFamily="InterSemiBold"
+                                           FontSize="11" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                                    <Label Text="/h" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding DistanciaTexto}" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                       IsVisible="{Binding DistanciaTexto, Converter={StaticResource StringToBoolConverter}}" />
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- BOTTOM NAV -->
+        <Grid Grid.Row="4" BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              ColumnDefinitions="*,*,*,*,*" Padding="0,10,0,30">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+            </Grid.Shadow>
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent" CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBuscarTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent" CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFavoritosTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent" CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReservasTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent" CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent" CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCuentaTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

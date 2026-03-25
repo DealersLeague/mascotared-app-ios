@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.NuevoMomento"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              Padding="20,52,20,14"
+              ColumnDefinitions="Auto,*,Auto">
+            <Border Grid.Column="0"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#2E3149}"
+                    Padding="10,7"
+                    Stroke="Transparent" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+                <Label Text="Cancelar" FontSize="13" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCancelarClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Border>
+            <Label Grid.Column="1" Text="Nuevo momento"
+                   FontFamily="OpenSansSemibold" FontSize="17"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+            <Border Grid.Column="2"
+                    BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                    Padding="10,7"
+                    Stroke="Transparent" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+                <Label Text="Publicar" FontSize="13" FontFamily="OpenSansSemibold"
+                       TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPublicarClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Border>
+        </Grid>
+
+        <!-- CONTENIDO -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Info usuario -->
+                <HorizontalStackLayout Spacing="12">
+                    <Border BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                            WidthRequest="44" HeightRequest="44"
+                            Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22" />
+                        </Border.StrokeShape>
+                        <Label x:Name="LblInicial"
+                               FontFamily="OpenSansSemibold" FontSize="18"
+                               TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                        <Label x:Name="LblUsuario"
+                               FontFamily="OpenSansSemibold" FontSize="15"
+                               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                        <Label Text="Publicación pública"
+                               FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- Selector de foto -->
+                <Border x:Name="FramePlaceholder"
+                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                        HeightRequest="260"
+                        Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                        StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSeleccionarFotoTapped" />
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center"
+                                        VerticalOptions="Center" Spacing="12">
+                        <Label Text="🖼️" FontSize="48" HorizontalOptions="Center" />
+                        <Label Text="Toca para añadir una foto"
+                               FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                               HorizontalOptions="Center" />
+                        <Border BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                Padding="16,8"
+                                Stroke="Transparent" StrokeThickness="0"
+                                HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <Label Text="Seleccionar foto"
+                                   TextColor="White"
+                                   FontFamily="OpenSansSemibold" FontSize="13">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSeleccionarFotoTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Preview foto seleccionada -->
+                <Image x:Name="ImagenPreview"
+                       IsVisible="False"
+                       HeightRequest="300"
+                       Aspect="AspectFill" />
+
+                <!-- Botón cambiar foto -->
+                <Border x:Name="BtnCambiarFoto"
+                        IsVisible="False"
+                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                        Padding="14,8"
+                        Stroke="Transparent" StrokeThickness="0"
+                        HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Label Text="🔄 Cambiar foto"
+                           TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                           FontFamily="OpenSansSemibold" FontSize="13">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCambiarFotoTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+
+                <!-- Descripción -->
+                <Label Text="DESCRIPCIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" />
+                <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                        Padding="14,10"
+                        Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14" />
+                    </Border.StrokeShape>
+                    <Editor x:Name="EntryDescripcion"
+                            Placeholder="Escribe algo sobre esta foto..."
+                            PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                            FontSize="14"
+                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                            BackgroundColor="Transparent"
+                            AutoSize="TextChanges"
+                            MinimumHeightRequest="80" />
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTÓN PUBLICAR inferior -->
+        <Grid Grid.Row="2"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              Padding="20,12,20,36">
+            <Button Text="Publicar momento"
+                    BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                    TextColor="White"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="15"
+                    CornerRadius="14"
+                    HeightRequest="52"
+                    Clicked="OnPublicarClicked" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

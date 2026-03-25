@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Views.Favoritos"
+             Title="Favoritos"
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarIsVisible="True"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- ── HEADER ──────────────────────────────────────────────────── -->
+        <Grid Grid.Row="0"
+      BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+      Padding="20,52,20,14"
+      ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
+                <Label Text="Posts que te gustan"
+               FontFamily="InterSemiBold" FontSize="22"
+               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                <Label x:Name="LabelConteo"
+               Text=""
+               FontSize="13"
+               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+            </VerticalStackLayout>
+
+            <Grid Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center">
+                <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                WidthRequest="38" HeightRequest="38"
+                Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="19" />
+                    </Border.StrokeShape>
+                    <Label Text="💬" FontSize="16"
+                   HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Border x:Name="BadgeNoLeidos"
+                BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                StrokeShape="Ellipse"
+                Stroke="White" StrokeThickness="1.5"
+                WidthRequest="10" HeightRequest="10"
+                HorizontalOptions="End" VerticalOptions="Start"
+                IsVisible="False" />
+            </Grid>
+        </Grid>
+        <!-- ── LOADING ─────────────────────────────────────────────────── -->
+        <ActivityIndicator x:Name="Cargando"
+                           Grid.Row="1"
+                           IsRunning="False"
+                           IsVisible="False"
+                           Color="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+
+        <!-- ── GRID DE POSTS LIKEADOS ───────────────────────────────────── -->
+        <CollectionView x:Name="ListaPosts"
+                        Grid.Row="1"
+                        SelectionMode="None"
+                        Margin="2,0">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 HorizontalItemSpacing="2"
+                                 VerticalItemSpacing="2" />
+            </CollectionView.ItemsLayout>
+
+            <!-- Estado vacío -->
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"
+                                     Spacing="14" Margin="40,80,40,0">
+                    <Label Text="❤️" FontSize="52" HorizontalOptions="Center" />
+                    <Label Text="Aún no te gusta ningún post"
+                           FontFamily="InterSemiBold" FontSize="16"
+                           TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                           HorizontalOptions="Center" />
+                    <Label Text="Cuando des ❤️ a un post aparecerá aquí guardado."
+                           FontSize="13"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="185" Margin="0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPostTapped"
+                                                  CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+
+                        <!-- Fondo para posts sin imagen -->
+                        <Border BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#22222E}"
+                                Stroke="Transparent" StrokeThickness="0">
+                            <Label Text="🐾" FontSize="36"
+                                   HorizontalOptions="Center" VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light=#C5CAF0, Dark=#3A3F60}" />
+                        </Border>
+
+                        <!-- Imagen del post -->
+                        <Image Source="{Binding ImagenUrl}"
+                               Aspect="AspectFill"
+                               IsVisible="{Binding TieneImagenPost}" />
+
+                        <!-- Overlay inferior con likes y comentarios -->
+                        <Grid VerticalOptions="End"
+                              BackgroundColor="#70000000"
+                              Padding="8,5">
+                            <HorizontalStackLayout Spacing="10">
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="❤️" FontSize="11" TextColor="White" />
+                                    <Label Text="{Binding NumLikes}"
+                                           FontFamily="InterSemiBold" FontSize="11"
+                                           TextColor="White" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="💬" FontSize="11" TextColor="White" />
+                                    <Label Text="{Binding NumComentarios}"
+                                           FontFamily="InterSemiBold" FontSize="11"
+                                           TextColor="White" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                        </Grid>
+
+                        <!-- Indicador de like en esquina superior derecha -->
+                        <Border HorizontalOptions="End" VerticalOptions="Start"
+                                Margin="0,6,6,0"
+                                BackgroundColor="#70000000"
+                                Stroke="Transparent" StrokeThickness="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <Label Text="❤️" FontSize="12" Padding="5,3" TextColor="White" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ── BOTTOM NAV ───────────────────────────────────────────────── -->
+        <Grid Grid.Row="2"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+              ColumnDefinitions="*,*,*,*,*"
+              Padding="0,10,0,30">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+            </Grid.Shadow>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBuscarTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFavoritosTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReservasTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <Grid HorizontalOptions="Center">
+                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                    <Border x:Name="BadgeNoLeidos2"
+                            BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                            StrokeShape="Ellipse"
+                            Stroke="White" StrokeThickness="1.5"
+                            WidthRequest="10" HeightRequest="10"
+                            HorizontalOptions="End" VerticalOptions="Start"
+                            IsVisible="False" />
+                </Grid>
+                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCuentaTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

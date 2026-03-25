@@ -1,0 +1,115 @@
+./Perfil/PerfilPublico.xaml:                                <Label x:Name="IconFavorito" Text="🤍" FontSize="20"
+./Perfil/PerfilPublico.xaml:                                <Label Text="⭐" FontSize="14" VerticalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                            <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                            <Label Text="📋" FontSize="48" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                    <Label Grid.Column="2" Text="✕" FontSize="22"
+./Perfil/PerfilPublico.xaml:                <Label x:Name="VisorFlechaAnterior" Text="❮" FontSize="26"
+./Perfil/PerfilPublico.xaml:                <Label x:Name="VisorFlechaSiguiente" Text="❯" FontSize="26"
+./Perfil/PerfilPublico.xaml:                               Text="♡" FontSize="28" TextColor="White"
+./Perfil/PerfilPublico.xaml:                        <Label Grid.Column="1" Text="💬" FontSize="24"
+./Perfil/PerfilPublico.xaml:                        <Label Grid.Column="3" Text="🔖" FontSize="22"
+./Perfil/PerfilPublico.xaml:                    <Label Grid.Column="1" Text="✕" FontSize="20"
+./Perfil/PerfilPublico.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="⭐" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="🤍" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
+./MainPage.xaml:                                                <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+./MainPage.xaml:                                        <Label Text="💬" FontSize="22">
+./MainPage.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                    <Label Grid.Column="0" Text="🔍" FontSize="16" VerticalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblHeart" Text="🤍" FontSize="22" VerticalOptions="Center">
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label Text="✕" FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+./Cuidadores/CuidadoresPopup.xaml:                                       Text="🐾" FontSize="24" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                        <Label Text="🔍" FontSize="14" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontSize="16" />
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="3" Grid.Column="0" Text="🐾" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="4" Grid.Column="0" Text="🏠" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/MascotasPorDuenoPage.xaml:            <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                    <Label Text="💬" FontSize="16"
+./Views/Favoritos.xaml:                            <Label Text="🐾" FontSize="36"
+./Views/Favoritos.xaml:                                    <Label Text="💬" FontSize="11" TextColor="White" />
+./Views/Favoritos.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                        <Label Text="✕" FontSize="15" TextColor="White"
+./Views/Momentos.xaml:                    <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Views/Momentos.xaml:                        <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                                    <Label Text="♡" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
+./Views/Momentos.xaml:                                    <Label Text="💬" FontSize="20" />
+./Views/Momentos.xaml:                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="📸" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                    <Label Grid.Column="0" Text="🔍" FontSize="16"
+./Views/Messages.xaml:                    <Label Text="💬" FontSize="46"
+./Views/Messages.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                        <Label Text="✕" FontSize="15" TextColor="White"
+./Views/Chatpage.xaml:                    <Label Text="⭐" FontSize="11" VerticalOptions="Center" />
+./Views/Chatpage.xaml:                    <Label Grid.Column="1" Text="✕" FontSize="12"
+./Views/Chatpage.xaml:                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Views/Chatpage.xaml:                    <Label Text="📋" FontSize="16" VerticalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/ComentariosPage.xaml:                               Text="♡"
+./Propietarios/Propietario.xaml:                            <Label Text="🔍" FontSize="14" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                            <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                                                <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontSize="16" />
+./Propietarios/Propietario.xaml:                                            <Label Grid.Row="0" Grid.Column="0" Text="🐾" FontSize="13" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblHeart" Text="🤍" FontSize="22" VerticalOptions="Center">
+./Propietarios/PropietarioPopup.xaml:                                <Label Text="✕" FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             x:Class="Mascotared.Views.Tasks"
+             x:Name="WeightPage"
+             BindingContext="{x:Reference WeightPage}"
+             Title="Tasks">
+    <ContentPage.Resources>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#1A1A24}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+            <Setter Property="Stroke" Value="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="Margin" Value="0,0,0,14" />
+        </Style>
+        <Style x:Key="SeccionTitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="InterSemiBold" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style x:Key="FieldLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="InterSemiBold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+        </Style>
+        <Style x:Key="EntryBase" TargetType="Entry">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style x:Key="PickerBase" TargetType="Picker">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- FIX #8: Grid raíz para que el nav siempre sea visible -->
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- FIX #8: ScrollView ocupa todo el espacio disponible -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16,16,16,40" Spacing="0">
+
+                <!-- FOTO DE PERFIL -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                            <Border StrokeShape="RoundRectangle 60"
+                                    Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                                    WidthRequest="110" HeightRequest="110"
+                                    HorizontalOptions="Center">
+                                <Image x:Name="_photoPath"
+                                       Source="placeholder_pet.png"
+                                       Aspect="AspectFill"
+                                       WidthRequest="110" HeightRequest="110" />
+                            </Border>
+                            <Border StrokeShape="RoundRectangle 20"
+                                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                    Stroke="Transparent" Padding="14,8"
+                                    HorizontalOptions="Center">
+                                <Label Text="Subir foto" FontSize="13"
+                                       FontFamily="InterSemiBold" TextColor="White" />
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSeleccionarFotoTapped" />
+                                </Border.GestureRecognizers>
+                            </Border>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- INFORMACIÓN BÁSICA -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Tipo de solicitud*" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="pickerFormType"
+                                Title="Seleccione una opción"
+                                Style="{StaticResource PickerBase}"
+                                SelectedIndexChanged="OnFormChanged">
+                            <Picker.Items>
+                                <x:String>Cuidador</x:String>
+                                <x:String>Propietario</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="Titulo solicitud*" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="entryTitle"
+                               Placeholder="Titulo"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Breve descripción*" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="entryDescription"
+                               Placeholder="Ej. busco cuidar/que cuiden a..."
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Etiquetas*" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="_tags"
+                           Placeholder="Ej. Pasear, llevar al veterinario, cuidar..."
+                           Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: PROPIETARIO -->
+                <Border x:Name="propForm" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="ESPECÍFICO — PROPIETARIO" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Oferta de dinero (€)" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="_totalPrice"
+                               Placeholder="Mínimo 5€" Keyboard="Numeric"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Periodo de cuidado*" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="*,8,*">
+                            <DatePicker x:Name="_date0" Grid.Column="0"
+                                        Format="dd/MM/yyyy"
+                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                        Margin="0,0,0,4" />
+                            <Label Text=" → " Style="{StaticResource FieldLabel}" Grid.Column="1" />
+                            <DatePicker x:Name="_date1" Grid.Column="2"
+                                        Format="dd/MM/yyyy"
+                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                        Margin="0,0,0,4" />
+                        </Grid>
+
+                        <Label Text="Horario" Style="{StaticResource FieldLabel}" />
+                        <CollectionView x:Name="_timeOfDay0"
+                            ItemsSource="{Binding TimeOfDayList}"
+                            SelectionMode="Multiple">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="8">
+                                        <!-- FIX #2 y #3: Text y Binding . añadidos -->
+                                        <Label Text="{Binding .}"
+                                           FontFamily="Inter"
+                                           VerticalOptions="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="Hora exacta" Style="{StaticResource FieldLabel}" />
+                        <CheckBox x:Name="_exactHours" />
+
+                        <!-- FIX #7: Format corregido a HH:mm -->
+                        <Grid ColumnDefinitions="*,8,*">
+                            <TimePicker x:Name="_time0" Grid.Column="0"
+                                        Format="HH:mm"
+                                        Time="00:00"
+                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                        Margin="0,0,0,4" />
+                            <Label Text=" → " Style="{StaticResource FieldLabel}" Grid.Column="1" />
+                            <TimePicker x:Name="_time1" Grid.Column="2"
+                                        Format="HH:mm"
+                                        Time="00:00"
+                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                        Margin="0,0,0,4" />
+
+                            <Grid.Triggers>
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Grid"
+                                             Binding="{Binding Source={x:Reference _exactHours}, Path=IsChecked}"
+                                             Value="true">
+                                    <Setter Property="IsEnabled" Value="true" />
+                                </DataTrigger>
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Grid"
+                                             Binding="{Binding Source={x:Reference _exactHours}, Path=IsChecked}"
+                                             Value="false">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                </DataTrigger>
+                            </Grid.Triggers>
+                        </Grid>
+
+                        <Label Text="Selecciona tus mascotas" Style="{StaticResource FieldLabel}" />
+                        <Border x:Name="SinMascotasBanner"
+                                IsVisible="False"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="{AppThemeBinding Light=#FFF5F8, Dark=#2A1520}"
+                                Stroke="{AppThemeBinding Light=#FFD0DC, Dark=#5C2540}" Padding="14,10" Margin="0,0,0,8">
+                            <Label Text="No tienes mascotas registradas. Añade una en tu perfil (Cuenta → Mis mascotas)."
+                                   FontSize="13" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" LineBreakMode="WordWrap" />
+                        </Border>
+                        <CollectionView x:Name="_petList"
+                                        ItemsSource="{Binding UserPetList}"
+                                        SelectionMode="Multiple">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="6" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="0,2">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal">
+                                                        <VisualState.Setters>
+                                                            <!-- No background override: AppThemeBinding on the Border handles it -->
+                                                            <Setter TargetName="CheckMark" Property="Label.TextColor" Value="Transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter TargetName="PetCard" Property="Border.BackgroundColor" Value="#E8EAFF" />
+                                                            <Setter TargetName="PetCard" Property="Border.Stroke" Value="#5C6CFF" />
+                                                            <Setter TargetName="CheckMark" Property="Label.TextColor" Value="#455AEB" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateGroupList>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border x:Name="PetCard"
+                                                StrokeShape="RoundRectangle 14"
+                                                BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                                Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" StrokeThickness="1.5"
+                                                Padding="12,10">
+                                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                                <!-- Avatar emoji -->
+                                                <Border Grid.Column="0"
+                                                        StrokeShape="Ellipse"
+                                                        BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                                                        Stroke="Transparent"
+                                                        WidthRequest="40" HeightRequest="40">
+                                                    <Label Text="{Binding Emoji}"
+                                                           FontSize="20"
+                                                           HorizontalOptions="Center"
+                                                           VerticalOptions="Center" />
+                                                </Border>
+                                                <!-- Nombre + Especie -->
+                                                <VerticalStackLayout Grid.Column="1"
+                                                                     VerticalOptions="Center"
+                                                                     Spacing="1">
+                                                    <Label Text="{Binding Nombre}"
+                                                           FontFamily="InterSemiBold"
+                                                           FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                                                    <Label Text="{Binding TipoAnimal}"
+                                                           FontSize="12" TextColor="#9AA0C4" />
+                                                </VerticalStackLayout>
+                                                <!-- Checkmark de selección (oculto por defecto) -->
+                                                <Label x:Name="CheckMark" Grid.Column="2"
+                                                       Text="✓" FontFamily="InterSemiBold"
+                                                       FontSize="18" TextColor="Transparent"
+                                                       VerticalOptions="Center" />
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="Cuidados especiales" Style="{StaticResource FieldLabel}" />
+                        <CheckBox x:Name="_specialNeeds" />
+
+                        <Label Text="Descripción" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="_specialNeedsDes"
+                               Placeholder="Ej. Pulverización diaria, 60% HR…"
+                               IsEnabled="False"
+                               Style="{StaticResource EntryBase}">
+                            <Entry.Triggers>
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Entry"
+                                             Binding="{Binding Source={x:Reference _specialNeeds}, Path=IsChecked}"
+                                             Value="true">
+                                    <Setter Property="IsEnabled" Value="true" />
+                                </DataTrigger>
+                                <!-- FIX #1: TargetType corregido a Entry -->
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Entry"
+                                             Binding="{Binding Source={x:Reference _specialNeeds}, Path=IsChecked}"
+                                             Value="false">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: CUIDADOR -->
+                <Border x:Name="helperForm" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="ESPECÍFICO — CUIDADOR" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Dias disponibles" Style="{StaticResource FieldLabel}" />
+                        <CollectionView x:Name="_weekDays"
+                                        ItemsSource="{Binding WeekDaysList}"
+                                        SelectionMode="Multiple">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="8">
+                                        <!-- FIX #2: Binding . para strings -->
+                                        <Label Text="{Binding .}"
+                                               FontFamily="Inter"
+                                               VerticalOptions="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="Horario" Style="{StaticResource FieldLabel}" />
+                        <CollectionView x:Name="_timeOfDay"
+                                        ItemsSource="{Binding TimeOfDayList}"
+                                        SelectionMode="Multiple">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="8">
+                                        <!-- FIX #2 y #3: Text y Binding . añadidos -->
+                                        <Label Text="{Binding .}"
+                                               FontFamily="Inter"
+                                               VerticalOptions="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="¿Tienes o has tenido mascotas?" Style="{StaticResource FieldLabel}" />
+                        <CheckBox x:Name="_hadPets" />
+
+                        <Label Text="Número de mascotas dispuesto a cuidar" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="_maxPets"
+                               Placeholder="Maximo de mascotas" Keyboard="Numeric"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Experiencia en cuidados especiales" Style="{StaticResource FieldLabel}" />
+                        <CheckBox x:Name="_specialNeedsH" />
+
+                        <Label Text="Breve resumen de cuidados proporcionados" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="_specialNeedsXp"
+                               Placeholder="Ej. Perros ciegos, con problemas de movilidad…"
+                               IsEnabled="False"
+                               Style="{StaticResource EntryBase}">
+                            <Entry.Triggers>
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Entry"
+                                             Binding="{Binding Source={x:Reference _specialNeedsH}, Path=IsChecked}"
+                                             Value="true">
+                                    <Setter Property="IsEnabled" Value="true" />
+                                </DataTrigger>
+                                <!-- FIX #1: TargetType corregido a Entry -->
+                                <DataTrigger x:DataType="CheckBox"
+                                             TargetType="Entry"
+                                             Binding="{Binding Source={x:Reference _specialNeedsH}, Path=IsChecked}"
+                                             Value="false">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+
+                        <Label Text="Animales dispuesto a cuidar" Style="{StaticResource FieldLabel}" />
+                        <!-- FIX #4: ItemTemplate añadido, Style incorrecto eliminado -->
+                        <CollectionView x:Name="_canLookAfter"
+                                        ItemsSource="{Binding PetType}"
+                                        SelectionMode="Multiple">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="8">
+                                        <Label Text="{Binding .}"
+                                               FontFamily="Inter"
+                                               VerticalOptions="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- BOTÓN GUARDAR -->
+                <Border StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        Stroke="Transparent" Padding="0,18" Margin="0,6,0,0">
+                    <Label Text="Crear Tarea"
+                           FontFamily="InterSemiBold" FontSize="16"
+                           TextColor="Black" HorizontalOptions="Center" />
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCreateTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- FIX #8 y #9: Bottom nav en Grid.Row="1", Label residual eliminado -->
+        <Grid Grid.Row="1" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+              ColumnDefinitions="*,*,*,*,*" Padding="0,10,0,30">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+            </Grid.Shadow>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="Transparent"
+                         CornerRadius="1.5"
+                         HorizontalOptions="Center"
+                         Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBuscarTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="Transparent"
+                         CornerRadius="1.5"
+                         HorizontalOptions="Center"
+                         Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFavoritosTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                         CornerRadius="1.5"
+                         HorizontalOptions="Center"
+                         Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReservasTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="Transparent"
+                         CornerRadius="1.5"
+                         HorizontalOptions="Center"
+                         Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30"
+                         BackgroundColor="Transparent"
+                         CornerRadius="1.5"
+                         HorizontalOptions="Center"
+                         Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCuentaTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Mascotared.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Mascotared"
+    xmlns:views="clr-namespace:Mascotared.Views"
+    xmlns:perfil="clr-namespace:Mascotared.Perfil"
+
+    Shell.FlyoutBehavior="Flyout"
+    Title="Mascotared">
+
+    <Shell.TabBarForegroundColor>
+        <AppThemeBinding Light="#FE3D7D" Dark="#FF4F8F" />
+    </Shell.TabBarForegroundColor>
+    <Shell.TabBarTitleColor>
+        <AppThemeBinding Light="#FE3D7D" Dark="#FF4F8F" />
+    </Shell.TabBarTitleColor>
+    <Shell.TabBarUnselectedColor>
+        <AppThemeBinding Light="#9AA0C4" Dark="#6B7280" />
+    </Shell.TabBarUnselectedColor>
+    <Shell.TabBarBackgroundColor>
+        <AppThemeBinding Light="#FFFFFF" Dark="#1A1A24" />
+    </Shell.TabBarBackgroundColor>
+
+    <FlyoutItem Title="Home">
+        <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Job" Route="JobGroup">
+        <Tab Title="Explorar" Route="TabsExplorar">
+            <ShellContent
+            Title="Cuidadores"
+            ContentTemplate="{DataTemplate local:Cuidadores}"
+            Route="Cuidadores" />
+
+            <ShellContent
+            Title="Propietarios"
+            ContentTemplate="{DataTemplate local:Propietario}"
+            Route="Propietario" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Task">
+        <ShellContent
+    Title="Task"
+    ContentTemplate="{DataTemplate views:TaskPopup}"
+    Route="TasksPopup" />
+    </FlyoutItem>
+    <FlyoutItem Title="Perfil">
+        <ShellContent
+        Title="PerfilUser"
+        ContentTemplate="{DataTemplate local:PerfilConfigUser}"
+        Route="PerfilConfigUser" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Perfil Público">
+        <ShellContent
+        Title="Perfil Público"
+        ContentTemplate="{DataTemplate perfil:PerfilPublico}"
+        Route="MiPerfilPublico" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Fav" Route="FavGroup">
+        <Tab Title="Favoritos" Route="TabsFavoritos">
+            <ShellContent
+                Title="Favs"
+                ContentTemplate="{DataTemplate views:Favoritos}"
+                Route="Favoritos" />
+
+            <ShellContent
+                Title="Favs Perfil"
+                ContentTemplate="{DataTemplate views:FavoritosTask}"
+                Route="FavoritosTask" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Mascotas">
+        <ShellContent 
+        Title="Mascotas"
+            ContentTemplate="{DataTemplate views:MisMascotasLista}"
+        Route="MisMascotasLista" />
+    </FlyoutItem>
+
+</Shell>

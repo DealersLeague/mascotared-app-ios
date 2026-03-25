@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.MascotasPorDuenoPage"
+             Title="Mascotas por dueño"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Buscador -->
+        <Border Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                Padding="16,12"
+                Margin="0,0,0,8"
+                Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                StrokeThickness="1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0" />
+            </Border.StrokeShape>
+            <Entry x:Name="EntryBusqueda"
+                   Placeholder="Buscar por dueño o nombre de mascota..."
+                   PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                   BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1C1F2E}"
+                   FontSize="14"
+                   TextChanged="OnBusquedaChanged" />
+        </Border>
+
+        <!-- Estado vacío -->
+        <VerticalStackLayout x:Name="EstadoVacio" Grid.Row="1" IsVisible="False"
+                             HorizontalOptions="Center" VerticalOptions="Center"
+                             Spacing="12" Margin="40,0">
+            <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+            <Label Text="No hay mascotas registradas"
+                   FontFamily="OpenSansSemibold" FontSize="16"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
+                   HorizontalOptions="Center" />
+            <Label Text="Aún no se han añadido mascotas en esta categoría."
+                   FontSize="13"
+                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Lista de mascotas agrupadas por dueño -->
+        <CollectionView x:Name="ListaMascotas" Grid.Row="1" IsGrouped="True">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="16,12"
+                            Margin="0,8,0,4"
+                            Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding NombreDueno}"
+                               FontFamily="OpenSansSemibold"
+                               FontSize="16"
+                               TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                            Margin="16,4"
+                            Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                            StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16" />
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="12" ColumnSpacing="12">
+                            <Border Grid.Column="0"
+                                    StrokeThickness="0"
+                                    WidthRequest="80"
+                                    HeightRequest="80">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
+                                <Image Source="{Binding ImagenSource}"
+                                       WidthRequest="80"
+                                       HeightRequest="80"
+                                       Aspect="AspectFill" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                                <Label Text="{Binding Nombre}"
+                                       FontFamily="OpenSansSemibold"
+                                       FontSize="16"
+                                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="{Binding Emoji}" FontSize="14" />
+                                    <Label Text="{Binding TipoAnimal}"
+                                           FontSize="13"
+                                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2"
+                                   Text="→"
+                                   FontSize="20"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                   VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

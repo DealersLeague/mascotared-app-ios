@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Register"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#0F0F14}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,48,28,40" Spacing="0">
+
+            <!-- LOGO -->
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="0" Margin="0,0,0,32">
+                <Label Text="Mascota"
+                       FontFamily="Inter" FontSize="26" FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                       VerticalOptions="Center"/>
+                <Label Text="Red"
+                       FontFamily="Inter" FontSize="26" FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- TÍTULO -->
+            <Label Text="Crear cuenta"
+                   FontFamily="Inter" FontSize="22" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,28"/>
+
+            <!-- NOMBRE -->
+            <Label Text="Nombre completo"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,6"/>
+            <Border Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Margin="0,0,0,16">
+                <Entry x:Name="NombreEntry"
+                       Placeholder="Tu nombre"
+                       FontFamily="Inter" FontSize="15"
+                       PlaceholderColor="#9AA0C4"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       BackgroundColor="Transparent"
+                       Margin="12,0"/>
+            </Border>
+
+            <!-- EMAIL -->
+            <Label Text="Correo electrónico"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,6"/>
+            <Border Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Margin="0,0,0,16">
+                <Entry x:Name="EmailEntry"
+                       Placeholder="correo@ejemplo.com"
+                       Keyboard="Email"
+                       FontFamily="Inter" FontSize="15"
+                       PlaceholderColor="#9AA0C4"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       BackgroundColor="Transparent"
+                       Margin="12,0"/>
+            </Border>
+
+            <!-- CONTRASEÑA -->
+            <Label Text="Contraseña"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,6"/>
+            <Border Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Margin="0,0,0,16">
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Mínimo 8 caracteres, una letra y un carácter especial"
+                       IsPassword="True"
+                       FontFamily="Inter" FontSize="15"
+                       PlaceholderColor="#9AA0C4"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       BackgroundColor="Transparent"
+                       Margin="12,0"/>
+            </Border>
+
+            <!-- CONFIRMAR CONTRASEÑA -->
+            <Label Text="Confirmar contraseña"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,6"/>
+            <Border Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Margin="0,0,0,16">
+                <Entry x:Name="ConfirmPasswordEntry"
+                       Placeholder="Repite tu contraseña"
+                       IsPassword="True"
+                       FontFamily="Inter" FontSize="15"
+                       PlaceholderColor="#9AA0C4"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       BackgroundColor="Transparent"
+                       Margin="12,0"/>
+            </Border>
+
+            <!-- FECHA DE NACIMIENTO -->
+            <Label Text="Fecha de nacimiento"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,6"/>
+            <Border Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Margin="0,0,0,8">
+                <DatePicker x:Name="DatePickerNacimiento"
+                            Format="dd/MM/yyyy"
+                            MaximumDate="{Binding HaceVeintianiosDate}"
+                            FontFamily="Inter" FontSize="15"
+                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                            BackgroundColor="Transparent"
+                            Margin="12,8"/>
+            </Border>
+            <Label x:Name="LblEdadError"
+                   Text="Debes tener al menos 18 anos para registrarte."
+                   FontFamily="Inter" FontSize="12"
+                   TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                   IsVisible="False"
+                   Margin="4,0,0,12"/>
+
+            <!-- GÉNERO -->
+            <Label Text="Genero"
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,12,0,10"/>
+            <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
+                <Border x:Name="BtnHombre"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                        Padding="16,10"
+                        MinimumWidthRequest="80">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHombreTapped"/>
+                    </Border.GestureRecognizers>
+                    <Label Text="Hombre" FontFamily="Inter" FontSize="14"
+                           TextColor="Gray" HorizontalOptions="Center"/>
+                </Border>
+                <Border x:Name="BtnMujer"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                        Padding="16,10"
+                        MinimumWidthRequest="80">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMujerTapped"/>
+                    </Border.GestureRecognizers>
+                    <Label Text="Mujer" FontFamily="Inter" FontSize="14"
+                           TextColor="Gray" HorizontalOptions="Center"/>
+                </Border>
+                <Border x:Name="BtnOtroGenero"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                        Padding="16,10"
+                        MinimumWidthRequest="80">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnOtroGeneroTapped"/>
+                    </Border.GestureRecognizers>
+                    <Label Text="Otro" FontFamily="Inter" FontSize="14"
+                           TextColor="Gray" HorizontalOptions="Center"/>
+                </Border>
+            </HorizontalStackLayout>
+
+            <!-- ROL -->
+            <Label Text="Soy..."
+                   FontFamily="Inter" FontSize="13" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#CCCCCC}"
+                   Margin="0,0,0,10"/>
+            <HorizontalStackLayout Spacing="10" Margin="0,0,0,8">
+                <Border x:Name="BtnPropietario"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1.5"
+                        Stroke="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        Padding="16,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPropietarioTapped"/>
+                    </Border.GestureRecognizers>
+                    <Label Text="Propietario" FontFamily="Inter" FontSize="14"
+                           TextColor="White" HorizontalOptions="Center"/>
+                </Border>
+                <Border x:Name="BtnCuidador"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                        Padding="16,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCuidadorTapped"/>
+                    </Border.GestureRecognizers>
+                    <Label Text="Cuidador" FontFamily="Inter" FontSize="14"
+                           TextColor="Gray" HorizontalOptions="Center"/>
+                </Border>
+            </HorizontalStackLayout>
+            <Label Text="Puedes seleccionar ambos roles."
+                   FontFamily="Inter" FontSize="12"
+                   TextColor="#9AA0C4"
+                   Margin="4,0,0,8"/>
+
+            <!-- REGISTRO COMO EMPRESA -->
+            <Border StrokeShape="RoundRectangle 12"
+                    StrokeThickness="1.5"
+                    Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#2A2A3A}"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1A1A2E}"
+                    Padding="16,14"
+                    Margin="0,8,0,24">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEmpresaTapped"/>
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Spacing="12">
+                    <Label Text="🏢" FontSize="20" VerticalOptions="Center"/>
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                        <Label Text="Registrar empresa"
+                               FontFamily="Inter" FontSize="14" FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"/>
+                        <Label Text="Veterinarias, peluquerias, tiendas y mas"
+                               FontFamily="Inter" FontSize="12"
+                               TextColor="#9AA0C4"/>
+                    </VerticalStackLayout>
+                    <Label Text="›" FontSize="20"
+                           TextColor="#9AA0C4"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <!-- BOTÓN REGISTRAR -->
+            <Button Text="Crear cuenta"
+                    FontFamily="Inter" FontSize="16" FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                    CornerRadius="14"
+                    HeightRequest="54"
+                    Margin="0,0,0,20"
+                    Clicked="OnRegistrarClicked"/>
+
+            <!-- IR AL LOGIN -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="Ya tienes cuenta?"
+                       FontFamily="Inter" FontSize="14"
+                       TextColor="{AppThemeBinding Light=#4A4A4A, Dark=#CCCCCC}"/>
+                <Label Text="Inicia sesion"
+                       FontFamily="Inter" FontSize="14" FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Mascotared.EditarPerfil"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             Title="Editar perfil">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*,Auto">
+
+            <!-- HEADER -->
+            <Grid Grid.Row="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Padding="20,52,20,16"
+                  ColumnDefinitions="Auto,*,Auto">
+                <Border Grid.Column="0" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                        Padding="10,7" Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14"/>
+                    </Border.StrokeShape>
+                    <Label Text="Cancelar" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           FontFamily="OpenSansSemibold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCancelarClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Label Grid.Column="1" Text="Editar perfil"
+                       FontFamily="OpenSansSemibold" FontSize="17"
+                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                       HorizontalOptions="Center" VerticalOptions="Center" />
+                <Border Grid.Column="2" BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        Padding="10,7" Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14"/>
+                    </Border.StrokeShape>
+                    <Label Text="Guardar" FontSize="13" TextColor="White"
+                           FontFamily="OpenSansSemibold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGuardarClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+            </Grid>
+
+            <!-- CONTENIDO -->
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Padding="20,20,20,40" Spacing="0">
+
+                    <!-- FOTO DE PERFIL -->
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,0,0,24">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCambiarFotoTapped" />
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Grid WidthRequest="90" HeightRequest="90" HorizontalOptions="Center">
+                            <Border StrokeShape="Ellipse" BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                                    Stroke="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" StrokeThickness="2"
+                                    WidthRequest="90" HeightRequest="90">
+                                <Grid>
+                                    <Label x:Name="AvatarInicial" FontSize="32"
+                                           FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <Image x:Name="AvatarImg" Aspect="AspectFill"
+                                           WidthRequest="90" HeightRequest="90" IsVisible="False" />
+                                </Grid>
+                            </Border>
+                            <Border BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" StrokeShape="Ellipse"
+                                    Stroke="White" StrokeThickness="2"
+                                    WidthRequest="28" HeightRequest="28"
+                                    HorizontalOptions="End" VerticalOptions="End">
+                                <Label Text="📷" FontSize="13"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Border>
+                        </Grid>
+                        <Label Text="Cambiar foto" FontSize="13" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                               FontFamily="OpenSansSemibold" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <!-- NOMBRE -->
+                    <Label Text="NOMBRE" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,8" />
+                    <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="14,10" Stroke="Transparent" StrokeThickness="0" Margin="0,0,0,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Entry x:Name="EntryNombre"
+                               Placeholder="Tu nombre"
+                               PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                               FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                               BackgroundColor="Transparent" />
+                    </Border>
+
+                    <!-- FECHA DE NACIMIENTO -->
+                    <Label Text="FECHA DE NACIMIENTO" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,8" />
+                    <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="14,10" Stroke="Transparent" StrokeThickness="0" Margin="0,0,0,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <DatePicker x:Name="DatePickerNacimiento"
+                                    Format="dd/MM/yyyy"
+                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                    BackgroundColor="Transparent"
+                                    MaximumDate="{x:Static sys:DateTime.Today}" />
+                    </Border>
+
+                    <!-- LOCALIZACIÓN -->
+                    <Label Text="LOCALIZACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,8" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" Margin="0,0,0,16">
+                        <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                Padding="14,10" Stroke="Transparent" StrokeThickness="0" Grid.Column="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Entry x:Name="EntryLocalizacion"
+                                   Placeholder="Ciudad, barrio..."
+                                   PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                        <Border BackgroundColor="#455AEB" Padding="0" Stroke="Transparent"
+                                StrokeThickness="0" WidthRequest="46" Grid.Column="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Label x:Name="LabelGpsBtn" Text="📍" FontSize="20"
+                                   HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnDetectarUbicacionTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Border>
+                    </Grid>
+
+                    <!-- TARIFA -->
+                    <Label Text="TARIFA (€/hora)" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,8" />
+                    <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="14,10" Stroke="Transparent" StrokeThickness="0" Margin="0,0,0,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Entry x:Name="EntryTarifa"
+                               Placeholder="0.00"
+                               PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                               Keyboard="Numeric"
+                               FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                               BackgroundColor="Transparent" />
+                    </Border>
+
+                    <!-- DESCRIPCIÓN -->
+                    <Label Text="DESCRIPCIÓN PERSONAL" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,8" />
+                    <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                            Padding="14,10" Stroke="Transparent" StrokeThickness="0" Margin="0,0,0,20">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Editor x:Name="EditorDescripcion"
+                                Placeholder="Cuéntanos algo sobre ti..."
+                                PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                BackgroundColor="Transparent"
+                                AutoSize="TextChanges"
+                                MinimumHeightRequest="80" />
+                    </Border>
+
+                    <!-- TAGS -->
+                    <Label Text="ROL (puedes elegir varios)" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                    <FlexLayout x:Name="FlexTags" Wrap="Wrap" Direction="Row" Margin="0,0,0,20" />
+
+                    <!-- DÍAS DISPONIBLES -->
+                    <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                    <FlexLayout x:Name="FlexDiasEdit" Wrap="Wrap" Direction="Row" Margin="0,0,0,20" />
+
+                    <!-- FRANJAS HORARIAS -->
+                    <Label Text="FRANJAS HORARIAS" FontFamily="OpenSansSemibold" FontSize="11"
+                           TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                    <FlexLayout x:Name="FlexFranjasEdit" Wrap="Wrap" Direction="Row" Margin="0,0,0,10" />
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <!-- BOTÓN GUARDAR inferior -->
+            <Grid Grid.Row="2" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Padding="20,12,20,36">
+                <Button Text="Guardar cambios"
+                        BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        TextColor="White"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="15"
+                        CornerRadius="14"
+                        HeightRequest="52"
+                        Clicked="OnGuardarClicked" />
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

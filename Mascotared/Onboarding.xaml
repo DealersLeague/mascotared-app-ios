@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Onboarding"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto"
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#0F0F14}">
+
+        <!-- ── LOGO ─────────────────────────────────────────────────────── -->
+        <HorizontalStackLayout Grid.Row="0"
+                               HorizontalOptions="Center"
+                               Padding="0,44,0,0"
+                               Spacing="0">
+            <Label Text="Mascota"
+                   FontFamily="Inter"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                   VerticalOptions="Center"/>
+            <Label Text="Red"
+                   FontFamily="Inter"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- ── SLIDES ───────────────────────────────────────────────────── -->
+        <CarouselView x:Name="CarouselSlides"
+                      Grid.Row="1"
+                      ItemsSource="{Binding Slides}"
+                      CurrentItemChanged="OnSlideChanged"
+                      Loop="False"
+                      Margin="0,16,0,0">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto,Auto,*"
+                          Padding="28,8,28,0">
+
+                        <!-- Título -->
+                        <Label Grid.Row="0"
+                               Text="{Binding Titulo}"
+                               FontFamily="Inter"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap"
+                               Margin="0,0,0,20"/>
+
+                        <!-- Bullets -->
+                        <VerticalStackLayout Grid.Row="1"
+                                             VerticalOptions="Start"
+                                             Spacing="14">
+                            <BindableLayout.ItemsSource>
+                                <Binding Path="Bullets"/>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="20,*" ColumnSpacing="10">
+                                        <Ellipse Grid.Column="0"
+                                                 Fill="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                                 WidthRequest="9"
+                                                 HeightRequest="9"
+                                                 VerticalOptions="Start"
+                                                 HorizontalOptions="Start"
+                                                 Margin="0,6,0,0"/>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding .}"
+                                               FontFamily="Inter"
+                                               FontSize="15"
+                                               TextColor="{AppThemeBinding Light=#4A4A4A, Dark=#CCCCCC}"
+                                               HorizontalOptions="Fill"
+                                               LineHeight="1.5"
+                                               LineBreakMode="WordWrap"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+
+                        <!-- Ilustración -->
+                        <Grid Grid.Row="2"
+                              HeightRequest="200"
+                              VerticalOptions="EndAndExpand">
+                            <Ellipse Fill="{AppThemeBinding Light=#EEF1FD, Dark=#1A1A2E}"
+                                     WidthRequest="320"
+                                     HeightRequest="240"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="End"
+                                     Margin="0,0,0,-70"/>
+                            <Label Text="{Binding Emoji}"
+                                   FontSize="100"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                   Margin="0,0,0,8"/>
+                        </Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!-- ── INDICADORES ──────────────────────────────────────────────── -->
+        <IndicatorView x:Name="Indicadores"
+                       Grid.Row="2"
+                       IndicatorColor="{AppThemeBinding Light=#D0D5EE, Dark=#333355}"
+                       SelectedIndicatorColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                       HorizontalOptions="Center"
+                       Margin="0,14,0,10"/>
+
+        <!-- ── BOTÓN PRINCIPAL ──────────────────────────────────────────── -->
+        <Grid Grid.Row="3" Padding="28,0,28,44">
+            <Button x:Name="BtnSiguiente"
+                    Text="Continuar"
+                    FontFamily="Inter"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                    CornerRadius="14"
+                    HeightRequest="54"
+                    Clicked="OnSiguienteClicked"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

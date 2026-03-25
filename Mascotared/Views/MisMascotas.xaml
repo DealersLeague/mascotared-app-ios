@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Views.MisMascotas"
+             Title="Nueva Mascota"
+             BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#1C1F2E}">
+
+    <ContentPage.Resources>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#1A1A24}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+            <Setter Property="Stroke" Value="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="Margin" Value="0,0,0,14" />
+        </Style>
+        <Style x:Key="SeccionTitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="InterSemiBold" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style x:Key="FieldLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="InterSemiBold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+        </Style>
+        <Style x:Key="EntryBase" TargetType="Entry">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style x:Key="PickerBase" TargetType="Picker">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16,16,16,40" Spacing="0">
+
+                <!-- FOTO DE PERFIL -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                            <Border StrokeShape="RoundRectangle 60"
+                                    Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                                    WidthRequest="110" HeightRequest="110"
+                                    HorizontalOptions="Center">
+                                <Image x:Name="FotoMascota"
+                                       Source="placeholder_pet.png"
+                                       Aspect="AspectFill"
+                                       WidthRequest="110" HeightRequest="110" />
+                            </Border>
+                            <Border StrokeShape="RoundRectangle 20"
+                                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                    Stroke="Transparent" Padding="14,8"
+                                    HorizontalOptions="Center">
+                                <Label Text="Subir foto" FontSize="13"
+                                       FontFamily="InterSemiBold" TextColor="White" />
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSeleccionarFotoTapped" />
+                                </Border.GestureRecognizers>
+                            </Border>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- INFORMACIÓN BÁSICA -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🐾  INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Especie *" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerEspecie"
+                                Title="Selecciona una especie"
+                                Style="{StaticResource PickerBase}"
+                                SelectedIndexChanged="OnEspecieCambiada">
+                            <Picker.Items>
+                                <x:String>Perro</x:String>
+                                <x:String>Gato</x:String>
+                                <x:String>Ave</x:String>
+                                <x:String>Reptil</x:String>
+                                <x:String>Caballo</x:String>
+                                <x:String>Conejo</x:String>
+                                <x:String>Hámster</x:String>
+                                <x:String>Otros</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="Nombre *" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryNombre" Placeholder="Nombre de tu mascota"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Raza / Variedad" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryRaza"
+                               Placeholder="Ej. Golden Retriever, Ninfa, Gecko crestado…"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Sexo" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerSexo" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Macho</x:String>
+                                <x:String>Hembra</x:String>
+                                <x:String>Desconocido</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="Fecha de nacimiento" Style="{StaticResource FieldLabel}" />
+                        <DatePicker x:Name="DatePickerNacimiento" Format="dd/MM/yyyy"
+                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                    Margin="0,0,0,12" />
+
+                        <Label Text="O bien, edad estimada" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="*,8,*">
+                            <Entry x:Name="EntryEdadAnios" Grid.Column="0"
+                                   Placeholder="Años" Keyboard="Numeric"
+                                   Style="{StaticResource EntryBase}" />
+                            <Entry x:Name="EntryEdadMeses" Grid.Column="2"
+                                   Placeholder="Meses" Keyboard="Numeric"
+                                   Style="{StaticResource EntryBase}" />
+                        </Grid>
+
+                        <Label Text="Peso" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="*,8,100">
+                            <Entry x:Name="EntryPeso" Grid.Column="0"
+                                   Placeholder="0.0" Keyboard="Numeric"
+                                   Style="{StaticResource EntryBase}" />
+                            <Picker x:Name="PickerUnidadPeso" Grid.Column="2"
+                                    Style="{StaticResource PickerBase}">
+                                <Picker.Items>
+                                    <x:String>kg</x:String>
+                                    <x:String>g</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- IDENTIFICACIÓN Y SALUD -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🏷️  IDENTIFICACIÓN Y SALUD" Style="{StaticResource SeccionTitle}" />
+
+                        <Label x:Name="LabelIdentificacion" Text="Número de microchip"
+                               Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryMicrochip" Placeholder="Introduce el número"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Estado reproductivo" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerReproductivo" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Entero/a</x:String>
+                                <x:String>Esterilizado/a</x:String>
+                                <x:String>Castrado/a</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="Color y marcas" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryColorMarcas"
+                               Placeholder="Describe manchas, plumaje, escamas…"
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Veterinario de referencia"
+                               Style="{StaticResource SeccionTitle}" Margin="0,8,0,10" />
+                        <Label Text="Nombre" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryVetNombre" Placeholder="Nombre del veterinario"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Dirección" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryVetDir" Placeholder="Clínica o dirección"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Teléfono" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryVetTel" Placeholder="+34 000 000 000"
+                               Keyboard="Telephone" Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- SALUD Y NECESIDADES ESPECIALES -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🏥  SALUD Y NECESIDADES ESPECIALES" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Alergias y restricciones alimentarias" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryAlergias"
+                               Placeholder="Ej. Alérgico al pollo, sin granos..."
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Condiciones médicas crónicas (selección múltiple)"
+                               Style="{StaticResource FieldLabel}" />
+                        <FlexLayout x:Name="FlexCondiciones" Wrap="Wrap"
+                                    Direction="Row" Margin="0,0,0,12" />
+
+                        <Label Text="Nivel de movilidad" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerMovilidad" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Normal</x:String>
+                                <x:String>Requiere rampa</x:String>
+                                <x:String>No puede subir escaleras</x:String>
+                                <x:String>Movilidad reducida</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="Alimentos prohibidos" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryAlimProhibidos"
+                               Placeholder="Ej. Chocolate, uvas, cebolla..."
+                               Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- COMPORTAMIENTO Y PASEO -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🦮  COMPORTAMIENTO Y PASEO" Style="{StaticResource SeccionTitle}" />
+
+                        <Label Text="Miedos / Reactividad" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryMiedos"
+                               Placeholder="Ej. Truenos, motos, bicicletas..."
+                               Style="{StaticResource EntryBase}" />
+
+                        <Label Text="Tipo de correa / arnés" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerCorrea" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Collar normal</x:String>
+                                <x:String>Arnés estándar</x:String>
+                                <x:String>Arnés antitirones</x:String>
+                                <x:String>Collar de cabeza</x:String>
+                                <x:String>No aplica</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+                            <Label Grid.Column="0" Text="¿Tiene instinto de presa?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchInstintoPresa" Grid.Column="1" />
+                        </Grid>
+
+                        <Label Text="Socialización" Style="{StaticResource SeccionTitle}" Margin="0,4,0,10" />
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,10">
+                            <Label Grid.Column="0" Text="¿Se lleva bien con niños?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchNinos" Grid.Column="1" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,10">
+                            <Label Grid.Column="0" Text="¿Con animales de su misma especie?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchMismaEspecie" Grid.Column="1" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,4">
+                            <Label Grid.Column="0" Text="¿Con otras especies?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchOtrasEspecies" Grid.Column="1" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- PERSONALIDAD -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="✨  PERSONALIDAD" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Selecciona los que apliquen" Style="{StaticResource FieldLabel}" />
+                        <FlexLayout x:Name="FlexPersonalidad" Wrap="Wrap" Direction="Row" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: PERROS -->
+                <Border x:Name="SeccionPerros" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🐕  ESPECÍFICO — PERROS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Número de paseos al día" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerPaseos" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>1 paseo</x:String>
+                                <x:String>2 paseos</x:String>
+                                <x:String>3 paseos</x:String>
+                                <x:String>4 o más paseos</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Duración media por paseo" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerDuracionPaseo" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>5-10 minutos</x:String>
+                                <x:String>15-30 minutos</x:String>
+                                <x:String>30-60 minutos</x:String>
+                                <x:String>Más de 1 hora</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,4">
+                            <Label Grid.Column="0" Text="¿Tira de la correa?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchTiraCorrea" Grid.Column="1" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: GATOS -->
+                <Border x:Name="SeccionGatos" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🐈  ESPECÍFICO — GATOS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Tipo de arena" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerArena" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Aglomerante</x:String>
+                                <x:String>Sílice</x:String>
+                                <x:String>Vegetal / Biodegradable</x:String>
+                                <x:String>Papel reciclado</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Frecuencia de limpieza del arenero" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerLimpiezaArena" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Diaria</x:String>
+                                <x:String>Cada 2 días</x:String>
+                                <x:String>Semanal</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,4">
+                            <Label Grid.Column="0" Text="¿Gato de interior?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchInterior" Grid.Column="1" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: AVES -->
+                <Border x:Name="SeccionAves" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🦜  ESPECÍFICO — AVES" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Tipo de vuelo" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryVuelo" Placeholder="Libre, recortado, jaula…"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Cantos o palabras" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryCantosOPalabras"
+                               Placeholder="¿Habla, canta o imita sonidos?"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Humedad necesaria" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryHumedad"
+                               Placeholder="Ej. Pulverización diaria, 60% HR…"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Horas de luz UV necesarias" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryHorasUVAves" Placeholder="Ej. 10 horas"
+                               Keyboard="Numeric" Style="{StaticResource EntryBase}" />
+                        <Label Text="Última muda" Style="{StaticResource FieldLabel}" />
+                        <DatePicker x:Name="DatePickerMudaAves" Format="dd/MM/yyyy"
+                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                    Margin="0,0,0,4" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: REPTILES -->
+                <Border x:Name="SeccionReptiles" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🦎  ESPECÍFICO — REPTILES" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Tipo de hábitat" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerHabitat" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Desértico</x:String>
+                                <x:String>Tropical</x:String>
+                                <x:String>Acuático</x:String>
+                                <x:String>Semiacuático</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Temperatura día / noche (°C)" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="*,8,*">
+                            <Entry x:Name="EntryTempDia" Grid.Column="0"
+                                   Placeholder="Día  ej. 28°C" Keyboard="Numeric"
+                                   Style="{StaticResource EntryBase}" />
+                            <Entry x:Name="EntryTempNoche" Grid.Column="2"
+                                   Placeholder="Noche  ej. 22°C" Keyboard="Numeric"
+                                   Style="{StaticResource EntryBase}" />
+                        </Grid>
+                        <Label Text="Horas de luz UV necesarias" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryHorasUV" Placeholder="Ej. 10 horas"
+                               Keyboard="Numeric" Style="{StaticResource EntryBase}" />
+                        <Label Text="Última muda" Style="{StaticResource FieldLabel}" />
+                        <DatePicker x:Name="DatePickerMudaReptil" Format="dd/MM/yyyy"
+                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                    Margin="0,0,0,4" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: CABALLOS -->
+                <Border x:Name="SeccionCaballos" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🐎  ESPECÍFICO — CABALLOS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Capa" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryCapa" Placeholder="Ej. Alazán, Tordo…"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Hierro / Ganadería" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryHierro" Placeholder="Marca de origen o ganadería"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Uso" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerUso" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Salto</x:String>
+                                <x:String>Paseo / Ocio</x:String>
+                                <x:String>Doma clásica</x:String>
+                                <x:String>Trabajo</x:String>
+                                <x:String>Carreras</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Alzada (cm a la cruz)" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryAlzada" Placeholder="Ej. 163 cm"
+                               Keyboard="Numeric" Style="{StaticResource EntryBase}" />
+                        <Label Text="Estado de herrado" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerHerrado" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Herrado</x:String>
+                                <x:String>Descalzo</x:String>
+                                <x:String>Parcialmente herrado</x:String>
+                                <x:String>Con protectores</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ESPECÍFICO: PEQUEÑOS MAMÍFEROS -->
+                <Border x:Name="SeccionPequenos" Style="{StaticResource Card}" IsVisible="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🐰  ESPECÍFICO — PEQUEÑOS MAMÍFEROS"
+                               Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Tipo de sustrato" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerSustrato" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Viruta</x:String>
+                                <x:String>Papel</x:String>
+                                <x:String>Cáñamo</x:String>
+                                <x:String>Pellets</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Tiempo fuera de jaula (horas/día)" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryTiempoJaula" Placeholder="Ej. 2"
+                               Keyboard="Numeric" Style="{StaticResource EntryBase}" />
+                        <Label Text="¿Hay zonas de la casa prohibidas?" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryZonasProhibidas"
+                               Placeholder="Ej. Cocina, terraza..."
+                               Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- CUIDADOS Y RUTINAS -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="⚡  CUIDADOS Y RUTINAS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Nivel de energía" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerNivelEnergia" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Alto</x:String>
+                                <x:String>Moderado</x:String>
+                                <x:String>Bajo</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Frecuencia de alimentación" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryFrecAlim"
+                               Placeholder="Ej. 2 veces al día, ad libitum…"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Medicación" Style="{StaticResource SeccionTitle}" Margin="0,4,0,10" />
+                        <Label Text="Tipo" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerMedicacion" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Ninguna</x:String>
+                                <x:String>Oral</x:String>
+                                <x:String>Tópica</x:String>
+                                <x:String>Inyectable</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Horario / Instrucciones" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryMedHorario"
+                               Placeholder="Ej. 1 comprimido cada 12h con comida"
+                               Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- PROTOCOLO DE EMERGENCIA -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="🚨  PROTOCOLO DE EMERGENCIA" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="Centro de urgencias 24h" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryCentroUrgencias"
+                               Placeholder="Nombre de la clínica de urgencias"
+                               Style="{StaticResource EntryBase}" />
+                        <Label Text="Teléfono urgencias" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryTelUrgencias" Placeholder="+34 000 000 000"
+                               Keyboard="Telephone" Style="{StaticResource EntryBase}" />
+                        <Label Text="Presupuesto de emergencia autorizado" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="PickerPresupuesto" Title="Selecciona" Style="{StaticResource PickerBase}">
+                            <Picker.Items>
+                                <x:String>Hasta 100€</x:String>
+                                <x:String>Hasta 300€</x:String>
+                                <x:String>Hasta 500€</x:String>
+                                <x:String>Hasta 1000€</x:String>
+                                <x:String>Sin límite</x:String>
+                                <x:String>Consultar siempre</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- DOCUMENTACIÓN -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="0">
+                        <Label Text="📄  DOCUMENTACIÓN" Style="{StaticResource SeccionTitle}" />
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+                            <Label Grid.Column="0" Text="¿Tiene seguro de responsabilidad civil?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchSeguroRC" Grid.Column="1" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+                            <Label Grid.Column="0" Text="¿Vacunas al día?"
+                                   FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+                            <Switch x:Name="SwitchVacunas" Grid.Column="1" />
+                        </Grid>
+                        <Label Text="Sube vacunas, pasaporte equino o certificado CITES (PDF)"
+                               FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" Margin="0,0,0,10" />
+                        <Border StrokeShape="RoundRectangle 12"
+                                Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
+                                BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                                Padding="14,12" Margin="0,0,0,12">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label x:Name="LabelDocumento" Grid.Column="0"
+                                       Text="Ningún archivo seleccionado"
+                                       FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                       VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="Examinar"
+                                       FontFamily="InterSemiBold" FontSize="13"
+                                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" VerticalOptions="Center" />
+                            </Grid>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSubirDocumentoTapped" />
+                            </Border.GestureRecognizers>
+                        </Border>
+                        <Label Text="Notas adicionales" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="EntryDescripcion"
+                               Placeholder="Historial médico, observaciones…"
+                               Style="{StaticResource EntryBase}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- BOTÓN GUARDAR -->
+                <Border StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                        Stroke="Transparent" Padding="0,18" Margin="0,6,0,0">
+                    <Label Text="💾  Guardar mascota"
+                           FontFamily="InterSemiBold" FontSize="16"
+                           TextColor="White" HorizontalOptions="Center" />
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGuardarTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

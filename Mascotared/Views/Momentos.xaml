@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.Momentos"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             Shell.NavBarIsVisible="True">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+            <!-- HEADER -->
+            <Grid Grid.Row="0"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              Padding="20,52,20,14"
+              ColumnDefinitions="*,Auto">
+                <HorizontalStackLayout Grid.Column="0" VerticalOptions="Center">
+                    <Label Text="Mascota" FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                    <Label Text="Red"     FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+                </HorizontalStackLayout>
+                <Border Grid.Column="1"
+                    BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                    WidthRequest="38" HeightRequest="38"
+                    Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="19" />
+                    </Border.StrokeShape>
+                    <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+
+            <!-- TABS -->
+            <Grid Grid.Row="1"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              ColumnDefinitions="*,*" Padding="16,0,16,12" ColumnSpacing="10">
+                <Button x:Name="BtnPublicado"
+                    Grid.Column="0"
+                    Text="Publicado"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                    TextColor="Black"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="14"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Clicked="OnPublicadoTapped" />
+                <Button x:Name="BtnRelacionada"
+                    Grid.Column="1"
+                    Text="Relacionada conmigo"
+                    BackgroundColor="Transparent"
+                    TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="14"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Clicked="OnRelacionadaTapped" />
+            </Grid>
+
+            <!-- FEED -->
+            <CollectionView x:Name="ListaMomentos"
+                        Grid.Row="2"
+                        SelectionMode="None">
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"
+                                     Spacing="12" Margin="0,60,0,0">
+                        <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+                        <Label Text="Aún no hay momentos."
+                           FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                           HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Spacing="0" Margin="0,0,0,16">
+
+                            <!-- Cabecera del post -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                              Padding="16,12" ColumnSpacing="12">
+                                <!-- Avatar -->
+                                <Border Grid.Column="0"
+                                    BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}"
+                                    WidthRequest="44" HeightRequest="44"
+                                    Stroke="Transparent" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="22" />
+                                    </Border.StrokeShape>
+                                    <Label Text="{Binding UsuarioInicial}"
+                                       FontFamily="OpenSansSemibold" FontSize="18"
+                                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Border>
+                                <!-- Nombre + tiempo -->
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding UsuarioNombre}"
+                                       FontFamily="OpenSansSemibold" FontSize="14"
+                                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+                                    <Label Text="{Binding TiempoPublicado}"
+                                       FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                                </VerticalStackLayout>
+                                <!-- Menú -->
+                                <Label Grid.Column="2" Text="···" FontSize="18"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                   VerticalOptions="Center" />
+                            </Grid>
+
+                            <!-- Descripción -->
+                            <Label Text="{Binding Descripcion}"
+                               Padding="16,0,16,10"
+                               FontSize="14"
+                               TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
+
+                            <!-- Imagen del post -->
+                            <Image Source="{Binding ImagenUrl}"
+                               HeightRequest="320"
+                               Aspect="AspectFill" />
+
+                            <!-- Acciones like / comentar -->
+                            <Grid ColumnDefinitions="Auto,Auto,*,Auto"
+                              Padding="16,10" ColumnSpacing="16">
+                                <!-- Like -->
+                                <HorizontalStackLayout Grid.Column="0" Spacing="5">
+                                    <Label Text="♡" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLikeTapped"
+                                                              CommandParameter="{Binding .}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding NumLikes}"
+                                       FontFamily="OpenSansSemibold" FontSize="13"
+                                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                       VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                                <!-- Comentar -->
+                                <HorizontalStackLayout Grid.Column="1" Spacing="5">
+                                    <Label Text="💬" FontSize="20" />
+                                    <Label Text="{Binding NumComentarios}"
+                                       FontFamily="OpenSansSemibold" FontSize="13"
+                                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+                                       VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <!-- Separador -->
+                            <BoxView HeightRequest="1"
+                                 BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2C2C2E}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- BOTTOM NAV -->
+            <Grid Grid.Row="3" BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+              ColumnDefinitions="*,*,*,*,*" Padding="0,10,0,30">
+                <Grid.Shadow>
+                    <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+                </Grid.Shadow>
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Explorar" FontSize="10" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Solicitudes" FontSize="10" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="📸" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Momentos" FontSize="10" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="💼" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Trabajos" FontSize="10" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                    <Label Text="Perfil" FontSize="10" FontFamily="OpenSansSemibold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- Botón flotante + -->
+                <Border Grid.Column="2"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                    WidthRequest="56" HeightRequest="56"
+                    Stroke="Transparent" StrokeThickness="0"
+                    VerticalOptions="Start" HorizontalOptions="Center"
+                    Margin="0,-36,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="28" />
+                    </Border.StrokeShape>
+                    <Label Text="+" FontSize="26" TextColor="Black"
+                       HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNuevoMomentoTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

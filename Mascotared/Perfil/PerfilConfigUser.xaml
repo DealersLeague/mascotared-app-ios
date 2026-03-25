@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.PerfilConfigUser"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             FlyoutItem.IsVisible="True"
+             Title="Mi Perfil">
+
+    <ContentPage.Resources>
+        <!-- Colores adaptados al tema -->
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- HEADER -->
+        <VerticalStackLayout Grid.Row="0"
+                             BackgroundColor="{AppThemeBinding Light=White, Dark=#252836}"
+                             Spacing="0">
+            <Grid Padding="20,0,20,16" ColumnDefinitions="*,Auto">
+                <HorizontalStackLayout Grid.Column="0" VerticalOptions="Center">
+                    <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                    <Label Text="Red" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+                </HorizontalStackLayout>
+                <Border Grid.Column="1"
+                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#2E3149}"
+                        Padding="0" WidthRequest="38" HeightRequest="38"
+                        Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="19"/>
+                    </Border.StrokeShape>
+                    <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+            <BoxView HeightRequest="1"
+                     BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E3149}" />
+        </VerticalStackLayout>
+
+        <!-- CONTENIDO -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,20,20,40" Spacing="0">
+
+                <!-- AVATAR + NOMBRE + TAGS -->
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14" Margin="0,0,0,20">
+                    <Grid Grid.Column="0" WidthRequest="80" HeightRequest="80" VerticalOptions="Center">
+                        <Border x:Name="FrameInicial"
+                                BackgroundColor="{AppThemeBinding Light=#E8EAFF, Dark=#1E2040}" Padding="0"
+                                WidthRequest="80" HeightRequest="80"
+                                Stroke="Transparent" StrokeThickness="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="40"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCambiarFotoTapped" />
+                            </Border.GestureRecognizers>
+                            <Label x:Name="LblInicial" Text="?"
+                                   FontFamily="OpenSansSemibold" FontSize="32"
+                                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <Image x:Name="ImgFotoPerfil"
+                               WidthRequest="80" HeightRequest="80"
+                               Aspect="AspectFill" IsVisible="False">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                            </Image.Clip>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCambiarFotoTapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Border WidthRequest="24" HeightRequest="24"
+                                BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" Padding="0"
+                                Stroke="White" StrokeThickness="1.5"
+                                HorizontalOptions="End" VerticalOptions="End">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCambiarFotoTapped" />
+                            </Border.GestureRecognizers>
+                            <Label Text="📷" FontSize="11"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                    </Grid>
+
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="6">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label x:Name="LblNombre" Text=""
+                                   FontFamily="OpenSansSemibold"
+                                   FontSize="20"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                            <Border x:Name="BadgeVerificado"
+                                    BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                                    WidthRequest="20" HeightRequest="20"
+                                    Padding="0" Stroke="Transparent" StrokeThickness="0"
+                                    VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="✓" FontSize="11" TextColor="White"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Label x:Name="LblLocalizacion" Text=""
+                               FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                        <HorizontalStackLayout x:Name="StackTags" Spacing="6" />
+                        <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#2E3149}"
+                                Padding="10,8" Stroke="Transparent" StrokeThickness="0"
+                                HorizontalOptions="Start" Margin="0,4,0,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEditarPerfilTapped" />
+                            </Border.GestureRecognizers>
+                            <Label Text="✏️ Editar perfil" FontSize="12"
+                                   FontFamily="OpenSansSemibold"
+                                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                        </Border>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- MIS RESEÑAS -->
+                <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                        Padding="14,12" Stroke="Transparent" StrokeThickness="0"
+                        Margin="0,0,0,20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReviewsTapped" />
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="0">
+                        <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="10">
+                            <Label Grid.Column="0" Text="⭐" FontSize="20" VerticalOptions="Center" />
+                            <VerticalStackLayout Grid.Column="1" Spacing="1" VerticalOptions="Center">
+                                <Label Text="Reseñas" FontFamily="OpenSansSemibold"
+                                       FontSize="14"
+                                       TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                                <Label x:Name="LblTotalReviews" Text="Sin reseñas aún"
+                                       FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                            </VerticalStackLayout>
+                            <Label x:Name="LblMediaReviews" Grid.Column="2"
+                                   FontFamily="OpenSansSemibold" FontSize="20"
+                                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" VerticalOptions="Center" />
+                            <Label x:Name="LblChevronReviews" Grid.Column="3"
+                                   Text="›" FontSize="22"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+                        </Grid>
+                        <HorizontalStackLayout x:Name="StackEstrellaMedia" Spacing="3" Margin="0,6,0,0" />
+                        <VerticalStackLayout x:Name="PanelReviews" IsVisible="False" Spacing="0">
+                            <BoxView HeightRequest="1"
+                                     BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E3149}"
+                                     Margin="0,12,0,12" />
+                            <VerticalStackLayout x:Name="StackDesglose" Spacing="6" Margin="0,0,0,12" />
+                            <VerticalStackLayout x:Name="StackReviews" Spacing="10" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- INFORMACIÓN -->
+                <Label Text="INFORMACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                      ColumnSpacing="10" RowSpacing="10" Margin="0,0,0,20">
+                    <Border Grid.Row="0" Grid.Column="0"
+                            BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                            Padding="12" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Edad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                            <Label x:Name="LblEdad" Text=""
+                                   FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1"
+                            BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                            Padding="12" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Tarifa" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                            <Label x:Name="LblTarifa" Text=""
+                                   FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                            Padding="12" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Descripción personal" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                            <Label x:Name="LblDescripcion" Text=""
+                                   FontSize="13"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   LineHeight="1.4" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <!-- DISPONIBILIDAD -->
+                <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                <FlexLayout x:Name="FlexDias" Wrap="Wrap" Direction="Row" Margin="0,0,0,16" />
+
+                <Label Text="FRANJAS HORARIAS" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                <FlexLayout x:Name="FlexFranjas" Wrap="Wrap" Direction="Row" Margin="0,0,0,24" />
+
+                <!-- CONFIGURACIÓN -->
+                <Label Text="CONFIGURACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#252836}"
+                        Padding="0" Stroke="Transparent" StrokeThickness="0" Margin="0,0,0,20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="0">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,14" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnMisFavoritosTapped" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="🤍" FontSize="20" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="Mis favoritos" FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="2" Text="›" FontSize="20" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+                        </Grid>
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E3149}"
+                                 Margin="16,0" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,14" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnIdiomasTapped" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="🌐" FontSize="20" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="Idioma" FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   VerticalOptions="Center" />
+                            <Label x:Name="LblIdiomaValor" Grid.Column="2" Text="" FontSize="13"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+                        </Grid>
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E3149}"
+                                 Margin="16,0" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,14" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTemaTapped" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="🎨" FontSize="20" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="Tema" FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   VerticalOptions="Center" />
+                            <Label x:Name="LblTemaValor" Grid.Column="2" Text="" FontSize="13"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+                        </Grid>
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E3149}"
+                                 Margin="16,0" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,14" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLetraTapped" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="🔡" FontSize="20" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="Tamaño de letra" FontFamily="OpenSansSemibold" FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+                                   VerticalOptions="Center" />
+                            <Label x:Name="LblLetraValor" Grid.Column="2" Text="" FontSize="13"
+                                   TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- MIS MASCOTAS -->
+                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+                    <Label Grid.Column="0" Text="MIS MASCOTAS" FontFamily="OpenSansSemibold"
+                           FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1"
+                           VerticalOptions="Center" />
+                    <Border Grid.Column="1" BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                            Padding="10,5" Stroke="Transparent" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Label Text="+ Añadir" FontSize="12" TextColor="White" FontFamily="OpenSansSemibold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAnadirMascotaTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+                </Grid>
+                <VerticalStackLayout x:Name="StackMascotas" Spacing="10" Margin="0,0,0,24" />
+
+                <!-- ZONA DE CUENTA -->
+                <Label Text="ZONA DE CUENTA" FontFamily="OpenSansSemibold" FontSize="11"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" CharacterSpacing="1" Margin="0,0,0,10" />
+                <Border StrokeShape="RoundRectangle 14"
+                        BackgroundColor="{AppThemeBinding Light=#FFF5F5, Dark=#2E1A1A}"
+                        Stroke="Transparent" Padding="0,14" Margin="0,0,0,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEliminarCuentaTapped" />
+                    </Border.GestureRecognizers>
+                    <Label Text="🗑️  Eliminar cuenta" FontFamily="InterSemiBold"
+                           FontSize="14" TextColor="#CC0000"
+                           HorizontalOptions="Center" />
+                </Border>
+
+                <!-- CERRAR SESIÓN -->
+                <Border StrokeShape="RoundRectangle 14"
+                        BackgroundColor="{AppThemeBinding Light=#FFEEF4, Dark=#2E1A24}"
+                        Stroke="Transparent" Padding="0,14" Margin="0,0,0,0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCerrarSesionTapped" />
+                    </Border.GestureRecognizers>
+                    <Label Text="🚪  Cerrar sesión" FontFamily="InterSemiBold"
+                           FontSize="14" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                           HorizontalOptions="Center" />
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTTOM NAV -->
+        <Grid Grid.Row="2"
+              BackgroundColor="{AppThemeBinding Light=White, Dark=#252836}"
+              ColumnDefinitions="*,*,*,*,*" Padding="0,10,0,30">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
+            </Grid.Shadow>
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBuscarTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFavoritosTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReservasTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMensajesTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+                       TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+                <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+                         CornerRadius="1.5" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCuentaTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

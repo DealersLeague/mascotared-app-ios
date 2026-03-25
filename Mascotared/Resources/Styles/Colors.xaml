@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ══════════════════════════════════════════════════════════════
+         MASCOTARED · BRAND COLORS — Manual de Marca
+         Light Mode:  #455AEB / #FE3D7D / #2C2C2C / #F4F6FA / #FFFFFF
+         Dark  Mode:  #0F0F14 / #5C6CFF / #FF4F8F
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- ── Colores de marca ─────────────────────────────────────── -->
+    <Color x:Key="BrandBlue">#455AEB</Color>
+    <Color x:Key="BrandPink">#FE3D7D</Color>
+    <Color x:Key="BrandDark">#2C2C2C</Color>
+    <Color x:Key="BrandLight">#F4F6FA</Color>
+    <Color x:Key="BrandLightBlue">#E8EAFF</Color>
+    <Color x:Key="BrandSubtext">#9AA0C4</Color>
+
+    <!-- ── Dark mode: colores de marca adaptados ────────────────── -->
+    <Color x:Key="BrandBlueDark">#5C6CFF</Color>
+    <Color x:Key="BrandPinkDark">#FF4F8F</Color>
+    <Color x:Key="DarkBackground">#0F0F14</Color>
+    <Color x:Key="DarkSurface">#1A1A24</Color>
+    <Color x:Key="DarkElevated">#22222E</Color>
+    <Color x:Key="DarkBorder">#2E2E3C</Color>
+    <Color x:Key="DarkSubtext">#9AA0C4</Color>
+    <Color x:Key="DarkLightBlue">#1E2040</Color>
+
+    <!-- Aliases para retrocompatibilidad con estilos anteriores -->
+    <Color x:Key="MascotaRedBlue">#455AEB</Color>
+    <Color x:Key="MascotaRedPink">#FE3D7D</Color>
+    <Color x:Key="MascotaRedDark">#2C2C2C</Color>
+    <Color x:Key="MascotaRedLight">#F4F6FA</Color>
+
+    <!-- ── Colores base ──────────────────────────────────────────── -->
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="OffBlack">#0F0F14</Color>
+
+    <!-- ── Escala de grises ──────────────────────────────────────── -->
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <!-- Colores no modificados necesarios para retrocompat. -->
+    <Color x:Key="Primary">#455AEB</Color>
+    <Color x:Key="PrimaryDark">#5C6CFF</Color>
+    <Color x:Key="PrimaryDarkText">#FFFFFF</Color>
+    <Color x:Key="Secondary">#EEF0FB</Color>
+    <Color x:Key="SecondaryDarkText">#9AA0C4</Color>
+    <Color x:Key="Tertiary">#FE3D7D</Color>
+    <Color x:Key="MidnightBlue">#190649</Color>
+    <Color x:Key="Magenta">#FE3D7D</Color>
+
+    <!-- ── Brushes ────────────────────────────────────────────────── -->
+    <SolidColorBrush x:Key="PrimaryBrush"    Color="{StaticResource BrandBlue}"/>
+    <SolidColorBrush x:Key="SecondaryBrush"  Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush"   Color="{StaticResource BrandPink}"/>
+    <SolidColorBrush x:Key="WhiteBrush"      Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush"      Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="Gray100Brush"    Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush"    Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush"    Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush"    Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush"    Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush"    Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray900Brush"    Color="{StaticResource Gray900}"/>
+    <SolidColorBrush x:Key="Gray950Brush"    Color="{StaticResource Gray950}"/>
+
+</ResourceDictionary>

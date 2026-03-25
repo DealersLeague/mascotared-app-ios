@@ -1,0 +1,770 @@
+./Onboarding.xaml:            <Label Text="Mascota"
+./Onboarding.xaml:            <Label Text="Red"
+./Onboarding.xaml:                               Text="{Binding Titulo}"
+./Onboarding.xaml:                                               Text="{Binding .}"
+./Onboarding.xaml:                            <Label Text="{Binding Emoji}"
+./Onboarding.xaml:                    Text="Continuar"
+./Perfil/PerfilPublico.xaml:                                <Label x:Name="LabelNumPosts" Text="—" Style="{StaticResource StatValue}" />
+./Perfil/PerfilPublico.xaml:                                <Label Text="Posts" Style="{StaticResource StatLabel}" />
+./Perfil/PerfilPublico.xaml:                                <Label x:Name="LabelNumResenas" Text="—" Style="{StaticResource StatValue}" />
+./Perfil/PerfilPublico.xaml:                                <Label Text="Reseñas" Style="{StaticResource StatLabel}" />
+./Perfil/PerfilPublico.xaml:                                <Label x:Name="LabelMedia" Text="—" Style="{StaticResource StatValue}" />
+./Perfil/PerfilPublico.xaml:                                <Label Text="⭐ Media" Style="{StaticResource StatLabel}" />
+./Perfil/PerfilPublico.xaml:                                <Label Text="🐾 Cuidador/a" FontSize="11"
+./Perfil/PerfilPublico.xaml:                                <Label Text="🏠 Propietario/a" FontSize="11"
+./Perfil/PerfilPublico.xaml:                                Text="💬 Enviar mensaje"
+./Perfil/PerfilPublico.xaml:                                <Label x:Name="IconFavorito" Text="🤍" FontSize="20"
+./Perfil/PerfilPublico.xaml:                            <Label Grid.Column="0" Text="VALORACIONES"
+./Perfil/PerfilPublico.xaml:                                <Label Text="⭐" FontSize="14" VerticalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                            <Label Grid.Column="2" x:Name="LblChevronResenas" Text="▼"
+./Perfil/PerfilPublico.xaml:                        <Label Text="INFORMACIÓN" Style="{StaticResource SeccionHeader}"
+./Perfil/PerfilPublico.xaml:                                    <Label Text="Edad" Style="{StaticResource InfoLabel}" />
+./Perfil/PerfilPublico.xaml:                                    <Label Text="Tarifa" Style="{StaticResource InfoLabel}" />
+./Perfil/PerfilPublico.xaml:                                    <Label Text="Descripción personal" Style="{StaticResource InfoLabel}" />
+./Perfil/PerfilPublico.xaml:                        <Label x:Name="HeaderDias" Text="DÍAS DISPONIBLES"
+./Perfil/PerfilPublico.xaml:                        <Label x:Name="HeaderFranjas" Text="FRANJAS HORARIAS"
+./Perfil/PerfilPublico.xaml:                        <Label Text="MIS MASCOTAS" Style="{StaticResource SeccionHeader}"
+./Perfil/PerfilPublico.xaml:                            <Label x:Name="TabLabelPosts" Text="⊞  Posts"
+./Perfil/PerfilPublico.xaml:                            <Label x:Name="TabLabelOfertas" Text="📋  Ofertas"
+./Perfil/PerfilPublico.xaml:                            <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                            <Label Text="Aún no has publicado nada" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                                            <Label Text="{Binding LikesTexto}" FontSize="11"
+./Perfil/PerfilPublico.xaml:                            <Label Text="📋" FontSize="48" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                            <Label Text="Sin ofertas activas" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                                                    <Label Text="{Binding Titulo}"
+./Perfil/PerfilPublico.xaml:                                                    <Label Text="{Binding Localizacion}"
+./Perfil/PerfilPublico.xaml:                                                        <Label Text="{Binding TagTexto}"
+./Perfil/PerfilPublico.xaml:                                                <Label Grid.Column="2" Text="{Binding PrecioTexto}"
+./Perfil/PerfilPublico.xaml:                                                <Label Text="MASCOTAS" FontSize="10"
+./Perfil/PerfilPublico.xaml:                                                                        <Label Text="{Binding Emoji}" FontSize="22"
+./Perfil/PerfilPublico.xaml:                                                                    <Label Text="{Binding Nombre}" FontSize="11"
+./Perfil/PerfilPublico.xaml:                    <Label Grid.Column="2" Text="✕" FontSize="22"
+./Perfil/PerfilPublico.xaml:                <Label x:Name="VisorFlechaAnterior" Text="❮" FontSize="26"
+./Perfil/PerfilPublico.xaml:                <Label x:Name="VisorFlechaSiguiente" Text="❯" FontSize="26"
+./Perfil/PerfilPublico.xaml:                               Text="♡" FontSize="28" TextColor="White"
+./Perfil/PerfilPublico.xaml:                        <Label Grid.Column="1" Text="💬" FontSize="24"
+./Perfil/PerfilPublico.xaml:                        <Label Grid.Column="3" Text="🔖" FontSize="22"
+./Perfil/PerfilPublico.xaml:                    <Label Text="Comentarios" FontFamily="InterSemiBold" FontSize="16"
+./Perfil/PerfilPublico.xaml:                    <Label Grid.Column="1" Text="✕" FontSize="20"
+./Perfil/PerfilPublico.xaml:                    <Label Grid.Column="1" Text="Publicar" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilPublico.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilPublico.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                    <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Perfil/PerfilConfigUser.xaml:                    <Label Text="Red" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Perfil/PerfilConfigUser.xaml:                    <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblInicial" Text="?"
+./Perfil/PerfilConfigUser.xaml:                            <Label Text="📷" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblNombre" Text=""
+./Perfil/PerfilConfigUser.xaml:                                <Label Text="✓" FontSize="11" TextColor="White"
+./Perfil/PerfilConfigUser.xaml:                        <Label x:Name="LblLocalizacion" Text=""
+./Perfil/PerfilConfigUser.xaml:                            <Label Text="✏️ Editar perfil" FontSize="12"
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="⭐" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                                <Label Text="Reseñas" FontFamily="OpenSansSemibold"
+./Perfil/PerfilConfigUser.xaml:                                <Label x:Name="LblTotalReviews" Text="Sin reseñas aún"
+./Perfil/PerfilConfigUser.xaml:                                   Text="›" FontSize="22"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="INFORMACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                            <Label Text="Edad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblEdad" Text=""
+./Perfil/PerfilConfigUser.xaml:                            <Label Text="Tarifa" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblTarifa" Text=""
+./Perfil/PerfilConfigUser.xaml:                            <Label Text="Descripción personal" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblDescripcion" Text=""
+./Perfil/PerfilConfigUser.xaml:                <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="FRANJAS HORARIAS" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="CONFIGURACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="🤍" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="1" Text="Mis favoritos" FontFamily="OpenSansSemibold" FontSize="14"
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="2" Text="›" FontSize="20" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="🌐" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="1" Text="Idioma" FontFamily="OpenSansSemibold" FontSize="14"
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblIdiomaValor" Grid.Column="2" Text="" FontSize="13"
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="🎨" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="1" Text="Tema" FontFamily="OpenSansSemibold" FontSize="14"
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblTemaValor" Grid.Column="2" Text="" FontSize="13"
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="0" Text="🔡" FontSize="20" VerticalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                            <Label Grid.Column="1" Text="Tamaño de letra" FontFamily="OpenSansSemibold" FontSize="14"
+./Perfil/PerfilConfigUser.xaml:                            <Label x:Name="LblLetraValor" Grid.Column="2" Text="" FontSize="13"
+./Perfil/PerfilConfigUser.xaml:                    <Label Grid.Column="0" Text="MIS MASCOTAS" FontFamily="OpenSansSemibold"
+./Perfil/PerfilConfigUser.xaml:                        <Label Text="+ Añadir" FontSize="12" TextColor="White" FontFamily="OpenSansSemibold">
+./Perfil/PerfilConfigUser.xaml:                <Label Text="ZONA DE CUENTA" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/PerfilConfigUser.xaml:                    <Label Text="🗑️  Eliminar cuenta" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                    <Label Text="🚪  Cerrar sesión" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/PerfilConfigUser.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Perfil/PerfilConfigUser.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Perfil/EditarPerfil.xaml:                    <Label Text="Cancelar" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+./Perfil/EditarPerfil.xaml:                <Label Grid.Column="1" Text="Editar perfil"
+./Perfil/EditarPerfil.xaml:                    <Label Text="Guardar" FontSize="13" TextColor="White"
+./Perfil/EditarPerfil.xaml:                                <Label Text="📷" FontSize="13"
+./Perfil/EditarPerfil.xaml:                        <Label Text="Cambiar foto" FontSize="13" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+./Perfil/EditarPerfil.xaml:                    <Label Text="NOMBRE" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="FECHA DE NACIMIENTO" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="LOCALIZACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                            <Label x:Name="LabelGpsBtn" Text="📍" FontSize="20"
+./Perfil/EditarPerfil.xaml:                    <Label Text="TARIFA (€/hora)" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="DESCRIPCIÓN PERSONAL" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="ROL (puedes elegir varios)" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                    <Label Text="FRANJAS HORARIAS" FontFamily="OpenSansSemibold" FontSize="11"
+./Perfil/EditarPerfil.xaml:                <Button Text="Guardar cambios"
+./Register.xaml:                <Label Text="Mascota"
+./Register.xaml:                <Label Text="Red"
+./Register.xaml:            <Label Text="Crear cuenta"
+./Register.xaml:            <Label Text="Nombre completo"
+./Register.xaml:            <Label Text="Correo electrónico"
+./Register.xaml:            <Label Text="Contraseña"
+./Register.xaml:            <Label Text="Confirmar contraseña"
+./Register.xaml:            <Label Text="Fecha de nacimiento"
+./Register.xaml:                   Text="Debes tener al menos 18 anos para registrarte."
+./Register.xaml:            <Label Text="Genero"
+./Register.xaml:                    <Label Text="Hombre" FontFamily="Inter" FontSize="14"
+./Register.xaml:                    <Label Text="Mujer" FontFamily="Inter" FontSize="14"
+./Register.xaml:                    <Label Text="Otro" FontFamily="Inter" FontSize="14"
+./Register.xaml:            <Label Text="Soy..."
+./Register.xaml:                    <Label Text="Propietario" FontFamily="Inter" FontSize="14"
+./Register.xaml:                    <Label Text="Cuidador" FontFamily="Inter" FontSize="14"
+./Register.xaml:            <Label Text="Puedes seleccionar ambos roles."
+./Register.xaml:                    <Label Text="🏢" FontSize="20" VerticalOptions="Center"/>
+./Register.xaml:                        <Label Text="Registrar empresa"
+./Register.xaml:                        <Label Text="Veterinarias, peluquerias, tiendas y mas"
+./Register.xaml:                    <Label Text="›" FontSize="20"
+./Register.xaml:            <Button Text="Crear cuenta"
+./Register.xaml:                <Label Text="Ya tienes cuenta?"
+./Register.xaml:                <Label Text="Inicia sesion"
+./LogIn.xaml:            <Label Text="¡Hola de nuevo!" 
+./LogIn.xaml:            <Label Text="Inicia sesión para cuidar de tus peludos" 
+./LogIn.xaml:            <Label Text="¿Olvidaste tu contraseña?"
+./LogIn.xaml:            <Button Text="Continuar con correo" 
+./LogIn.xaml:                <Label Grid.Column="1" Text=" o " Margin="10,0" VerticalOptions="Center" TextColor="Gray"/>
+./LogIn.xaml:            <Button Text="Iniciar sesión con Google" 
+./LogIn.xaml:                <Label Text="¿No tienes cuenta?" VerticalOptions="Center"/>
+./LogIn.xaml:                <Label Text="Regístrate aquí" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontAttributes="Bold">
+./LogIn.xaml:            <Button Text="Explorar"
+./MainPage.xaml:                <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./MainPage.xaml:                <Label Text="Red"     FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./MainPage.xaml:                <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
+./MainPage.xaml:                    <Label Grid.Column="0" Text="Cuidadores cercanos"
+./MainPage.xaml:                    <Label Grid.Column="1" Text="Ver todos ›"
+./MainPage.xaml:                                            <Label Text="{Binding Inicial}"
+./MainPage.xaml:                                                <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
+./MainPage.xaml:                                            <Label Text="{Binding Nombre}"
+./MainPage.xaml:                                                <Label Text="EUR" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./MainPage.xaml:                                                <Label Text="{Binding TarifaPorHora}"
+./MainPage.xaml:                                                <Label Text="·" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./MainPage.xaml:                                                <Label Text="{Binding Tag}" FontSize="11"
+./MainPage.xaml:                                                <Label Text="★" TextColor="#FFB800" FontSize="11" />
+./MainPage.xaml:                                                <Label Text="{Binding Valoracion}"
+./MainPage.xaml:                                                <Label Text="{Binding ResenasTxt}"
+./MainPage.xaml:                    <Label Grid.Column="0" Text="Mascotas por dueño"
+./MainPage.xaml:                    <Label Grid.Column="1" Text="Ver todos ›"
+./MainPage.xaml:                                            <Label Text="{Binding Nombre}"
+./MainPage.xaml:                                            <Label Text="{Binding Dueno}"
+./MainPage.xaml:                    <Label Grid.Column="0" Text="For you"
+./MainPage.xaml:                            Text="+"
+./MainPage.xaml:                                            <Label Text="{Binding UsuarioInicial}"
+./MainPage.xaml:                                        <Label Text="{Binding UsuarioNombre}"
+./MainPage.xaml:                                        <Label Text="{Binding TiempoPublicado}"
+./MainPage.xaml:                                    <Label Grid.Column="2" Text="···" FontSize="22"
+./MainPage.xaml:                                        <Label Text="{Binding MeGusta, Converter={StaticResource BoolToHeartConverter}}"
+./MainPage.xaml:                                        <Label Text="{Binding NumLikes}"
+./MainPage.xaml:                                        <Label Text="💬" FontSize="22">
+./MainPage.xaml:                                        <Label Text="{Binding NumComentarios}"
+./MainPage.xaml:                                                <Span Text="{Binding UsuarioNombre}" FontFamily="OpenSansSemibold" />
+./MainPage.xaml:                                                <Span Text=" " />
+./MainPage.xaml:                                                <Span Text="{Binding Descripcion}" />
+./MainPage.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./MainPage.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./MainPage.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:            <Label Grid.Column="0" Text="☰" FontSize="22"
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Red"     FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:        <Label Grid.Row="1" Text="Descubre"
+./Cuidadores/CuidadoresNear.xaml:                    <Label Grid.Column="0" Text="🔍" FontSize="16" VerticalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                        <Label Text="⚙️" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                        <Label Text="Todos" FontFamily="InterSemiBold" FontSize="13" TextColor="White" />
+./Cuidadores/CuidadoresNear.xaml:                        <Label Text="Cercanos" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Cuidadores/CuidadoresNear.xaml:                        <Label Text="Verificados" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Cuidadores/CuidadoresNear.xaml:                        <Label Text="En línea" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="{Binding Inicial}"
+./Cuidadores/CuidadoresNear.xaml:                                        <Label Text="✓" FontSize="12" TextColor="White"
+./Cuidadores/CuidadoresNear.xaml:                                <Label Text="{Binding Nombre}"
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="★" TextColor="#FFB800" FontSize="12" />
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="{Binding Valoracion}" FontSize="12"
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="{Binding ResenasTxt}" FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="EUR" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="{Binding TarifaPorHora}" FontFamily="InterSemiBold"
+./Cuidadores/CuidadoresNear.xaml:                                    <Label Text="/h" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/CuidadoresNear.xaml:                                <Label Text="{Binding DistanciaTexto}" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresNear.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblHeart" Text="🤍" FontSize="22" VerticalOptions="Center">
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblLikesCount" Text="0" FontSize="12"
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label Text="✕" FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblInicial" Text="?"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblNombre" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                            <Label Text="✓" FontSize="11" TextColor="White"
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblLocalizacion" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblTag" Text="Cuidador/a"
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="INFORMACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="Edad" FontSize="11" TextColor="#9AA0C4" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblEdad" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="Tarifa" FontSize="11" TextColor="#9AA0C4" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblTarifa" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="Zona" FontSize="11" TextColor="#9AA0C4" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblZona" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="Reservas" FontSize="11" TextColor="#9AA0C4" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblReservas" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="DESCRIPCIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                                <Label x:Name="LblDescripcion" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="FRANJAS HORARIAS" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="MASCOTAS" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="¿Tiene o ha tenido mascotas?"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblTieneMascotas" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                       Text="🐾" FontSize="24" VerticalOptions="Center" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="Máx. mascotas a cuidar" FontSize="11" TextColor="#9AA0C4" />
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblNumMascotas" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label Text="¿Puede con necesidades especiales?"
+./Cuidadores/CuidadoresPopup.xaml:                                        <Label x:Name="LblPuedeNecesidades" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label Text="⚕️" FontSize="18" VerticalOptions="Center" />
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblExperiencia" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="ANIMALES QUE CUIDA" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                            <Label Text="VALORACIONES" FontFamily="OpenSansSemibold" FontSize="11"
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblValoracion" Text="5.0"
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="20"
+./Cuidadores/CuidadoresPopup.xaml:                                    <Label x:Name="LblResenas" Text=""
+./Cuidadores/CuidadoresPopup.xaml:                            <Button x:Name="BtnContactar" Text="Contactar"
+./Cuidadores/Cuidadores.xaml:                    <Label Text="Mascota" FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Cuidadores/Cuidadores.xaml:                    <Label Text="Red"     FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Cuidadores/Cuidadores.xaml:                        <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                        <Label Text="+" FontSize="22" TextColor="White"
+./Cuidadores/Cuidadores.xaml:                        <Label Text="🔍" FontSize="14" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                    <Label Text="⚙️" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                   Text="Ver +0 resultados"
+./Cuidadores/Cuidadores.xaml:                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                    <Label Text="No hay resultados."
+./Cuidadores/Cuidadores.xaml:                                            <Label Text="{Binding Inicial}"
+./Cuidadores/Cuidadores.xaml:                                            <Label Text="{Binding Nombre}"
+./Cuidadores/Cuidadores.xaml:                                                <Label Text="✓" FontSize="10" TextColor="White"
+./Cuidadores/Cuidadores.xaml:                                            <Label Text="{Binding Tag}"
+./Cuidadores/Cuidadores.xaml:                                            <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="12" />
+./Cuidadores/Cuidadores.xaml:                                            <Label Text="{Binding ResenasTxt}"
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontSize="16" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding NumeroLikes}"
+./Cuidadores/Cuidadores.xaml:                                <Label Text="{Binding DescripcionPersonal}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="0" Grid.Column="0" Text="📍" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="Localización" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding Localizacion}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="1" Grid.Column="0" Text="💰" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="Tarifa" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding TarifaTxt}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="2" Grid.Column="0" Text="⏰" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="Disponibilidad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding FranjasHorarias}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="3" Grid.Column="0" Text="🐾" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="¿Tiene o ha tenido mascotas?" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding TieneMascotasTxt}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="4" Grid.Column="0" Text="🏠" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="Mascotas que puede cuidar" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding NumeroMascotasACuidar, StringFormat='Hasta {0} mascota(s)'}"
+./Cuidadores/Cuidadores.xaml:                                    <Label Grid.Row="5" Grid.Column="0" Text="⚕️" FontSize="13" VerticalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="Necesidades especiales" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="{Binding NecesidadesEspecialesTxt}"
+./Cuidadores/Cuidadores.xaml:                                <Label Text="Animales que cuida" FontSize="11"
+./Cuidadores/Cuidadores.xaml:                                                <Label Text="{Binding .}"
+./Cuidadores/Cuidadores.xaml:                                           Text="{Binding TarifaTxt}"
+./Cuidadores/Cuidadores.xaml:                                        <Label Text="›" FontSize="20"
+./Cuidadores/Cuidadores.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Cuidadores/Cuidadores.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Views/MascotasPorDuenoPage.xaml:            <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/MascotasPorDuenoPage.xaml:            <Label Text="No hay mascotas registradas"
+./Views/MascotasPorDuenoPage.xaml:            <Label Text="Aún no se han añadido mascotas en esta categoría."
+./Views/MascotasPorDuenoPage.xaml:                        <Label Text="{Binding NombreDueno}"
+./Views/MascotasPorDuenoPage.xaml:                                <Label Text="{Binding Nombre}"
+./Views/MascotasPorDuenoPage.xaml:                                    <Label Text="{Binding Emoji}" FontSize="14" />
+./Views/MascotasPorDuenoPage.xaml:                                    <Label Text="{Binding TipoAnimal}"
+./Views/MascotasPorDuenoPage.xaml:                                   Text="→"
+./Views/Favoritos.xaml:                <Label Text="Posts que te gustan"
+./Views/Favoritos.xaml:               Text=""
+./Views/Favoritos.xaml:                    <Label Text="💬" FontSize="16"
+./Views/Favoritos.xaml:                    <Label Text="❤️" FontSize="52" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                    <Label Text="Aún no te gusta ningún post"
+./Views/Favoritos.xaml:                    <Label Text="Cuando des ❤️ a un post aparecerá aquí guardado."
+./Views/Favoritos.xaml:                            <Label Text="🐾" FontSize="36"
+./Views/Favoritos.xaml:                                    <Label Text="❤️" FontSize="11" TextColor="White" />
+./Views/Favoritos.xaml:                                    <Label Text="{Binding NumLikes}"
+./Views/Favoritos.xaml:                                    <Label Text="💬" FontSize="11" TextColor="White" />
+./Views/Favoritos.xaml:                                    <Label Text="{Binding NumComentarios}"
+./Views/Favoritos.xaml:                            <Label Text="❤️" FontSize="12" Padding="5,3" TextColor="White" />
+./Views/Favoritos.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Views/Favoritos.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/Favoritos.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Favoritos.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Favoritos.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Favoritos.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                        <Label Text="Todos" FontFamily="InterSemiBold" FontSize="13" TextColor="White" />
+./Views/TaskPopup.xaml:                        <Label Text="Solicitudes de cuidado" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/TaskPopup.xaml:                        <Label Text="Tu cuidado" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/TaskPopup.xaml:                        <Label Text="Completadas" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/TaskPopup.xaml:                        <Label Text="Otras solicitudes" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/TaskPopup.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Aún no tienes solicitudes de cuidado" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                <Label Text="Pulsa el botón + para añadir tu primera solicitud"
+./Views/TaskPopup.xaml:                                <Label Text="{Binding title}" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="{Binding userLocation}" FontSize="12"
+./Views/TaskPopup.xaml:                                        <Label Text="{Binding OfertaTitulo}" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                    <Label Grid.Column="1" Text="{Binding Estado}"
+./Views/TaskPopup.xaml:                                <Label Text="{Binding AutorNombre}" FontSize="12"
+./Views/TaskPopup.xaml:                                <Label Text="{Binding OfertaLocalizacion}" FontSize="12"
+./Views/TaskPopup.xaml:                                    <Label Text="Cancelar solicitud" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:            <Label Text="+" FontSize="30" FontFamily="InterSemiBold" TextColor="White"
+./Views/TaskPopup.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Buscar" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/TaskPopup.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                        <Label Text="✕" FontSize="15" TextColor="White"
+./Views/TaskPopup.xaml:                        <Label Text="INFORMACIÓN BÁSICA" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="Fecha de cuidado" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Horas exactas" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Horario" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label x:Name="PetsData" Text="Información de las mascotas"
+./Views/TaskPopup.xaml:                                    <Label Grid.Column="0" Text="MIS MASCOTAS" FontFamily="OpenSansSemibold"
+./Views/TaskPopup.xaml:                                        <Label Text="+ Añadir" FontSize="12" TextColor="White" FontFamily="OpenSansSemibold">
+./Views/TaskPopup.xaml:                                <Label Text="Sobre cuidados especiales" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="Cuidados especiales" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Horario" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Información de las mascotas" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="¿Ha tenido?" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Número máximo dispuesto a cuidar" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Dispuesto a cuidar" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                                <Label Text="Sobre cuidados especiales" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="Experiencia" Style="{StaticResource PopupLabel}" />
+./Views/TaskPopup.xaml:                            <Label Text="VALORACIONES DEL AUTOR"
+./Views/TaskPopup.xaml:                        <Label Text="✅  Tarea completada" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                            <Label Grid.Column="0" Text="SOLICITUDES RECIBIDAS"
+./Views/TaskPopup.xaml:                                <Label Text="Ver / ocultar" FontSize="12"
+./Views/TaskPopup.xaml:                                <Label Text="✏️  Editar" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                                <Label Text="🗑️  Eliminar" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                            <Label Text="✅  Marcar como completada" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                        <Label Text="✅  He completado esta tarea" FontFamily="InterSemiBold"
+./Views/TaskPopup.xaml:                        <Label Text="⭐  Dejar reseña" FontFamily="InterSemiBold"
+./Views/Momentos.xaml:                    <Label Text="Mascota" FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Views/Momentos.xaml:                    <Label Text="Red"     FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Views/Momentos.xaml:                    <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Views/Momentos.xaml:                    Text="Publicado"
+./Views/Momentos.xaml:                    Text="Relacionada conmigo"
+./Views/Momentos.xaml:                        <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                        <Label Text="Aún no hay momentos."
+./Views/Momentos.xaml:                                    <Label Text="{Binding UsuarioInicial}"
+./Views/Momentos.xaml:                                    <Label Text="{Binding UsuarioNombre}"
+./Views/Momentos.xaml:                                    <Label Text="{Binding TiempoPublicado}"
+./Views/Momentos.xaml:                                <Label Grid.Column="2" Text="···" FontSize="18"
+./Views/Momentos.xaml:                            <Label Text="{Binding Descripcion}"
+./Views/Momentos.xaml:                                    <Label Text="♡" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
+./Views/Momentos.xaml:                                    <Label Text="{Binding NumLikes}"
+./Views/Momentos.xaml:                                    <Label Text="💬" FontSize="20" />
+./Views/Momentos.xaml:                                    <Label Text="{Binding NumComentarios}"
+./Views/Momentos.xaml:                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="Explorar" FontSize="10" FontFamily="OpenSansSemibold"
+./Views/Momentos.xaml:                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="Solicitudes" FontSize="10" FontFamily="OpenSansSemibold"
+./Views/Momentos.xaml:                    <Label Text="📸" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="Momentos" FontSize="10" FontFamily="OpenSansSemibold"
+./Views/Momentos.xaml:                    <Label Text="💼" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="Trabajos" FontSize="10" FontFamily="OpenSansSemibold"
+./Views/Momentos.xaml:                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Momentos.xaml:                    <Label Text="Perfil" FontSize="10" FontFamily="OpenSansSemibold"
+./Views/Momentos.xaml:                    <Label Text="+" FontSize="26" TextColor="Black"
+./Views/MisMascotas.xaml:                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                                <Label Text="Subir foto" FontSize="13"
+./Views/MisMascotas.xaml:                        <Label Text="🐾  INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Especie *" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Nombre *" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Raza / Variedad" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Sexo" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Fecha de nacimiento" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="O bien, edad estimada" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Peso" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🏷️  IDENTIFICACIÓN Y SALUD" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label x:Name="LabelIdentificacion" Text="Número de microchip"
+./Views/MisMascotas.xaml:                        <Label Text="Estado reproductivo" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Color y marcas" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Veterinario de referencia"
+./Views/MisMascotas.xaml:                        <Label Text="Nombre" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Dirección" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Teléfono" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🏥  SALUD Y NECESIDADES ESPECIALES" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Alergias y restricciones alimentarias" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Condiciones médicas crónicas (selección múltiple)"
+./Views/MisMascotas.xaml:                        <Label Text="Nivel de movilidad" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Alimentos prohibidos" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🦮  COMPORTAMIENTO Y PASEO" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Miedos / Reactividad" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Tipo de correa / arnés" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Tiene instinto de presa?"
+./Views/MisMascotas.xaml:                        <Label Text="Socialización" Style="{StaticResource SeccionTitle}" Margin="0,4,0,10" />
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Se lleva bien con niños?"
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Con animales de su misma especie?"
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Con otras especies?"
+./Views/MisMascotas.xaml:                        <Label Text="✨  PERSONALIDAD" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Selecciona los que apliquen" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🐕  ESPECÍFICO — PERROS" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Número de paseos al día" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Duración media por paseo" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Tira de la correa?"
+./Views/MisMascotas.xaml:                        <Label Text="🐈  ESPECÍFICO — GATOS" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Tipo de arena" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Frecuencia de limpieza del arenero" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Gato de interior?"
+./Views/MisMascotas.xaml:                        <Label Text="🦜  ESPECÍFICO — AVES" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Tipo de vuelo" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Cantos o palabras" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Humedad necesaria" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Horas de luz UV necesarias" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Última muda" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🦎  ESPECÍFICO — REPTILES" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Tipo de hábitat" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Temperatura día / noche (°C)" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Horas de luz UV necesarias" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Última muda" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🐎  ESPECÍFICO — CABALLOS" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Capa" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Hierro / Ganadería" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Uso" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Alzada (cm a la cruz)" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Estado de herrado" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🐰  ESPECÍFICO — PEQUEÑOS MAMÍFEROS"
+./Views/MisMascotas.xaml:                        <Label Text="Tipo de sustrato" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Tiempo fuera de jaula (horas/día)" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="¿Hay zonas de la casa prohibidas?" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="⚡  CUIDADOS Y RUTINAS" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Nivel de energía" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Frecuencia de alimentación" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Medicación" Style="{StaticResource SeccionTitle}" Margin="0,4,0,10" />
+./Views/MisMascotas.xaml:                        <Label Text="Tipo" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Horario / Instrucciones" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="🚨  PROTOCOLO DE EMERGENCIA" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                        <Label Text="Centro de urgencias 24h" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Teléfono urgencias" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="Presupuesto de emergencia autorizado" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                        <Label Text="📄  DOCUMENTACIÓN" Style="{StaticResource SeccionTitle}" />
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Tiene seguro de responsabilidad civil?"
+./Views/MisMascotas.xaml:                            <Label Grid.Column="0" Text="¿Vacunas al día?"
+./Views/MisMascotas.xaml:                        <Label Text="Sube vacunas, pasaporte equino o certificado CITES (PDF)"
+./Views/MisMascotas.xaml:                                       Text="Ningún archivo seleccionado"
+./Views/MisMascotas.xaml:                                <Label Grid.Column="1" Text="Examinar"
+./Views/MisMascotas.xaml:                        <Label Text="Notas adicionales" Style="{StaticResource FieldLabel}" />
+./Views/MisMascotas.xaml:                    <Label Text="💾  Guardar mascota"
+./Views/Messages.xaml:                            <Span Text="Mis " TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Views/Messages.xaml:                            <Span Text="Mensajes" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Views/Messages.xaml:                    <Label Text="✏️" FontSize="16"
+./Views/Messages.xaml:                    <Label Grid.Column="0" Text="🔍" FontSize="16"
+./Views/Messages.xaml:                    <Label Text="💬" FontSize="46"
+./Views/Messages.xaml:                <Label Text="No tienes mensajes"
+./Views/Messages.xaml:                <Label Text="Reserva o publica una solicitud para contactar con otros usuarios."
+./Views/Messages.xaml:                    <Label Text="Explorar cuidadores"
+./Views/Messages.xaml:                                    <SwipeItem Text="Archivar"
+./Views/Messages.xaml:                                    <SwipeItem Text="Eliminar"
+./Views/Messages.xaml:                                            <Label Text="{Binding Inicial}"
+./Views/Messages.xaml:                                        <Label Text="{Binding NombreContacto}"
+./Views/Messages.xaml:                                        <Label Text="{Binding UltimoMensaje}"
+./Views/Messages.xaml:                                            <Label Text="{Binding EtiquetaMascota}"
+./Views/Messages.xaml:                                        <Label Text="{Binding HoraFormateada}"
+./Views/Messages.xaml:                                            <Label Text="{Binding ContadorNoLeidos}"
+./Views/Messages.xaml:                               Text="📦  0 archivados"
+./Views/Messages.xaml:                               Text="›" FontSize="20" TextColor="#9AA0C4"
+./Views/Messages.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Views/Messages.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/Messages.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Messages.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Messages.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Messages.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                        <Label Text="Todos" FontFamily="InterSemiBold" FontSize="13" TextColor="White" />
+./Views/MisMascotasLista.xaml:                        <Label Text="🐶 Perros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="🐱 Gatos" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="🦜 Aves" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="🐾 Otros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/MisMascotasLista.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Aún no tienes mascotas" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                <Label Text="Pulsa el botón + para añadir tu primera mascota"
+./Views/MisMascotasLista.xaml:                                    <Label Text="{Binding Especie}" FontSize="11"
+./Views/MisMascotasLista.xaml:                                <Label Text="{Binding Name}" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                                <Label Text="{Binding Race}" FontSize="12"
+./Views/MisMascotasLista.xaml:            <Label Text="+" FontSize="30" FontFamily="InterSemiBold" TextColor="White"
+./Views/MisMascotasLista.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Buscar" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/MisMascotasLista.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                        <Label Text="✕" FontSize="15" TextColor="White"
+./Views/MisMascotasLista.xaml:                        <Label Text="INFORMACIÓN BÁSICA" Style="{StaticResource SeccionPopup}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Fecha de nacimiento" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Edad" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Estado reproductivo" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Color y marcas" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="🏥  SALUD Y NECESIDADES" Style="{StaticResource SeccionPopup}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecAlergias" Text="Alergias" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecCondiciones" Text="Condiciones médicas" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecMovilidad" Text="Movilidad" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecAlimProhibidos" Text="Alimentos prohibidos" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecVetHeader" Text="🏥  VETERINARIO"
+./Views/MisMascotasLista.xaml:                        <Label Text="🦮  COMPORTAMIENTO" Style="{StaticResource SeccionPopup}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Miedos / Reactividad" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Correa / Arnés" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Socialización" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="⚡  CUIDADOS" Style="{StaticResource SeccionPopup}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Nivel de energía" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Alimentación" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Medicación" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label x:Name="SecEmergencia" Text="🚨  EMERGENCIA"
+./Views/MisMascotasLista.xaml:                        <Label Text="Centro de urgencias" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Teléfono urgencias" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="Presupuesto autorizado" Style="{StaticResource PopupLabel}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="📝  NOTAS" Style="{StaticResource SeccionPopup}" />
+./Views/MisMascotasLista.xaml:                        <Label Text="✏️  Editar" FontFamily="InterSemiBold"
+./Views/MisMascotasLista.xaml:                        <Label Text="🗑️  Eliminar" FontFamily="InterSemiBold"
+./Views/Chatpage.xaml:                <Label Text="←" FontSize="18" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+./Views/Chatpage.xaml:                           Text="?"
+./Views/Chatpage.xaml:                       Text=""
+./Views/Chatpage.xaml:                    <Label Text="⭐" FontSize="11" VerticalOptions="Center" />
+./Views/Chatpage.xaml:                           Text="4,8/5"
+./Views/Chatpage.xaml:                    <Label Text="·" FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+./Views/Chatpage.xaml:                           Text="Responde en 2 h"
+./Views/Chatpage.xaml:                <Label Text="···" FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+./Views/Chatpage.xaml:                               Text="Solicitud de cuidado"
+./Views/Chatpage.xaml:                               Text=""
+./Views/Chatpage.xaml:                    <Label Grid.Column="1" Text="›" FontSize="22"
+./Views/Chatpage.xaml:                    <Label Text="✅  Aceptar" FontFamily="InterSemiBold"
+./Views/Chatpage.xaml:                    <Label Text="❌  Rechazar" FontFamily="InterSemiBold"
+./Views/Chatpage.xaml:                           Text="✅ Solicitud aceptada"
+./Views/Chatpage.xaml:                    <Label Grid.Column="1" Text="✕" FontSize="12"
+./Views/Chatpage.xaml:                                <Label Text="{Binding FechaFormateada}"
+./Views/Chatpage.xaml:                                <Label Text="⚠️" FontSize="13" VerticalOptions="Center" />
+./Views/Chatpage.xaml:                                <Label Text="{Binding Texto}"
+./Views/Chatpage.xaml:                                    <Label Text="{Binding Texto}"
+./Views/Chatpage.xaml:                                <Label Text="{Binding HoraFormateada}"
+./Views/Chatpage.xaml:                                    <Label Text="{Binding Texto}"
+./Views/Chatpage.xaml:                                    <Label Text="{Binding HoraFormateada}"
+./Views/Chatpage.xaml:                                    <Label Text="{Binding TicksLeido}"
+./Views/Chatpage.xaml:                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Views/Chatpage.xaml:                    <Label Text="Aún no hay mensajes"
+./Views/Chatpage.xaml:                    <Label Text="Sé el primero en escribir y empieza a coordinar el cuidado."
+./Views/Chatpage.xaml:                    <Label Text="📋" FontSize="16" VerticalOptions="Center" />
+./Views/Chatpage.xaml:                    <Label Text="Enviar solicitud de cuidado"
+./Views/Chatpage.xaml:                    <Label Text="↑" FontSize="20" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                        <Label Text="Todos" FontFamily="InterSemiBold" FontSize="13" TextColor="White" />
+./Views/FavoritosTask.xaml:                        <Label Text="Propietarios" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/FavoritosTask.xaml:                        <Label Text="Cuidadores" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Views/FavoritosTask.xaml:                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Aún no tienes favoritos" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                <Label Text="Pulsa el botón ❤️ para añadir perfiles y tareas a tu lista de favoritos"
+./Views/FavoritosTask.xaml:                                    <Label Text="{Binding Inicial}"
+./Views/FavoritosTask.xaml:                                           Text="{Binding Nombre}" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                                    <Label Grid.Column="1" Text="❤️" FontSize="14"
+./Views/FavoritosTask.xaml:                                <Label Text="{Binding ValoracionTexto}" FontSize="11"
+./Views/FavoritosTask.xaml:                                    <Label Text="{Binding TagsTexto}"
+./Views/FavoritosTask.xaml:                                <Label Text="{Binding Direccion}" FontSize="11"
+./Views/FavoritosTask.xaml:                                <Label Text="{Binding TarifaTexto}" FontSize="11"
+./Views/FavoritosTask.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/FavoritosTask.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/FavoritosTask.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+./Views/Tasks.xaml:                                <Label Text="Subir foto" FontSize="13"
+./Views/Tasks.xaml:                        <Label Text="INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
+./Views/Tasks.xaml:                        <Label Text="Tipo de solicitud*" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Titulo solicitud*" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Breve descripción*" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Etiquetas*" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="ESPECÍFICO — PROPIETARIO" Style="{StaticResource SeccionTitle}" />
+./Views/Tasks.xaml:                        <Label Text="Oferta de dinero (€)" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Periodo de cuidado*" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                            <Label Text=" → " Style="{StaticResource FieldLabel}" Grid.Column="1" />
+./Views/Tasks.xaml:                        <Label Text="Horario" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                                        <Label Text="{Binding .}"
+./Views/Tasks.xaml:                        <Label Text="Hora exacta" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                            <Label Text=" → " Style="{StaticResource FieldLabel}" Grid.Column="1" />
+./Views/Tasks.xaml:                        <Label Text="Selecciona tus mascotas" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                            <Label Text="No tienes mascotas registradas. Añade una en tu perfil (Cuenta → Mis mascotas)."
+./Views/Tasks.xaml:                                                    <Label Text="{Binding Emoji}"
+./Views/Tasks.xaml:                                                    <Label Text="{Binding Nombre}"
+./Views/Tasks.xaml:                                                    <Label Text="{Binding TipoAnimal}"
+./Views/Tasks.xaml:                                                       Text="✓" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                        <Label Text="Cuidados especiales" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Descripción" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="ESPECÍFICO — CUIDADOR" Style="{StaticResource SeccionTitle}" />
+./Views/Tasks.xaml:                        <Label Text="Dias disponibles" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                                        <Label Text="{Binding .}"
+./Views/Tasks.xaml:                        <Label Text="Horario" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                                        <Label Text="{Binding .}"
+./Views/Tasks.xaml:                        <Label Text="¿Tienes o has tenido mascotas?" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Número de mascotas dispuesto a cuidar" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Experiencia en cuidados especiales" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Breve resumen de cuidados proporcionados" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                        <Label Text="Animales dispuesto a cuidar" Style="{StaticResource FieldLabel}" />
+./Views/Tasks.xaml:                                        <Label Text="{Binding .}"
+./Views/Tasks.xaml:                    <Label Text="Crear Tarea"
+./Views/Tasks.xaml:                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="Mensajes" FontSize="10" FontFamily="InterSemiBold"
+./Views/Tasks.xaml:                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Views/Tasks.xaml:                <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
+./Views/NuevoMomento.xaml:                <Label Text="Cancelar" FontSize="13" FontFamily="OpenSansSemibold"
+./Views/NuevoMomento.xaml:            <Label Grid.Column="1" Text="Nuevo momento"
+./Views/NuevoMomento.xaml:                <Label Text="Publicar" FontSize="13" FontFamily="OpenSansSemibold"
+./Views/NuevoMomento.xaml:                        <Label Text="Publicación pública"
+./Views/NuevoMomento.xaml:                        <Label Text="🖼️" FontSize="48" HorizontalOptions="Center" />
+./Views/NuevoMomento.xaml:                        <Label Text="Toca para añadir una foto"
+./Views/NuevoMomento.xaml:                            <Label Text="Seleccionar foto"
+./Views/NuevoMomento.xaml:                    <Label Text="🔄 Cambiar foto"
+./Views/NuevoMomento.xaml:                <Label Text="DESCRIPCIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Views/NuevoMomento.xaml:            <Button Text="Publicar momento"
+./Views/ComentariosPage.xaml:                    <Label Text="{Binding UsuarioInicial}"
+./Views/ComentariosPage.xaml:                    <Label Text="{Binding UsuarioNombre}"
+./Views/ComentariosPage.xaml:                    <Label Text="{Binding Descripcion}"
+./Views/ComentariosPage.xaml:                                <Label Text="{Binding UsuarioInicial}"
+./Views/ComentariosPage.xaml:                                <Label Text="{Binding UsuarioNombre}"
+./Views/ComentariosPage.xaml:                                <Label Text="{Binding TiempoPublicado}"
+./Views/ComentariosPage.xaml:                            <Label Text="{Binding Texto}"
+./Views/ComentariosPage.xaml:                            <Label Text="Responder"
+./Views/ComentariosPage.xaml:                               Text="♡"
+./Views/ComentariosPage.xaml:                    Text="Enviar"
+./Propietarios/Propietario.xaml:                        <Label Text="Mascota" FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+./Propietarios/Propietario.xaml:                        <Label Text="Red"     FontFamily="OpenSansSemibold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+./Propietarios/Propietario.xaml:                            <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                            <Label Text="+" FontSize="22" TextColor="White"
+./Propietarios/Propietario.xaml:                            <Label Text="🔍" FontSize="14" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                        <Label Text="⚙️" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                       Text="Ver +0 resultados"
+./Propietarios/Propietario.xaml:                            <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                            <Label Text="No hay resultados."
+./Propietarios/Propietario.xaml:                                                    <Label Text="{Binding Inicial}"
+./Propietarios/Propietario.xaml:                                                    <Label Text="{Binding Nombre}"
+./Propietarios/Propietario.xaml:                                                        <Label Text="✓" FontSize="10" TextColor="White"
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding Localizacion}"
+./Propietarios/Propietario.xaml:                                                    <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="12" />
+./Propietarios/Propietario.xaml:                                                    <Label Text="{Binding ResenasTxt}"
+./Propietarios/Propietario.xaml:                                                <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontSize="16" />
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding NumeroLikes}"
+./Propietarios/Propietario.xaml:                                            <Label Grid.Row="0" Grid.Column="0" Text="🐾" FontSize="13" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                                                <Label Text="Mascotas" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding MascotasTxt}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Propietarios/Propietario.xaml:                                            <Label Grid.Row="1" Grid.Column="0" Text="📍" FontSize="13" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                                                <Label Text="Localización" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding Localizacion}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Propietarios/Propietario.xaml:                                            <Label Grid.Row="2" Grid.Column="0" Text="⏰" FontSize="13" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                                                <Label Text="Disponibilidad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding FranjasHorarias}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Propietarios/Propietario.xaml:                                            <Label Grid.Row="3" Grid.Column="0" Text="⚡" FontSize="13" VerticalOptions="Center" />
+./Propietarios/Propietario.xaml:                                                <Label Text="Última actividad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding UltimaActividad}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
+./Propietarios/Propietario.xaml:                                                    <Label Text="Propietario/a" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+./Propietarios/Propietario.xaml:                                                <Label Text="{Binding TarifaTxt}"
+./Propietarios/Propietario.xaml:                                                <Label Text="›" FontSize="20"
+./Propietarios/Propietario.xaml:                                                        <Label Text="{Binding Nombre}"
+./Propietarios/Propietario.xaml:                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="Buscar" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="Favoritos" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="Solicitudes" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="Mensajes" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+./Propietarios/Propietario.xaml:                    <Label Text="Cuenta" FontSize="10" FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblHeart" Text="🤍" FontSize="22" VerticalOptions="Center">
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblLikesCount" Text="0" FontSize="12"
+./Propietarios/PropietarioPopup.xaml:                                <Label Text="✕" FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblInicial" Text="?"
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblNombre" Text=""
+./Propietarios/PropietarioPopup.xaml:                                        <Label Text="✓" FontSize="11" TextColor="White"
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblLocalizacion" Text=""
+./Propietarios/PropietarioPopup.xaml:                                    <Label Text="Propietario/a" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+./Propietarios/PropietarioPopup.xaml:                        <Label Text="INFORMACIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Propietarios/PropietarioPopup.xaml:                                    <Label Text="Edad" FontSize="11" TextColor="#9AA0C4" />
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblEdad" Text=""
+./Propietarios/PropietarioPopup.xaml:                                    <Label Text="Tarifa máx." FontSize="11" TextColor="#9AA0C4" />
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblTarifa" Text=""
+./Propietarios/PropietarioPopup.xaml:                                    <Label Text="Zona" FontSize="11" TextColor="#9AA0C4" />
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblZona" Text=""
+./Propietarios/PropietarioPopup.xaml:                                    <Label Text="Reservas" FontSize="11" TextColor="#9AA0C4" />
+./Propietarios/PropietarioPopup.xaml:                                    <Label x:Name="LblReservas" Text=""
+./Propietarios/PropietarioPopup.xaml:                        <Label Text="DESCRIPCIÓN" FontFamily="OpenSansSemibold" FontSize="11"
+./Propietarios/PropietarioPopup.xaml:                            <Label x:Name="LblDescripcion" Text=""
+./Propietarios/PropietarioPopup.xaml:                        <Label Text="DÍAS DISPONIBLES" FontFamily="OpenSansSemibold" FontSize="11"
+./Propietarios/PropietarioPopup.xaml:                        <Label Text="HORARIO" FontFamily="OpenSansSemibold" FontSize="11"
+./Propietarios/PropietarioPopup.xaml:                        <Label x:Name="LblMascotasTitulo" Text="MASCOTAS"
+./Propietarios/PropietarioPopup.xaml:                        <Label Text="VALORACIONES" FontFamily="OpenSansSemibold" FontSize="11"
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblValoracion" Text="5.0"
+./Propietarios/PropietarioPopup.xaml:                                <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="20"
+./Propietarios/PropietarioPopup.xaml:                                <Label x:Name="LblResenas" Text=""
+./Propietarios/PropietarioPopup.xaml:                        <Button x:Name="BtnContactar" Text="Contactar"

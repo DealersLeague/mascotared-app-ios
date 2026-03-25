@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mascotared.LogIn"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1F2E}"
+             Title="LogIn">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30, 60, 30, 30" VerticalOptions="Center">
+
+            <Image Source="png1.png" HeightRequest="150" HorizontalOptions="Center" />
+
+            <Label Text="¡Hola de nuevo!" 
+                   FontSize="28" FontAttributes="Bold" 
+                   HorizontalOptions="Center" TextColor="{AppThemeBinding Light=#2B2B2B, Dark=White}"/>
+
+            <Label Text="Inicia sesión para cuidar de tus peludos" 
+                   FontSize="16" HorizontalOptions="Center" TextColor="Gray"/>
+
+            <Border Stroke="#E0E0E0" StrokeShape="RoundRectangle 10" Padding="10,2">
+                <Entry x:Name="EmailEntry" Placeholder="Correo electrónico" 
+                       Keyboard="Email" HeightRequest="45" />
+            </Border>
+
+            <Border Stroke="#E0E0E0" StrokeShape="RoundRectangle 10" Padding="10,2">
+                <Entry x:Name="PasswordEntry" Placeholder="Contraseña" 
+                       IsPassword="True" HeightRequest="45" />
+            </Border>
+
+            <!-- ¿Olvidaste tu contraseña? -->
+            <Label Text="¿Olvidaste tu contraseña?"
+                   TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+                   FontSize="13"
+                   HorizontalOptions="End"
+                   Margin="0,-15,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnForgotPasswordTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button Text="Continuar con correo" 
+                    Clicked="OnLoginClicked"
+                    BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" TextColor="White"
+                    CornerRadius="10" HeightRequest="50" FontAttributes="Bold"/>
+
+            <Grid ColumnDefinitions="*, Auto, *">
+                <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
+                <Label Grid.Column="1" Text=" o " Margin="10,0" VerticalOptions="Center" TextColor="Gray"/>
+                <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
+            </Grid>
+
+            <Button Text="Iniciar sesión con Google" 
+                    ImageSource="google.png"
+                    Clicked="OnGoogleLoginClicked"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" TextColor="{AppThemeBinding Light=#444444, Dark=White}"
+                    BorderColor="#E0E0E0" BorderWidth="1"
+                    CornerRadius="10" HeightRequest="50" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="¿No tienes cuenta?" VerticalOptions="Center"/>
+                <Label Text="Regístrate aquí" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+            <Button Text="Explorar"
+                    Clicked="OnExplorarClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#9AA0C4"
+                    BorderColor="#E0E0E0"
+                    BorderWidth="1"
+                    CornerRadius="10"
+                    HeightRequest="50" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
