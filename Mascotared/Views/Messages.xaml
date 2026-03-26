@@ -12,31 +12,57 @@
 
     <Grid RowDefinitions="Auto,Auto,*,Auto">
 
-        <!-- ══════ HEADER ══════ -->
-        <VerticalStackLayout Grid.Row="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Spacing="0">
-            <Grid Padding="20,14,20,14" ColumnDefinitions="*,Auto">
-                <Label Grid.Column="0"
-                       FontFamily="InterSemiBold" FontSize="22"
-                       VerticalOptions="Center">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Mis " TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
-                            <Span Text="Mensajes" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Border Grid.Column="1"
-                        StrokeShape="RoundRectangle 19"
-                        BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
-                        Stroke="Transparent"
-                        WidthRequest="38" HeightRequest="38"
-                        VerticalOptions="Center">
-                    <Label Text="✏️" FontSize="16"
-                           HorizontalOptions="Center" VerticalOptions="Center" />
-                </Border>
-            </Grid>
-            <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" />
-        </VerticalStackLayout>
+<!-- ══════ HEADER ══════ -->
+<VerticalStackLayout Grid.Row="0"
+                     BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+                     Spacing="0">
+
+    <Grid Padding="20,14,20,14" ColumnDefinitions="*,Auto">
+
+        <Label Grid.Column="0"
+               FontFamily="InterSemiBold"
+               FontSize="22"
+               VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Mis " TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+                    <Span Text="Mensajes" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- ICONO EDITAR (ANTES ✏️) -->
+        <Border Grid.Column="1"
+                BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+                WidthRequest="38"
+                HeightRequest="38"
+                Stroke="Transparent"
+                VerticalOptions="Center">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="19" />
+            </Border.StrokeShape>
+
+            <Image Source="pencil"
+                   WidthRequest="16"
+                   HeightRequest="16"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+
+            <!-- (opcional) si quieres que sea clickable -->
+            <!--
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnNuevoMensajeTapped" />
+            </Border.GestureRecognizers>
+            -->
+
+        </Border>
+
+    </Grid>
+
+    <BoxView HeightRequest="1"
+             BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" />
+</VerticalStackLayout>
 
         <!-- ══════ BUSCADOR ══════ -->
         <Border Grid.Row="1"

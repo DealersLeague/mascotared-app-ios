@@ -106,9 +106,9 @@ public partial class PerfilConfigUser : ContentPage
 
         StackTags.Children.Clear();
         if (esPropietario)
-            StackTags.Children.Add(CrearChip("🐾 Propietario/a", fondo: "#EEF0FB", textoColor: "#455AEB"));
+            StackTags.Children.Add(CrearChip("Propietario/a", fondo: "#EEF0FB", textoColor: "#455AEB"));
         if (esCuidador)
-            StackTags.Children.Add(CrearChip("🏠 Cuidador/a", fondo: "#FFEEF4", textoColor: "#FE3D7D"));
+            StackTags.Children.Add(CrearChip("Cuidador/a", fondo: "#FFEEF4", textoColor: "#FE3D7D"));
 
         FlexDias.Children.Clear();
         if (!string.IsNullOrEmpty(dias))
