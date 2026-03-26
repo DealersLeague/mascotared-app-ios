@@ -457,7 +457,7 @@
                             <Border Grid.Column="0" StrokeShape="RoundRectangle 14"
                             BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
                             Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="0,14">
-                                <Label Text="✏️  Editar" FontFamily="InterSemiBold"
+                                <Label Text="Editar" FontFamily="InterSemiBold"
                                FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                                HorizontalOptions="Center" />
                                 <Border.GestureRecognizers>
@@ -467,7 +467,7 @@
                             <Border Grid.Column="2" StrokeShape="RoundRectangle 14"
                             BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                             Stroke="Transparent" Padding="0,14">
-                                <Label Text="🗑️  Eliminar" FontFamily="InterSemiBold"
+                                <Label Text="Eliminar" FontFamily="InterSemiBold"
                                FontSize="14" TextColor="White"
                                HorizontalOptions="Center" />
                                 <Border.GestureRecognizers>

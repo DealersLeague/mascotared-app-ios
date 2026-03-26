@@ -222,7 +222,7 @@
                     <TapGestureRecognizer Tapped="OnEmpresaTapped"/>
                 </Border.GestureRecognizers>
                 <HorizontalStackLayout Spacing="12">
-                    <Label Text="🏢" FontSize="20" VerticalOptions="Center"/>
+                    <Label Text="" FontSize="20" VerticalOptions="Center"/>
                     <VerticalStackLayout Spacing="2" VerticalOptions="Center">
                         <Label Text="Registrar empresa"
                                FontFamily="Inter" FontSize="14" FontAttributes="Bold"

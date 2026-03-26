@@ -184,7 +184,7 @@
                 <!-- SALUD Y NECESIDADES ESPECIALES -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🏥  SALUD Y NECESIDADES ESPECIALES" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="SALUD Y NECESIDADES ESPECIALES" Style="{StaticResource SeccionTitle}" />
 
                         <Label Text="Alergias y restricciones alimentarias" Style="{StaticResource FieldLabel}" />
                         <Entry x:Name="EntryAlergias"
@@ -216,7 +216,7 @@
                 <!-- COMPORTAMIENTO Y PASEO -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🦮  COMPORTAMIENTO Y PASEO" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="COMPORTAMIENTO Y PASEO" Style="{StaticResource SeccionTitle}" />
 
                         <Label Text="Miedos / Reactividad" Style="{StaticResource FieldLabel}" />
                         <Entry x:Name="EntryMiedos"
@@ -448,7 +448,7 @@
                 <!-- CUIDADOS Y RUTINAS -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="⚡  CUIDADOS Y RUTINAS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="CUIDADOS Y RUTINAS" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Nivel de energía" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerNivelEnergia" Title="Selecciona" Style="{StaticResource PickerBase}">
                             <Picker.Items>

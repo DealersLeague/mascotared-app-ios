@@ -260,7 +260,7 @@
                         <Label x:Name="PopupColor" Style="{StaticResource PopupValue}" />
 
                         <!-- SALUD Y NECESIDADES -->
-                        <Label Text="🏥  SALUD Y NECESIDADES" Style="{StaticResource SeccionPopup}" />
+                        <Label Text="SALUD Y NECESIDADES" Style="{StaticResource SeccionPopup}" />
 
                         <Label x:Name="SecAlergias" Text="Alergias" Style="{StaticResource PopupLabel}" />
                         <Label x:Name="PopupAlergias" Style="{StaticResource PopupValue}" />
@@ -276,14 +276,14 @@
                         <Label x:Name="PopupAlimProhibidos" Style="{StaticResource PopupValue}" />
 
                         <!-- VETERINARIO -->
-                        <Label x:Name="SecVetHeader" Text="🏥  VETERINARIO"
+                        <Label x:Name="SecVetHeader" Text="VETERINARIO"
                                Style="{StaticResource SeccionPopup}" />
                         <Label x:Name="PopupVetNombre" Style="{StaticResource PopupValue}" />
                         <Label x:Name="PopupVetDir" Style="{StaticResource PopupValue}" />
                         <Label x:Name="PopupVetTel" Style="{StaticResource PopupValue}" />
 
                         <!-- COMPORTAMIENTO -->
-                        <Label Text="🦮  COMPORTAMIENTO" Style="{StaticResource SeccionPopup}" />
+                        <Label Text="COMPORTAMIENTO" Style="{StaticResource SeccionPopup}" />
                         <Label Text="Miedos / Reactividad" Style="{StaticResource PopupLabel}" />
                         <Label x:Name="PopupMiedos" Style="{StaticResource PopupValue}" />
                         <Label Text="Correa / Arnés" Style="{StaticResource PopupLabel}" />
@@ -292,7 +292,7 @@
                         <Label x:Name="PopupSocial" Style="{StaticResource PopupValue}" />
 
                         <!-- CUIDADOS -->
-                        <Label Text="⚡  CUIDADOS" Style="{StaticResource SeccionPopup}" />
+                        <Label Text="CUIDADOS" Style="{StaticResource SeccionPopup}" />
                         <Label Text="Nivel de energía" Style="{StaticResource PopupLabel}" />
                         <Label x:Name="PopupEnergia" Style="{StaticResource PopupValue}" />
                         <Label Text="Alimentación" Style="{StaticResource PopupLabel}" />
@@ -301,7 +301,7 @@
                         <Label x:Name="PopupMed" Style="{StaticResource PopupValue}" />
 
                         <!-- EMERGENCIA -->
-                        <Label x:Name="SecEmergencia" Text="🚨  EMERGENCIA"
+                        <Label x:Name="SecEmergencia" Text="EMERGENCIA"
                                Style="{StaticResource SeccionPopup}" />
                         <Label Text="Centro de urgencias" Style="{StaticResource PopupLabel}" />
                         <Label x:Name="PopupUrgencias" Style="{StaticResource PopupValue}" />
@@ -311,7 +311,7 @@
                         <Label x:Name="PopupPresupuesto" Style="{StaticResource PopupValue}" />
 
                         <!-- NOTAS -->
-                        <Label Text="📝  NOTAS" Style="{StaticResource SeccionPopup}" />
+                        <Label Text="NOTAS" Style="{StaticResource SeccionPopup}" />
                         <Label x:Name="PopupNotas" Style="{StaticResource PopupValue}" />
 
                     </VerticalStackLayout>
@@ -322,7 +322,7 @@
                     <Border Grid.Column="0" StrokeShape="RoundRectangle 14"
                             BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
                             Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="0,14">
-                        <Label Text="✏️  Editar" FontFamily="InterSemiBold"
+                        <Label Text="Editar" FontFamily="InterSemiBold"
                                FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                                HorizontalOptions="Center" />
                         <Border.GestureRecognizers>
@@ -332,7 +332,7 @@
                     <Border Grid.Column="2" StrokeShape="RoundRectangle 14"
                             BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                             Stroke="Transparent" Padding="0,14">
-                        <Label Text="🗑️  Eliminar" FontFamily="InterSemiBold"
+                        <Label Text="Eliminar" FontFamily="InterSemiBold"
                                FontSize="14" TextColor="White"
                                HorizontalOptions="Center" />
                         <Border.GestureRecognizers>

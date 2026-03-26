@@ -305,7 +305,7 @@
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnEliminarCuentaTapped" />
                     </Border.GestureRecognizers>
-                    <Label Text="🗑️  Eliminar cuenta" FontFamily="InterSemiBold"
+                    <Label Text="Eliminar cuenta" FontFamily="InterSemiBold"
                            FontSize="14" TextColor="#CC0000"
                            HorizontalOptions="Center" />
                 </Border>
@@ -317,7 +317,7 @@
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnCerrarSesionTapped" />
                     </Border.GestureRecognizers>
-                    <Label Text="🚪  Cerrar sesión" FontFamily="InterSemiBold"
+                    <Label Text="Cerrar sesión" FontFamily="InterSemiBold"
                            FontSize="14" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                            HorizontalOptions="Center" />
                 </Border>

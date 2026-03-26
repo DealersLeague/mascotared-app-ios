@@ -137,7 +137,7 @@
                         StrokeShape="RoundRectangle 12"
                         BackgroundColor="#22AA55"
                         Stroke="Transparent" Padding="0,12">
-                    <Label Text="✅  Aceptar" FontFamily="InterSemiBold"
+                    <Label Text="Aceptar" FontFamily="InterSemiBold"
                            FontSize="14" TextColor="White"
                            HorizontalOptions="Center" />
                     <Border.GestureRecognizers>
@@ -149,7 +149,7 @@
                         StrokeShape="RoundRectangle 12"
                         BackgroundColor="#EF4444"
                         Stroke="Transparent" Padding="0,12">
-                    <Label Text="❌  Rechazar" FontFamily="InterSemiBold"
+                    <Label Text="Rechazar" FontFamily="InterSemiBold"
                            FontSize="14" TextColor="White"
                            HorizontalOptions="Center" />
                     <Border.GestureRecognizers>
@@ -167,7 +167,7 @@
                     x:Name="BorderEstadoSolicitud">
                 <Grid ColumnDefinitions="*,Auto">
                     <Label x:Name="LabelEstadoSolicitud" Grid.Column="0"
-                           Text="✅ Solicitud aceptada"
+                           Text="Solicitud aceptada"
                            FontFamily="InterSemiBold" FontSize="13"
                            TextColor="#22AA55" HorizontalOptions="Center"
                            VerticalOptions="Center" />
