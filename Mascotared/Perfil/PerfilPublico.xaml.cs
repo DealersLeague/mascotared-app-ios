@@ -866,7 +866,7 @@ public partial class PerfilPublico : ContentPage
     {
         if (string.IsNullOrEmpty(_usuarioId)) return;
         bool ok = await _api.AgregarFavoritoAsync(_usuarioId);
-        if (ok) IconFavorito.Text = "❤️";
+        if (ok) IconFavorito.Source = "heart";
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────

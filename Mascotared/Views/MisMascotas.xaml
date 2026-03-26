@@ -46,7 +46,7 @@
                 <!-- FOTO DE PERFIL -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
                         <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
                             <Border StrokeShape="RoundRectangle 60"
                                     Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
@@ -74,7 +74,7 @@
                 <!-- INFORMACIÓN BÁSICA -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🐾  INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="INFORMACIÓN BÁSICA" Style="{StaticResource SeccionTitle}" />
 
                         <Label Text="Especie *" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerEspecie"
@@ -146,7 +146,7 @@
                 <!-- IDENTIFICACIÓN Y SALUD -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🏷️  IDENTIFICACIÓN Y SALUD" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="IDENTIFICACIÓN Y SALUD" Style="{StaticResource SeccionTitle}" />
 
                         <Label x:Name="LabelIdentificacion" Text="Número de microchip"
                                Style="{StaticResource FieldLabel}" />
@@ -262,7 +262,7 @@
                 <!-- PERSONALIDAD -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="✨  PERSONALIDAD" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="PERSONALIDAD" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Selecciona los que apliquen" Style="{StaticResource FieldLabel}" />
                         <FlexLayout x:Name="FlexPersonalidad" Wrap="Wrap" Direction="Row" />
                     </VerticalStackLayout>
@@ -271,7 +271,7 @@
                 <!-- ESPECÍFICO: PERROS -->
                 <Border x:Name="SeccionPerros" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🐕  ESPECÍFICO — PERROS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="ESPECÍFICO — PERROS" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Número de paseos al día" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerPaseos" Title="Selecciona" Style="{StaticResource PickerBase}">
                             <Picker.Items>
@@ -301,7 +301,7 @@
                 <!-- ESPECÍFICO: GATOS -->
                 <Border x:Name="SeccionGatos" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🐈  ESPECÍFICO — GATOS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="ESPECÍFICO — GATOS" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Tipo de arena" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerArena" Title="Selecciona" Style="{StaticResource PickerBase}">
                             <Picker.Items>
@@ -330,7 +330,7 @@
                 <!-- ESPECÍFICO: AVES -->
                 <Border x:Name="SeccionAves" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🦜  ESPECÍFICO — AVES" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="ESPECÍFICO — AVES" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Tipo de vuelo" Style="{StaticResource FieldLabel}" />
                         <Entry x:Name="EntryVuelo" Placeholder="Libre, recortado, jaula…"
                                Style="{StaticResource EntryBase}" />
@@ -356,7 +356,7 @@
                 <!-- ESPECÍFICO: REPTILES -->
                 <Border x:Name="SeccionReptiles" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🦎  ESPECÍFICO — REPTILES" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="ESPECÍFICO — REPTILES" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Tipo de hábitat" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerHabitat" Title="Selecciona" Style="{StaticResource PickerBase}">
                             <Picker.Items>
@@ -389,7 +389,7 @@
                 <!-- ESPECÍFICO: CABALLOS -->
                 <Border x:Name="SeccionCaballos" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🐎  ESPECÍFICO — CABALLOS" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="ESPECÍFICO — CABALLOS" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Capa" Style="{StaticResource FieldLabel}" />
                         <Entry x:Name="EntryCapa" Placeholder="Ej. Alazán, Tordo…"
                                Style="{StaticResource EntryBase}" />
@@ -424,7 +424,7 @@
                 <!-- ESPECÍFICO: PEQUEÑOS MAMÍFEROS -->
                 <Border x:Name="SeccionPequenos" Style="{StaticResource Card}" IsVisible="False">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🐰  ESPECÍFICO — PEQUEÑOS MAMÍFEROS"
+                        <Label Text="ESPECÍFICO — PEQUEÑOS MAMÍFEROS"
                                Style="{StaticResource SeccionTitle}" />
                         <Label Text="Tipo de sustrato" Style="{StaticResource FieldLabel}" />
                         <Picker x:Name="PickerSustrato" Title="Selecciona" Style="{StaticResource PickerBase}">
@@ -481,7 +481,7 @@
                 <!-- PROTOCOLO DE EMERGENCIA -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="🚨  PROTOCOLO DE EMERGENCIA" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="PROTOCOLO DE EMERGENCIA" Style="{StaticResource SeccionTitle}" />
                         <Label Text="Centro de urgencias 24h" Style="{StaticResource FieldLabel}" />
                         <Entry x:Name="EntryCentroUrgencias"
                                Placeholder="Nombre de la clínica de urgencias"
@@ -506,7 +506,7 @@
                 <!-- DOCUMENTACIÓN -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="📄  DOCUMENTACIÓN" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="DOCUMENTACIÓN" Style="{StaticResource SeccionTitle}" />
                         <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
                             <Label Grid.Column="0" Text="¿Tiene seguro de responsabilidad civil?"
                                    FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
@@ -547,7 +547,7 @@
                 <Border StrokeShape="RoundRectangle 16"
                         BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                         Stroke="Transparent" Padding="0,18" Margin="0,6,0,0">
-                    <Label Text="💾  Guardar mascota"
+                    <Label Text="Guardar mascota"
                            FontFamily="InterSemiBold" FontSize="16"
                            TextColor="White" HorizontalOptions="Center" />
                     <Border.GestureRecognizers>

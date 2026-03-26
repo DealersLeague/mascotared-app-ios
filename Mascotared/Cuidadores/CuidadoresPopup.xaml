@@ -105,8 +105,7 @@
                                             <Border.StrokeShape>
                                                 <RoundRectangle CornerRadius="10"/>
                                             </Border.StrokeShape>
-                                            <Label Text="✓" FontSize="11" TextColor="White"
-                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                            <Image Source="check" WidthRequest="11" HeightRequest="11" HorizontalOptions="Center" VerticalOptions="Center" />
                                         </Border>
                                     </HorizontalStackLayout>
                                     <Label x:Name="LblLocalizacion" Text=""
@@ -212,8 +211,7 @@
                                         <Label x:Name="LblTieneMascotas" Text=""
                                            FontFamily="OpenSansSemibold" FontSize="14" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
-                                    <Label x:Name="LblEmojiMascotas" Grid.Column="1"
-                                       Text="🐾" FontSize="24" VerticalOptions="Center" />
+                                    <Image Source="paw" WidthRequest="24" HeightRequest="24" x:Name="LblEmojiMascotas" VerticalOptions="Center" />
                                 </Grid>
                             </Border>
 
@@ -251,7 +249,7 @@
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
                                 <HorizontalStackLayout Spacing="8">
-                                    <Label Text="⚕️" FontSize="18" VerticalOptions="Center" />
+                                    <Image Source="shield" WidthRequest="18" HeightRequest="18" VerticalOptions="Center" />
                                     <Label x:Name="LblExperiencia" Text=""
                                        FontSize="13" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                                        FontFamily="OpenSansSemibold" VerticalOptions="Center" />

@@ -41,28 +41,28 @@
                     </Border>
                     <Border x:Name="ChipPerro" StrokeShape="RoundRectangle 20"
                             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="16,8">
-                        <Label Text="🐶 Perros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                        <Label Text="Perros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnFiltroTapped" CommandParameter="Perro" />
                         </Border.GestureRecognizers>
                     </Border>
                     <Border x:Name="ChipGato" StrokeShape="RoundRectangle 20"
                             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="16,8">
-                        <Label Text="🐱 Gatos" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                        <Label Text="Gatos" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnFiltroTapped" CommandParameter="Gato" />
                         </Border.GestureRecognizers>
                     </Border>
                     <Border x:Name="ChipAve" StrokeShape="RoundRectangle 20"
                             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="16,8">
-                        <Label Text="🦜 Aves" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                        <Label Text="Aves" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnFiltroTapped" CommandParameter="Ave" />
                         </Border.GestureRecognizers>
                     </Border>
                     <Border x:Name="ChipOtros" StrokeShape="RoundRectangle 20"
                             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}" Padding="16,8">
-                        <Label Text="🐾 Otros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
+                        <Label Text="Otros" FontFamily="InterSemiBold" FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnFiltroTapped" CommandParameter="Otros" />
                         </Border.GestureRecognizers>
@@ -72,7 +72,7 @@
 
             <VerticalStackLayout x:Name="EstadoVacio" IsVisible="False"
                                  HorizontalOptions="Center" Spacing="12" Margin="0,80,0,0">
-                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+                <Image Source="paw" WidthRequest="52" HeightRequest="52" HorizontalOptions="Center" />
                 <Label Text="Aún no tienes mascotas" FontFamily="InterSemiBold"
                        FontSize="16" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" HorizontalOptions="Center" />
                 <Label Text="Pulsa el botón + para añadir tu primera mascota"
@@ -227,8 +227,7 @@
                     <Border StrokeShape="RoundRectangle 20" BackgroundColor="#22000000"
                             Stroke="Transparent" WidthRequest="36" HeightRequest="36"
                             VerticalOptions="Start" HorizontalOptions="End" Margin="0,12,12,0">
-                        <Label Text="✕" FontSize="15" TextColor="White"
-                               HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Image Source="x" WidthRequest="15" HeightRequest="15" HorizontalOptions="Center" VerticalOptions="Center" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnCerrarPopupTapped" />
                         </Border.GestureRecognizers>

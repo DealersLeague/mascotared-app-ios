@@ -75,12 +75,12 @@
             <CollectionView.EmptyView>
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"
                                      Spacing="14" Margin="40,80,40,0">
-                    <Label Text="❤️" FontSize="52" HorizontalOptions="Center" />
+                    <Image Source="heart" WidthRequest="52" HeightRequest="52" HorizontalOptions="Center" />
                     <Label Text="Aún no te gusta ningún post"
                            FontFamily="InterSemiBold" FontSize="16"
                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
                            HorizontalOptions="Center" />
-                    <Label Text="Cuando des ❤️ a un post aparecerá aquí guardado."
+                    <Label Text="Cuando des me gusta a un post aparecerá aquí guardado."
                            FontSize="13"
                            TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
                            HorizontalTextAlignment="Center"
@@ -99,9 +99,7 @@
                         <!-- Fondo para posts sin imagen -->
                         <Border BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#22222E}"
                                 Stroke="Transparent" StrokeThickness="0">
-                            <Label Text="🐾" FontSize="36"
-                                   HorizontalOptions="Center" VerticalOptions="Center"
-                                   TextColor="{AppThemeBinding Light=#C5CAF0, Dark=#3A3F60}" />
+                            <Image Source="paw" WidthRequest="36" HeightRequest="36" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Border>
 
                         <!-- Imagen del post -->
@@ -115,13 +113,13 @@
                               Padding="8,5">
                             <HorizontalStackLayout Spacing="10">
                                 <HorizontalStackLayout Spacing="4">
-                                    <Label Text="❤️" FontSize="11" TextColor="White" />
+                                    <Image Source="heart" WidthRequest="11" HeightRequest="11" />
                                     <Label Text="{Binding NumLikes}"
                                            FontFamily="InterSemiBold" FontSize="11"
                                            TextColor="White" VerticalOptions="Center" />
                                 </HorizontalStackLayout>
                                 <HorizontalStackLayout Spacing="4">
-                                    <Label Text="💬" FontSize="11" TextColor="White" />
+                                    <Image Source="message" WidthRequest="11" HeightRequest="11" />
                                     <Label Text="{Binding NumComentarios}"
                                            FontFamily="InterSemiBold" FontSize="11"
                                            TextColor="White" VerticalOptions="Center" />
@@ -137,7 +135,7 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
-                            <Label Text="❤️" FontSize="12" Padding="5,3" TextColor="White" />
+                            <Image Source="heart" WidthRequest="12" HeightRequest="12" />
                         </Border>
                     </Grid>
                 </DataTemplate>

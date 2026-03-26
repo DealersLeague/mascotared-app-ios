@@ -89,7 +89,7 @@
                     </Border.GestureRecognizers>
                     <VerticalStackLayout HorizontalOptions="Center"
                                         VerticalOptions="Center" Spacing="12">
-                        <Label Text="🖼️" FontSize="48" HorizontalOptions="Center" />
+                        <Image Source="image" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                         <Label Text="Toca para añadir una foto"
                                FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
                                HorizontalOptions="Center" />
@@ -127,7 +127,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <Label Text="🔄 Cambiar foto"
+                    <Label Text="Cambiar foto"
                            TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                            FontFamily="OpenSansSemibold" FontSize="13">
                         <Label.GestureRecognizers>

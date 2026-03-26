@@ -56,10 +56,10 @@
             <!-- Estado vacío -->
             <VerticalStackLayout x:Name="EstadoVacio" IsVisible="True"
                          HorizontalOptions="Center" Spacing="12" Margin="0,80,0,0">
-                <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+                <Image Source="paw" WidthRequest="52" HeightRequest="52" HorizontalOptions="Center" />
                 <Label Text="Aún no tienes favoritos" FontFamily="InterSemiBold"
                FontSize="16" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" HorizontalOptions="Center" />
-                <Label Text="Pulsa el botón ❤️ para añadir perfiles y tareas a tu lista de favoritos"
+                <Label Text="Pulsa el botón de me gusta para añadir perfiles y tareas a tu lista de favoritos"
                FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
                HorizontalTextAlignment="Center" HorizontalOptions="Center" />
             </VerticalStackLayout>

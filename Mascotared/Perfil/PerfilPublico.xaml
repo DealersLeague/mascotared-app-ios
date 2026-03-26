@@ -93,7 +93,7 @@
                             </VerticalStackLayout>
                             <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center">
                                 <Label x:Name="LabelMedia" Text="—" Style="{StaticResource StatValue}" />
-                                <Label Text="⭐ Media" Style="{StaticResource StatLabel}" />
+                                <Label Text="Media" Style="{StaticResource StatLabel}" />
                             </VerticalStackLayout>
                         </Grid>
                     </Grid>
@@ -108,13 +108,13 @@
                             <Border x:Name="ChipCuidador" IsVisible="False"
                                 StrokeShape="RoundRectangle 10"
                                 BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#1E2040}" Stroke="Transparent" Padding="8,4">
-                                <Label Text="🐾 Cuidador/a" FontSize="11"
+                                <Label Text="Cuidador/a" FontSize="11"
                                    FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
                             </Border>
                             <Border x:Name="ChipPropietario" IsVisible="False"
                                 StrokeShape="RoundRectangle 10"
                                 BackgroundColor="{AppThemeBinding Light=#FFF0F5, Dark=#2A1020}" Stroke="Transparent" Padding="8,4">
-                                <Label Text="🏠 Propietario/a" FontSize="11"
+                                <Label Text="Propietario/a" FontSize="11"
                                    FontFamily="InterSemiBold" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
                             </Border>
                         </HorizontalStackLayout>
@@ -127,7 +127,7 @@
 
                         <Grid ColumnDefinitions="*,Auto" Margin="0,8,0,0">
                             <Button x:Name="BtnMensaje" Grid.Column="0"
-                                Text="💬 Enviar mensaje"
+                                Text="Enviar mensaje"
                                 BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                                 TextColor="White" FontFamily="InterSemiBold"
                                 FontSize="13" CornerRadius="10"
@@ -137,8 +137,7 @@
                                 BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}" Stroke="Transparent"
                                 WidthRequest="44" HeightRequest="44"
                                 Margin="8,0,0,0">
-                                <Label x:Name="IconFavorito" Text="🤍" FontSize="20"
-                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Image Source="heart" WidthRequest="20" HeightRequest="20" x:Name="IconFavorito" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnFavoritoTapped" />
                                 </Border.GestureRecognizers>
@@ -254,7 +253,7 @@
                             </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
                         <VerticalStackLayout Grid.Column="1" Spacing="0" Padding="0,12,0,0">
-                            <Label x:Name="TabLabelOfertas" Text="📋  Ofertas"
+                            <Label x:Name="TabLabelOfertas" Text="Ofertas"
                                FontFamily="InterSemiBold" FontSize="13"
                                TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                             <BoxView x:Name="TabLineOfertas" HeightRequest="2"
@@ -270,7 +269,7 @@
                     <VerticalStackLayout x:Name="PanelPosts" Spacing="0">
                         <VerticalStackLayout x:Name="EstadoVacioPosts" IsVisible="False"
                                          HorizontalOptions="Center" Spacing="10" Margin="0,48,0,48">
-                            <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+                            <Image Source="camera" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                             <Label Text="Aún no has publicado nada" FontFamily="InterSemiBold"
                                FontSize="15" HorizontalOptions="Center"
                                TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
@@ -483,8 +482,7 @@
                                 <TapGestureRecognizer Tapped="OnVisorComentariosTapped" />
                             </Label.GestureRecognizers>
                         </Label>
-                        <Label Grid.Column="3" Text="🔖" FontSize="22"
-                               TextColor="White" VerticalOptions="Center" />
+                        <Image Source="bookmark" WidthRequest="22" HeightRequest="22" VerticalOptions="Center" />
                     </Grid>
                     <Label x:Name="VisorLikes"
                            FontFamily="InterSemiBold" FontSize="13" TextColor="White"

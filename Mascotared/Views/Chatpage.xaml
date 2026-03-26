@@ -212,7 +212,7 @@
                                 Stroke="#FFE082"
                                 Padding="12,8" Margin="0,4">
                             <HorizontalStackLayout Spacing="8">
-                                <Label Text="⚠️" FontSize="13" VerticalOptions="Center" />
+                                <Image Source="trianglealert" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                 <Label Text="{Binding Texto}"
                                        FontSize="12" TextColor="#B45309"
                                        VerticalOptions="Center"
@@ -280,7 +280,7 @@
                 <VerticalStackLayout VerticalOptions="Center"
                                      HorizontalOptions="Center"
                                      Spacing="12" Padding="40,0">
-                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+                    <Image Source="paw" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                     <Label Text="Aún no hay mensajes"
                            FontFamily="InterSemiBold" FontSize="16"
                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"

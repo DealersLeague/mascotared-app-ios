@@ -47,7 +47,7 @@
                     <Label Grid.Column="0" Text="Cuidadores cercanos"
                            FontFamily="InterSemiBold" FontSize="17"
                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
-                    <Label Grid.Column="1" Text="Ver todos ›"
+                    <Label Grid.Column="1" Text="Ver todos"
                            FontSize="13" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>
@@ -104,10 +104,7 @@
                                                 <Border.StrokeShape>
                                                     <RoundRectangle CornerRadius="14" />
                                                 </Border.StrokeShape>
-                                                <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
-                                                       FontSize="13"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center" />
+                                                <Image Source="heart" WidthRequest="13" HeightRequest="13" HorizontalOptions="Center" VerticalOptions="Center" />
                                             </Border>
                                         </Grid>
                                         <VerticalStackLayout Padding="10,8" Spacing="2">
@@ -145,7 +142,7 @@
                     <Label Grid.Column="0" Text="Mascotas por dueño"
                            FontFamily="InterSemiBold" FontSize="17"
                            TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}" />
-                    <Label Grid.Column="1" Text="Ver todos ›"
+                    <Label Grid.Column="1" Text="Ver todos"
                            FontSize="13" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                            VerticalOptions="Center">
                         <Label.GestureRecognizers>

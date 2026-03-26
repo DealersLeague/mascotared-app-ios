@@ -70,8 +70,7 @@
                                     Stroke="White" StrokeThickness="2"
                                     WidthRequest="28" HeightRequest="28"
                                     HorizontalOptions="End" VerticalOptions="End">
-                                <Label Text="📷" FontSize="13"
-                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Image Source="camera" WidthRequest="13" HeightRequest="13" HorizontalOptions="Center" VerticalOptions="Center" />
                             </Border>
                         </Grid>
                         <Label Text="Cambiar foto" FontSize="13" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"

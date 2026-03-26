@@ -24,7 +24,7 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="19"/>
                         </Border.StrokeShape>
-                        <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Image Source="bell" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" VerticalOptions="Center" />
                     </Border>
                     <Border BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
                             Padding="0" WidthRequest="38" HeightRequest="38"
@@ -50,7 +50,7 @@
                         <RoundRectangle CornerRadius="12"/>
                     </Border.StrokeShape>
                     <HorizontalStackLayout Spacing="8">
-                        <Label Text="🔍" FontSize="14" VerticalOptions="Center" />
+                        <Image Source="search" WidthRequest="14" HeightRequest="14" VerticalOptions="Center" />
                         <Entry x:Name="EntryBusqueda"
                                Placeholder="Buscar por ciudad o nombre..."
                                PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
@@ -66,7 +66,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12"/>
                     </Border.StrokeShape>
-                    <Label Text="⚙️" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image Source="settings" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
             </Grid>
 
@@ -86,7 +86,7 @@
             <CollectionView.EmptyView>
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"
                                      Spacing="12" Margin="0,60,0,0">
-                    <Label Text="🐾" FontSize="48" HorizontalOptions="Center" />
+                    <Image Source="paw" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                     <Label Text="No hay resultados."
                            FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
                            HorizontalOptions="Center" />
@@ -150,8 +150,7 @@
                                                 <Border.StrokeShape>
                                                     <RoundRectangle CornerRadius="9"/>
                                                 </Border.StrokeShape>
-                                                <Label Text="✓" FontSize="10" TextColor="White"
-                                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                                <Image Source="check" WidthRequest="10" HeightRequest="10" HorizontalOptions="Center" VerticalOptions="Center" />
                                             </Border>
                                         </HorizontalStackLayout>
                                         <Border BackgroundColor="{AppThemeBinding Light=#EEF0FB, Dark=#1E2040}" Padding="8,3"
@@ -172,7 +171,7 @@
                                     </VerticalStackLayout>
 
                                     <HorizontalStackLayout Grid.Column="2" Spacing="4" VerticalOptions="Start">
-                                        <Label Text="♡" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" FontSize="16" />
+                                        <Image Source="heart" WidthRequest="16" HeightRequest="16" />
                                         <Label Text="{Binding NumeroLikes}"
                                                TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                                                FontFamily="OpenSansSemibold" FontSize="13" />
@@ -189,7 +188,7 @@
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                                       ColumnDefinitions="22,*"
                                       RowSpacing="8" ColumnSpacing="10">
-                                    <Label Grid.Row="0" Grid.Column="0" Text="📍" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="pin" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="0">
                                         <Label Text="Localización" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding Localizacion}"
@@ -203,14 +202,14 @@
                                                FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
 
-                                    <Label Grid.Row="2" Grid.Column="0" Text="⏰" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="clock" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="0">
                                         <Label Text="Disponibilidad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding FranjasHorarias}"
                                                FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
 
-                                    <Label Grid.Row="3" Grid.Column="0" Text="🐾" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="paw" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="3" Grid.Column="1" Spacing="0">
                                         <Label Text="¿Tiene o ha tenido mascotas?" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding TieneMascotasTxt}"
@@ -224,7 +223,7 @@
                                                FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Text="⚕️" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="shield" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="5" Grid.Column="1" Spacing="0">
                                         <Label Text="Necesidades especiales" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding NecesidadesEspecialesTxt}"

@@ -33,7 +33,7 @@
         <VerticalStackLayout x:Name="EstadoVacio" Grid.Row="1" IsVisible="False"
                              HorizontalOptions="Center" VerticalOptions="Center"
                              Spacing="12" Margin="40,0">
-            <Label Text="🐾" FontSize="52" HorizontalOptions="Center" />
+            <Image Source="paw" WidthRequest="52" HeightRequest="52" HorizontalOptions="Center" />
             <Label Text="No hay mascotas registradas"
                    FontFamily="OpenSansSemibold" FontSize="16"
                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"

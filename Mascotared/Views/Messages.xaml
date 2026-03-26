@@ -49,8 +49,7 @@
                     Stroke="Transparent"
                     Padding="12,0">
                 <Grid ColumnDefinitions="Auto,*">
-                    <Label Grid.Column="0" Text="🔍" FontSize="16"
-                           VerticalOptions="Center" Margin="0,0,8,0" />
+                    <Image Source="search" WidthRequest="16" HeightRequest="16" VerticalOptions="Center" Margin="0,0,8,0" />
                     <Entry x:Name="EntryBuscar"
                            Grid.Column="1"
                            Placeholder="Buscar conversación…"
@@ -78,8 +77,7 @@
                         Stroke="Transparent"
                         WidthRequest="100" HeightRequest="100"
                         HorizontalOptions="Center">
-                    <Label Text="💬" FontSize="46"
-                           HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image Source="message" WidthRequest="46" HeightRequest="46" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
                 <Label Text="No tienes mensajes"
                        FontFamily="InterSemiBold" FontSize="18"
@@ -239,7 +237,7 @@
                 <Grid Padding="16,12" BackgroundColor="{AppThemeBinding Light=#F8F9FF, Dark=#1E1E2E}">
                     <Grid ColumnDefinitions="*,Auto">
                         <Label x:Name="LblToggleArchivados"
-                               Text="📦  0 archivados"
+                               Text="0 archivados"
                                FontFamily="InterSemiBold" FontSize="13"
                                TextColor="#9AA0C4" VerticalOptions="Center" />
                         <Label x:Name="LblChevronArchivados" Grid.Column="1"

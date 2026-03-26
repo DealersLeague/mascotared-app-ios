@@ -50,7 +50,7 @@
                 <!-- FOTO DE PERFIL -->
                 <Border Style="{StaticResource Card}">
                     <VerticalStackLayout Spacing="0">
-                        <Label Text="📷  FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
+                        <Label Text="FOTO DE PERFIL" Style="{StaticResource SeccionTitle}" />
                         <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
                             <Border StrokeShape="RoundRectangle 60"
                                     Stroke="{AppThemeBinding Light=#EEF0FB, Dark=#2E2E3C}"
@@ -252,10 +252,7 @@
                                                            FontSize="12" TextColor="#9AA0C4" />
                                                 </VerticalStackLayout>
                                                 <!-- Checkmark de selección (oculto por defecto) -->
-                                                <Label x:Name="CheckMark" Grid.Column="2"
-                                                       Text="✓" FontFamily="InterSemiBold"
-                                                       FontSize="18" TextColor="Transparent"
-                                                       VerticalOptions="Center" />
+                                                <Image Source="check" WidthRequest="18" HeightRequest="18" x:Name="CheckMark" VerticalOptions="Center" />
                                             </Grid>
                                         </Border>
                                     </Grid>

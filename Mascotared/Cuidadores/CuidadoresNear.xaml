@@ -18,8 +18,7 @@
               BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
               Padding="20,12,20,12"
               ColumnDefinitions="Auto,*,Auto">
-            <Label Grid.Column="0" Text="☰" FontSize="22"
-                   TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" VerticalOptions="Center" />
+            <Image Source="menu" WidthRequest="22" HeightRequest="22" VerticalOptions="Center" />
             <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
                 <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
                 <Label Text="Red"     FontFamily="InterSemiBold" FontSize="20" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
@@ -30,7 +29,7 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="19"/>
                 </Border.StrokeShape>
-                <Label Text="🔔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Image Source="bell" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" VerticalOptions="Center" />
             </Border>
         </Grid>
 
@@ -48,7 +47,7 @@
                     <RoundRectangle CornerRadius="12"/>
                 </Border.StrokeShape>
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
-                    <Label Grid.Column="0" Text="🔍" FontSize="16" VerticalOptions="Center" />
+                    <Image Source="search" WidthRequest="16" HeightRequest="16" VerticalOptions="Center" />
                     <Entry Grid.Column="1" x:Name="EntryBusqueda"
                            Placeholder="Buscar..."
                            PlaceholderColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
@@ -60,7 +59,7 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="8"/>
                         </Border.StrokeShape>
-                        <Label Text="⚙️" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Image Source="settings" WidthRequest="14" HeightRequest="14" HorizontalOptions="Center" VerticalOptions="Center" />
                     </Border>
                 </Grid>
             </Border>
@@ -164,8 +163,7 @@
                                         <Border.StrokeShape>
                                             <RoundRectangle CornerRadius="10"/>
                                         </Border.StrokeShape>
-                                        <Label Text="✓" FontSize="12" TextColor="White"
-                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Image Source="check" WidthRequest="12" HeightRequest="12" HorizontalOptions="Center" VerticalOptions="Center" />
                                     </Border>
                                 </Grid>
                             </Border>

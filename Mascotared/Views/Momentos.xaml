@@ -27,7 +27,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="19" />
                     </Border.StrokeShape>
-                    <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image Source="message" WidthRequest="16" HeightRequest="16" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
             </Grid>
 
@@ -64,7 +64,7 @@
                 <CollectionView.EmptyView>
                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"
                                      Spacing="12" Margin="0,60,0,0">
-                        <Label Text="📸" FontSize="48" HorizontalOptions="Center" />
+                        <Image Source="camera" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                         <Label Text="Aún no hay momentos."
                            FontSize="14" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
                            HorizontalOptions="Center" />
@@ -133,7 +133,7 @@
                                 </HorizontalStackLayout>
                                 <!-- Comentar -->
                                 <HorizontalStackLayout Grid.Column="1" Spacing="5">
-                                    <Label Text="💬" FontSize="20" />
+                                    <Image Source="message" WidthRequest="20" HeightRequest="20" />
                                     <Label Text="{Binding NumComentarios}"
                                        FontFamily="OpenSansSemibold" FontSize="13"
                                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
@@ -166,12 +166,12 @@
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
-                    <Label Text="📸" FontSize="22" HorizontalOptions="Center" />
+                    <Image Source="camera" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                     <Label Text="Momentos" FontSize="10" FontFamily="OpenSansSemibold"
                        TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" HorizontalOptions="Center" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
-                    <Label Text="💼" FontSize="22" HorizontalOptions="Center" />
+                    <Image Source="briefcase" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                     <Label Text="Trabajos" FontSize="10" FontFamily="OpenSansSemibold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 </VerticalStackLayout>

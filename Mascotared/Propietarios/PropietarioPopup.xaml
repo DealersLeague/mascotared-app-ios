@@ -108,8 +108,7 @@
                                         <Border.StrokeShape>
                                             <RoundRectangle CornerRadius="10"/>
                                         </Border.StrokeShape>
-                                        <Label Text="✓" FontSize="11" TextColor="White"
-                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Image Source="check" WidthRequest="11" HeightRequest="11" HorizontalOptions="Center" VerticalOptions="Center" />
                                     </Border>
                                 </HorizontalStackLayout>
                                 <Label x:Name="LblLocalizacion" Text=""
