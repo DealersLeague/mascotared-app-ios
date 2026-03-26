@@ -175,7 +175,7 @@
                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=#F0F0F0}"
                                        LineBreakMode="TailTruncation" />
                                 <HorizontalStackLayout Spacing="4">
-                                    <Label Text="★" TextColor="#FFB800" FontSize="12" />
+                                    <Image Source="star" WidthRequest="12" HeightRequest="12" />
                                     <Label Text="{Binding Valoracion}" FontSize="12"
                                            TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" FontFamily="InterSemiBold" />
                                     <Label Text="{Binding ResenasTxt}" FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />

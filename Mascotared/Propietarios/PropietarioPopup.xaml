@@ -216,8 +216,7 @@
                                 <Label x:Name="LblValoracion" Text="5.0"
                                        FontFamily="OpenSansSemibold" FontSize="36"
                                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" HorizontalOptions="Center" />
-                                <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="20"
-                                       HorizontalOptions="Center" />
+                                <Image Source="star" WidthRequest="20" HeightRequest="20" HorizontalOptions="Center" />
                                 <Label x:Name="LblResenas" Text=""
                                        FontSize="13" TextColor="#9AA0C4" HorizontalOptions="Center" />
                             </VerticalStackLayout>

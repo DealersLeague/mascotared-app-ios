@@ -167,7 +167,7 @@
                                                 <Label Text="{Binding Localizacion}"
                                                        FontSize="13" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                                 <HorizontalStackLayout Spacing="2">
-                                                    <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="12" />
+                                                    <Image Source="star" WidthRequest="12" HeightRequest="12" />
                                                     <Label Text="{Binding ResenasTxt}"
                                                            FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                                 </HorizontalStackLayout>
@@ -206,7 +206,7 @@
                                                 <Label Text="{Binding FranjasHorarias}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                             </VerticalStackLayout>
 
-                                            <Label Grid.Row="3" Grid.Column="0" Text="⚡" FontSize="13" VerticalOptions="Center" />
+                                            <Image Source="zap" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                             <VerticalStackLayout Grid.Row="3" Grid.Column="1" Spacing="0">
                                                 <Label Text="Última actividad" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                                 <Label Text="{Binding UltimaActividad}" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />

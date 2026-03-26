@@ -504,7 +504,7 @@ public partial class PerfilPublico : ContentPage
     {
         bool abrir = !ContenidoResenas.IsVisible;
         ContenidoResenas.IsVisible = abrir;
-        LblChevronResenas.Text = abrir ? "▲" : "▼";
+        LblChevronResenas.Source = abrir ? "chevronup" : "chevrondown";
     }
 
     private void CambiarTab(string tab)

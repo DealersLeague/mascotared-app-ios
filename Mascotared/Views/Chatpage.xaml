@@ -71,7 +71,7 @@
                        TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                        LineBreakMode="TailTruncation" />
                 <HorizontalStackLayout Spacing="4">
-                    <Label Text="⭐" FontSize="11" VerticalOptions="Center" />
+                    <Image Source="star" WidthRequest="11" HeightRequest="11" VerticalOptions="Center" />
                     <Label x:Name="LabelValoracion"
                            Text="4,8/5"
                            FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
@@ -307,7 +307,7 @@
                     Padding="0,14"
                     Margin="16,12,16,4">
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
-                    <Label Text="📋" FontSize="16" VerticalOptions="Center" />
+                    <Image Source="clipboard" WidthRequest="16" HeightRequest="16" VerticalOptions="Center" />
                     <Label Text="Enviar solicitud de cuidado"
                            FontFamily="InterSemiBold" FontSize="15"
                            TextColor="White" VerticalOptions="Center" />

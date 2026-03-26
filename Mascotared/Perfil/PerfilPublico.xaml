@@ -158,11 +158,9 @@
                             <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center" Margin="0,0,10,0">
                                 <Label x:Name="LabelEstrellaMedia" FontFamily="InterSemiBold"
                                        FontSize="18" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
-                                <Label Text="⭐" FontSize="14" VerticalOptions="Center" />
+                                <Image Source="star" WidthRequest="14" HeightRequest="14" VerticalOptions="Center" />
                             </HorizontalStackLayout>
-                            <Label Grid.Column="2" x:Name="LblChevronResenas" Text="▼"
-                                   FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
-                                   VerticalOptions="Center" />
+                            <Image Source="chevrondown" WidthRequest="11" HeightRequest="11" x:Name="LblChevronResenas" VerticalOptions="Center" />
                         </Grid>
                         <VerticalStackLayout x:Name="ContenidoResenas" IsVisible="False" Spacing="0">
                             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never"
@@ -303,7 +301,7 @@
                                      Padding="12,12,12,0" Spacing="0">
                         <VerticalStackLayout x:Name="EstadoVacioOfertas" IsVisible="False"
                                          HorizontalOptions="Center" Spacing="10" Margin="0,48,0,48">
-                            <Label Text="📋" FontSize="48" HorizontalOptions="Center" />
+                            <Image Source="clipboard" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                             <Label Text="Sin ofertas activas" FontFamily="InterSemiBold"
                                FontSize="15" HorizontalOptions="Center"
                                TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />

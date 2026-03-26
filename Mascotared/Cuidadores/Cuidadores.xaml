@@ -164,7 +164,7 @@
                                                    FontFamily="OpenSansSemibold" FontSize="11" />
                                         </Border>
                                         <HorizontalStackLayout Spacing="2">
-                                            <Label Text="★★★★★" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" FontSize="12" />
+                                            <Image Source="star" WidthRequest="12" HeightRequest="12" />
                                             <Label Text="{Binding ResenasTxt}"
                                                    FontSize="12" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         </HorizontalStackLayout>
@@ -195,7 +195,7 @@
                                                FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Text="💰" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="wallet" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="0">
                                         <Label Text="Tarifa" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding TarifaTxt}"
@@ -216,7 +216,7 @@
                                                FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}" />
                                     </VerticalStackLayout>
 
-                                    <Label Grid.Row="4" Grid.Column="0" Text="🏠" FontSize="13" VerticalOptions="Center" />
+                                    <Image Source="house" WidthRequest="13" HeightRequest="13" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Row="4" Grid.Column="1" Spacing="0">
                                         <Label Text="Mascotas que puede cuidar" FontSize="11" TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" />
                                         <Label Text="{Binding NumeroMascotasACuidar, StringFormat='Hasta {0} mascota(s)'}"

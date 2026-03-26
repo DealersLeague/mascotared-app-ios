@@ -129,7 +129,7 @@
                     </Border.GestureRecognizers>
                     <VerticalStackLayout Spacing="0">
                         <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="⭐" FontSize="20" VerticalOptions="Center" />
+                            <Image Source="star" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
                             <VerticalStackLayout Grid.Column="1" Spacing="1" VerticalOptions="Center">
                                 <Label Text="Reseñas" FontFamily="OpenSansSemibold"
                                        FontSize="14"
@@ -237,7 +237,7 @@
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnIdiomasTapped" />
                             </Grid.GestureRecognizers>
-                            <Label Grid.Column="0" Text="🌐" FontSize="20" VerticalOptions="Center" />
+                            <Image Source="globe" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
                             <Label Grid.Column="1" Text="Idioma" FontFamily="OpenSansSemibold" FontSize="14"
                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                                    VerticalOptions="Center" />
@@ -251,7 +251,7 @@
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnTemaTapped" />
                             </Grid.GestureRecognizers>
-                            <Label Grid.Column="0" Text="🎨" FontSize="20" VerticalOptions="Center" />
+                            <Image Source="palette" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
                             <Label Grid.Column="1" Text="Tema" FontFamily="OpenSansSemibold" FontSize="14"
                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                                    VerticalOptions="Center" />
@@ -265,7 +265,7 @@
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnLetraTapped" />
                             </Grid.GestureRecognizers>
-                            <Label Grid.Column="0" Text="🔡" FontSize="20" VerticalOptions="Center" />
+                            <Image Source="type" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
                             <Label Grid.Column="1" Text="Tamaño de letra" FontFamily="OpenSansSemibold" FontSize="14"
                                    TextColor="{AppThemeBinding Light=#2C2C2C, Dark=White}"
                                    VerticalOptions="Center" />
