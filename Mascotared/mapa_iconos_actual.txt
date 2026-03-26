@@ -1,0 +1,259 @@
+Register.xaml: Correo electrónico
+Register.xaml: Contraseña
+Register.xaml: Confirmar contraseña
+Register.xaml: ›
+LogIn.xaml: ¡Hola de nuevo!
+LogIn.xaml: Inicia sesión para cuidar de tus peludos
+LogIn.xaml: ¿Olvidaste tu contraseña?
+LogIn.xaml: Iniciar sesión con Google
+LogIn.xaml: ¿No tienes cuenta?
+LogIn.xaml: Regístrate aquí
+MainPage.xaml: 💬
+MainPage.xaml: Ver todos ›
+MainPage.xaml: ♡
+MainPage.xaml: ·
+MainPage.xaml: ★
+MainPage.xaml: Mascotas por dueño
+MainPage.xaml: Ver todos ›
+MainPage.xaml: ···
+MainPage.xaml: 💬
+Perfil/PerfilPublico.xaml: —
+Perfil/PerfilPublico.xaml: —
+Perfil/PerfilPublico.xaml: Reseñas
+Perfil/PerfilPublico.xaml: —
+Perfil/PerfilPublico.xaml: ⭐ Media
+Perfil/PerfilPublico.xaml: 🐾 Cuidador/a
+Perfil/PerfilPublico.xaml: 🏠 Propietario/a
+Perfil/PerfilPublico.xaml: 💬 Enviar mensaje
+Perfil/PerfilPublico.xaml: 🤍
+Perfil/PerfilPublico.xaml: ⭐
+Perfil/PerfilPublico.xaml: ▼
+Perfil/PerfilPublico.xaml: INFORMACIÓN
+Perfil/PerfilPublico.xaml: Descripción personal
+Perfil/PerfilPublico.xaml: DÍAS DISPONIBLES
+Perfil/PerfilPublico.xaml: ⊞  Posts
+Perfil/PerfilPublico.xaml: 📋  Ofertas
+Perfil/PerfilPublico.xaml: 📸
+Perfil/PerfilPublico.xaml: Aún no has publicado nada
+Perfil/PerfilPublico.xaml: 📋
+Perfil/PerfilPublico.xaml: ✕
+Perfil/PerfilPublico.xaml: ❮
+Perfil/PerfilPublico.xaml: ❯
+Perfil/PerfilPublico.xaml: ♡
+Perfil/PerfilPublico.xaml: 💬
+Perfil/PerfilPublico.xaml: 🔖
+Perfil/PerfilPublico.xaml: ✕
+Perfil/PerfilConfigUser.xaml: 🔔
+Perfil/PerfilConfigUser.xaml: 📷
+Perfil/PerfilConfigUser.xaml: ✓
+Perfil/PerfilConfigUser.xaml: ✏️ Editar perfil
+Perfil/PerfilConfigUser.xaml: ⭐
+Perfil/PerfilConfigUser.xaml: Reseñas
+Perfil/PerfilConfigUser.xaml: Sin reseñas aún
+Perfil/PerfilConfigUser.xaml: ›
+Perfil/PerfilConfigUser.xaml: INFORMACIÓN
+Perfil/PerfilConfigUser.xaml: Descripción personal
+Perfil/PerfilConfigUser.xaml: DÍAS DISPONIBLES
+Perfil/PerfilConfigUser.xaml: CONFIGURACIÓN
+Perfil/PerfilConfigUser.xaml: 🤍
+Perfil/PerfilConfigUser.xaml: ›
+Perfil/PerfilConfigUser.xaml: 🌐
+Perfil/PerfilConfigUser.xaml: 🎨
+Perfil/PerfilConfigUser.xaml: 🔡
+Perfil/PerfilConfigUser.xaml: Tamaño de letra
+Perfil/PerfilConfigUser.xaml: + Añadir
+Perfil/PerfilConfigUser.xaml: Cerrar sesión
+Perfil/EditarPerfil.xaml: 📷
+Perfil/EditarPerfil.xaml: LOCALIZACIÓN
+Perfil/EditarPerfil.xaml: 📍
+Perfil/EditarPerfil.xaml: TARIFA (€/hora)
+Perfil/EditarPerfil.xaml: DESCRIPCIÓN PERSONAL
+Perfil/EditarPerfil.xaml: DÍAS DISPONIBLES
+Cuidadores/CuidadoresNear.xaml: ☰
+Cuidadores/CuidadoresNear.xaml: 🔔
+Cuidadores/CuidadoresNear.xaml: 🔍
+Cuidadores/CuidadoresNear.xaml: ⚙️
+Cuidadores/CuidadoresNear.xaml: En línea
+Cuidadores/CuidadoresNear.xaml: ✓
+Cuidadores/CuidadoresNear.xaml: ★
+Cuidadores/CuidadoresPopup.xaml: 🤍
+Cuidadores/CuidadoresPopup.xaml: ✕
+Cuidadores/CuidadoresPopup.xaml: ✓
+Cuidadores/CuidadoresPopup.xaml: INFORMACIÓN
+Cuidadores/CuidadoresPopup.xaml: DESCRIPCIÓN
+Cuidadores/CuidadoresPopup.xaml: DÍAS DISPONIBLES
+Cuidadores/CuidadoresPopup.xaml: ¿Tiene o ha tenido mascotas?
+Cuidadores/CuidadoresPopup.xaml: 🐾
+Cuidadores/CuidadoresPopup.xaml: Máx. mascotas a cuidar
+Cuidadores/CuidadoresPopup.xaml: ¿Puede con necesidades especiales?
+Cuidadores/CuidadoresPopup.xaml: ⚕️
+Cuidadores/CuidadoresPopup.xaml: ★★★★★
+Cuidadores/Cuidadores.xaml: 🔔
+Cuidadores/Cuidadores.xaml: 🔍
+Cuidadores/Cuidadores.xaml: ⚙️
+Cuidadores/Cuidadores.xaml: 🐾
+Cuidadores/Cuidadores.xaml: ✓
+Cuidadores/Cuidadores.xaml: ★★★★★
+Cuidadores/Cuidadores.xaml: ♡
+Cuidadores/Cuidadores.xaml: 📍
+Cuidadores/Cuidadores.xaml: Localización
+Cuidadores/Cuidadores.xaml: 💰
+Cuidadores/Cuidadores.xaml: ⏰
+Cuidadores/Cuidadores.xaml: 🐾
+Cuidadores/Cuidadores.xaml: ¿Tiene o ha tenido mascotas?
+Cuidadores/Cuidadores.xaml: 🏠
+Cuidadores/Cuidadores.xaml: ⚕️
+Cuidadores/Cuidadores.xaml: ›
+Views/MascotasPorDuenoPage.xaml: 🐾
+Views/MascotasPorDuenoPage.xaml: Aún no se han añadido mascotas en esta categoría.
+Views/MascotasPorDuenoPage.xaml: →
+Views/Favoritos.xaml: 💬
+Views/Favoritos.xaml: ❤️
+Views/Favoritos.xaml: Aún no te gusta ningún post
+Views/Favoritos.xaml: Cuando des ❤️ a un post aparecerá aquí guardado.
+Views/Favoritos.xaml: 🐾
+Views/Favoritos.xaml: ❤️
+Views/Favoritos.xaml: 💬
+Views/Favoritos.xaml: ❤️
+Views/TaskPopup.xaml: 🐾
+Views/TaskPopup.xaml: Aún no tienes solicitudes de cuidado
+Views/TaskPopup.xaml: Pulsa el botón + para añadir tu primera solicitud
+Views/TaskPopup.xaml: ✕
+Views/TaskPopup.xaml: INFORMACIÓN BÁSICA
+Views/TaskPopup.xaml: Información de las mascotas
+Views/TaskPopup.xaml: + Añadir
+Views/TaskPopup.xaml: Información de las mascotas
+Views/TaskPopup.xaml: ¿Ha tenido?
+Views/TaskPopup.xaml: Número máximo dispuesto a cuidar
+Views/TaskPopup.xaml: ✅  Tarea completada
+Views/TaskPopup.xaml: ✅  Marcar como completada
+Views/TaskPopup.xaml: ✅  He completado esta tarea
+Views/TaskPopup.xaml: ⭐  Dejar reseña
+Views/Momentos.xaml: 💬
+Views/Momentos.xaml: 📸
+Views/Momentos.xaml: Aún no hay momentos.
+Views/Momentos.xaml: ···
+Views/Momentos.xaml: ♡
+Views/Momentos.xaml: 💬
+Views/Momentos.xaml: 📋
+Views/Momentos.xaml: 📸
+Views/Momentos.xaml: 💼
+Views/MisMascotas.xaml: 📷  FOTO DE PERFIL
+Views/MisMascotas.xaml: 🐾  INFORMACIÓN BÁSICA
+Views/MisMascotas.xaml: 🏷️  IDENTIFICACIÓN Y SALUD
+Views/MisMascotas.xaml: Número de microchip
+Views/MisMascotas.xaml: Dirección
+Views/MisMascotas.xaml: Teléfono
+Views/MisMascotas.xaml: Condiciones médicas crónicas (selección múltiple)
+Views/MisMascotas.xaml: Tipo de correa / arnés
+Views/MisMascotas.xaml: ¿Tiene instinto de presa?
+Views/MisMascotas.xaml: Socialización
+Views/MisMascotas.xaml: ¿Se lleva bien con niños?
+Views/MisMascotas.xaml: ¿Con animales de su misma especie?
+Views/MisMascotas.xaml: ¿Con otras especies?
+Views/MisMascotas.xaml: ✨  PERSONALIDAD
+Views/MisMascotas.xaml: 🐕  ESPECÍFICO — PERROS
+Views/MisMascotas.xaml: Número de paseos al día
+Views/MisMascotas.xaml: Duración media por paseo
+Views/MisMascotas.xaml: ¿Tira de la correa?
+Views/MisMascotas.xaml: 🐈  ESPECÍFICO — GATOS
+Views/MisMascotas.xaml: ¿Gato de interior?
+Views/MisMascotas.xaml: 🦜  ESPECÍFICO — AVES
+Views/MisMascotas.xaml: Última muda
+Views/MisMascotas.xaml: 🦎  ESPECÍFICO — REPTILES
+Views/MisMascotas.xaml: Tipo de hábitat
+Views/MisMascotas.xaml: Temperatura día / noche (°C)
+Views/MisMascotas.xaml: Última muda
+Views/MisMascotas.xaml: 🐎  ESPECÍFICO — CABALLOS
+Views/MisMascotas.xaml: Hierro / Ganadería
+Views/MisMascotas.xaml: 🐰  ESPECÍFICO — PEQUEÑOS MAMÍFEROS
+Views/MisMascotas.xaml: Tiempo fuera de jaula (horas/día)
+Views/MisMascotas.xaml: ¿Hay zonas de la casa prohibidas?
+Views/MisMascotas.xaml: Nivel de energía
+Views/MisMascotas.xaml: Frecuencia de alimentación
+Views/MisMascotas.xaml: Medicación
+Views/MisMascotas.xaml: 🚨  PROTOCOLO DE EMERGENCIA
+Views/MisMascotas.xaml: Teléfono urgencias
+Views/MisMascotas.xaml: 📄  DOCUMENTACIÓN
+Views/MisMascotas.xaml: ¿Tiene seguro de responsabilidad civil?
+Views/MisMascotas.xaml: ¿Vacunas al día?
+Views/MisMascotas.xaml: Ningún archivo seleccionado
+Views/MisMascotas.xaml: 💾  Guardar mascota
+Views/Messages.xaml: ✏️
+Views/Messages.xaml: 🔍
+Views/Messages.xaml: 💬
+Views/Messages.xaml: 📦  0 archivados
+Views/Messages.xaml: ›
+Views/MisMascotasLista.xaml: 🐶 Perros
+Views/MisMascotasLista.xaml: 🐱 Gatos
+Views/MisMascotasLista.xaml: 🦜 Aves
+Views/MisMascotasLista.xaml: 🐾 Otros
+Views/MisMascotasLista.xaml: 🐾
+Views/MisMascotasLista.xaml: Aún no tienes mascotas
+Views/MisMascotasLista.xaml: Pulsa el botón + para añadir tu primera mascota
+Views/MisMascotasLista.xaml: ✕
+Views/MisMascotasLista.xaml: INFORMACIÓN BÁSICA
+Views/MisMascotasLista.xaml: Condiciones médicas
+Views/MisMascotasLista.xaml: Correa / Arnés
+Views/MisMascotasLista.xaml: Socialización
+Views/MisMascotasLista.xaml: Nivel de energía
+Views/MisMascotasLista.xaml: Alimentación
+Views/MisMascotasLista.xaml: Medicación
+Views/MisMascotasLista.xaml: Teléfono urgencias
+Views/Chatpage.xaml: ←
+Views/Chatpage.xaml: ⭐
+Views/Chatpage.xaml: ·
+Views/Chatpage.xaml: ···
+Views/Chatpage.xaml: ›
+Views/Chatpage.xaml: ✕
+Views/Chatpage.xaml: ⚠️
+Views/Chatpage.xaml: 🐾
+Views/Chatpage.xaml: Aún no hay mensajes
+Views/Chatpage.xaml: Sé el primero en escribir y empieza a coordinar el cuidado.
+Views/Chatpage.xaml: 📋
+Views/Chatpage.xaml: ↑
+Views/FavoritosTask.xaml: 🐾
+Views/FavoritosTask.xaml: Aún no tienes favoritos
+Views/FavoritosTask.xaml: Pulsa el botón ❤️ para añadir perfiles y tareas a tu lista de favoritos
+Views/FavoritosTask.xaml: ❤️
+Views/Tasks.xaml: 📷  FOTO DE PERFIL
+Views/Tasks.xaml: INFORMACIÓN BÁSICA
+Views/Tasks.xaml: Breve descripción*
+Views/Tasks.xaml: ESPECÍFICO — PROPIETARIO
+Views/Tasks.xaml: Oferta de dinero (€)
+Views/Tasks.xaml:  → 
+Views/Tasks.xaml:  → 
+Views/Tasks.xaml: No tienes mascotas registradas. Añade una en tu perfil (Cuenta → Mis mascotas).
+Views/Tasks.xaml: ✓
+Views/Tasks.xaml: Descripción
+Views/Tasks.xaml: ESPECÍFICO — CUIDADOR
+Views/Tasks.xaml: ¿Tienes o has tenido mascotas?
+Views/Tasks.xaml: Número de mascotas dispuesto a cuidar
+Views/NuevoMomento.xaml: Publicación pública
+Views/NuevoMomento.xaml: 🖼️
+Views/NuevoMomento.xaml: Toca para añadir una foto
+Views/NuevoMomento.xaml: 🔄 Cambiar foto
+Views/NuevoMomento.xaml: DESCRIPCIÓN
+Views/ComentariosPage.xaml: ♡
+Propietarios/Propietario.xaml: 🔔
+Propietarios/Propietario.xaml: 🔍
+Propietarios/Propietario.xaml: ⚙️
+Propietarios/Propietario.xaml: 🐾
+Propietarios/Propietario.xaml: ✓
+Propietarios/Propietario.xaml: ★★★★★
+Propietarios/Propietario.xaml: ♡
+Propietarios/Propietario.xaml: 🐾
+Propietarios/Propietario.xaml: 📍
+Propietarios/Propietario.xaml: Localización
+Propietarios/Propietario.xaml: ⏰
+Propietarios/Propietario.xaml: ⚡
+Propietarios/Propietario.xaml: Última actividad
+Propietarios/Propietario.xaml: ›
+Propietarios/PropietarioPopup.xaml: 🤍
+Propietarios/PropietarioPopup.xaml: ✕
+Propietarios/PropietarioPopup.xaml: ✓
+Propietarios/PropietarioPopup.xaml: INFORMACIÓN
+Propietarios/PropietarioPopup.xaml: Tarifa máx.
+Propietarios/PropietarioPopup.xaml: DESCRIPCIÓN
+Propietarios/PropietarioPopup.xaml: DÍAS DISPONIBLES
+Propietarios/PropietarioPopup.xaml: ★★★★★
