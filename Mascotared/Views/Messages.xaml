@@ -265,7 +265,7 @@
             </Grid.Shadow>
 
             <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
-                <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                <Image Source="search" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                 <Label Text="Explorar" FontSize="10" FontFamily="InterSemiBold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
@@ -276,7 +276,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
-                <Label Text="🤍" FontSize="22" HorizontalOptions="Center" />
+                <Image Source="heart" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                 <Label Text="Favoritos" FontSize="10" FontFamily="InterSemiBold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
@@ -287,7 +287,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
-                <Label Text="📅" FontSize="22" HorizontalOptions="Center" />
+                <Image Source="calendar" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                 <Label Text="Solicitudes" FontSize="10" FontFamily="InterSemiBold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"
@@ -300,7 +300,7 @@
             <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
                 <!-- Icono con badge de no leídos -->
                 <Grid HorizontalOptions="Center">
-                    <Label Text="💬" FontSize="22" HorizontalOptions="Center" />
+                    <Image Source="message" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                     <Border x:Name="BadgeNoLeidos"
                             BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                             StrokeShape="Ellipse"
@@ -321,7 +321,7 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
-                <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                <Image Source="user" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                 <Label Text="Cuenta" FontSize="10" FontFamily="InterSemiBold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 <BoxView HeightRequest="3" WidthRequest="30" BackgroundColor="Transparent"

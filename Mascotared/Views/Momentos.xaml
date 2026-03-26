@@ -156,7 +156,7 @@
                     <Shadow Brush="Black" Opacity="0.06" Offset="0,-4" Radius="12" />
                 </Grid.Shadow>
                 <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
-                    <Label Text="🔍" FontSize="22" HorizontalOptions="Center" />
+                    <Image Source="search" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                     <Label Text="Explorar" FontSize="10" FontFamily="OpenSansSemibold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 </VerticalStackLayout>
@@ -176,7 +176,7 @@
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
-                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" />
+                    <Image Source="user" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" />
                     <Label Text="Perfil" FontSize="10" FontFamily="OpenSansSemibold"
                        TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}" HorizontalOptions="Center" />
                 </VerticalStackLayout>
