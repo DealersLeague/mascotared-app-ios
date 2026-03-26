@@ -127,7 +127,7 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="12"/>
                             </Border.StrokeShape>
-                            <Label x:Name="LabelGpsBtn" Text="📍" FontSize="20"
+                            <Label x:Name="LabelGpsBtn" Text="GPS" FontSize="16"
                                    HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnDetectarUbicacionTapped" />

@@ -361,7 +361,7 @@ public partial class EditarPerfil : ContentPage
         u.DiasDisponibles = diasStr;
         u.FranjasHorarias = franjasStr;
 
-        await DisplayAlertAsync("✅ Guardado", "Tu perfil se ha actualizado correctamente.", "OK");
+        await DisplayAlertAsync("Guardado", "Tu perfil se ha actualizado correctamente.", "OK");
         await Navigation.PopAsync(animated: true);
     }
 
@@ -369,13 +369,13 @@ public partial class EditarPerfil : ContentPage
 
     private async void OnDetectarUbicacionTapped(object sender, EventArgs e)
     {
-        LabelGpsBtn.Text = "⏳";
+        LabelGpsBtn.Text = "...";
         try
         {
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             if (status != PermissionStatus.Granted)
             {
-                LabelGpsBtn.Text = "📍";
+                LabelGpsBtn.Text = "GPS";
                 await DisplayAlertAsync("Permisos", "Necesitas conceder permiso de ubicación.", "OK");
                 return;
             }
@@ -386,7 +386,7 @@ public partial class EditarPerfil : ContentPage
                 Timeout = TimeSpan.FromSeconds(10)
             });
 
-            if (loc == null) { LabelGpsBtn.Text = "📍"; return; }
+            if (loc == null) { LabelGpsBtn.Text = "GPS"; return; }
 
             _latitud = loc.Latitude;
             _longitud = loc.Longitude;
@@ -404,11 +404,11 @@ public partial class EditarPerfil : ContentPage
                     EntryLocalizacion.Text = string.Join(", ", parts);
             }
 
-            LabelGpsBtn.Text = "✅";
+            LabelGpsBtn.Text = "OK";
         }
         catch
         {
-            LabelGpsBtn.Text = "📍";
+            LabelGpsBtn.Text = "GPS";
             await DisplayAlertAsync("Error", "No se pudo obtener la ubicación.", "OK");
         }
     }
