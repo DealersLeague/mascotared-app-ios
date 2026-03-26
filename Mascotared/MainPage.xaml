@@ -15,28 +15,37 @@
 
     <Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- HEADER -->
-        <Grid Grid.Row="0"
-              BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
-              Padding="20,0,20,14"
-              ColumnDefinitions="*,Auto">
-            <HorizontalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="0">
-                <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
-                <Label Text="Red"     FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
-            </HorizontalStackLayout>
-            <Border Grid.Column="1" BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
-                    WidthRequest="38" HeightRequest="38"
-                    Stroke="Transparent" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="19" />
-                </Border.StrokeShape>
-                <Label Text="💬" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnMensajesTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </Border>
-        </Grid>
+<!-- HEADER -->
+<Grid Grid.Row="0"
+      BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1F2E}"
+      Padding="20,0,20,14"
+      ColumnDefinitions="*,Auto">
+    <HorizontalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="0">
+        <Label Text="Mascota" FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" />
+        <Label Text="Red"     FontFamily="InterSemiBold" FontSize="22" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}" />
+    </HorizontalStackLayout>
+
+    <Border Grid.Column="1"
+            BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
+            WidthRequest="38"
+            HeightRequest="38"
+            Stroke="Transparent"
+            StrokeThickness="0">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="19" />
+        </Border.StrokeShape>
+
+        <Image Source="message"
+               WidthRequest="16"
+               HeightRequest="16"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnMensajesTapped" />
+        </Border.GestureRecognizers>
+    </Border>
+</Grid>
 
         <!-- CONTENIDO -->
         <ScrollView Grid.Row="1">
@@ -280,36 +289,39 @@
                                     </Image.GestureRecognizers>
                                 </Image>
 
-                                <!-- Acciones -->
-                                <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto"
-                                      Padding="14,10" ColumnSpacing="14">
-                                    <HorizontalStackLayout Grid.Column="0" Spacing="5">
-                                        <Label Text="{Binding MeGusta, Converter={StaticResource BoolToHeartConverter}}"
-                                               FontSize="24" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
-                                            <Label.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="OnLikeFeedTapped"
-                                                                      CommandParameter="{Binding .}" />
-                                            </Label.GestureRecognizers>
-                                        </Label>
-                                        <Label Text="{Binding NumLikes}"
-                                               FontFamily="OpenSansSemibold" FontSize="13"
-                                               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
-                                               VerticalOptions="Center" />
-                                    </HorizontalStackLayout>
-                                    <HorizontalStackLayout Grid.Column="1" Spacing="5">
-                                        <Label Text="💬" FontSize="22">
-                                            <Label.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="OnComentarTapped"
-                                                                      CommandParameter="{Binding .}" />
-                                            </Label.GestureRecognizers>
-                                        </Label>
-                                        <Label Text="{Binding NumComentarios}"
-                                               FontFamily="OpenSansSemibold" FontSize="13"
-                                               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
-                                               VerticalOptions="Center" />
-                                    </HorizontalStackLayout>
-                                    
-                                </Grid>
+<!-- Acciones -->
+<Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto"
+      Padding="14,10" ColumnSpacing="14">
+    <HorizontalStackLayout Grid.Column="0" Spacing="5">
+        <Label Text="{Binding MeGusta, Converter={StaticResource BoolToHeartConverter}}"
+               FontSize="24" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLikeFeedTapped"
+                                      CommandParameter="{Binding .}" />
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="{Binding NumLikes}"
+               FontFamily="OpenSansSemibold" FontSize="13"
+               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+               VerticalOptions="Center" />
+    </HorizontalStackLayout>
+
+    <HorizontalStackLayout Grid.Column="1" Spacing="5">
+        <Image Source="message"
+               WidthRequest="22"
+               HeightRequest="22"
+               VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnComentarTapped"
+                                      CommandParameter="{Binding .}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="{Binding NumComentarios}"
+               FontFamily="OpenSansSemibold" FontSize="13"
+               TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
+               VerticalOptions="Center" />
+    </HorizontalStackLayout>
+</Grid>
 
                                 <!-- Descripción -->
                                 <VerticalStackLayout Padding="16,0,16,6" Spacing="2">
