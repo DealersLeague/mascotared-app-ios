@@ -120,13 +120,16 @@ public partial class Register : ContentPage
         {
             // DOB ya no es obligatoria
             bool ok = await _api.RegisterAsync(
-                nombre, email, password, _esPropietario, _esCuidador,
-                null, _genero);
+    nombre, email, password, _esPropietario, _esCuidador,
+    null, string.IsNullOrWhiteSpace(_genero) ? null : _genero);
 
             if (ok)
             {
                 // Ya no guardamos DOB en Preferences
-                Preferences.Set("user_genero", _genero);
+                if (!string.IsNullOrWhiteSpace(_genero))
+    Preferences.Set("user_genero", _genero);
+else
+    Preferences.Remove("user_genero");
                 Preferences.Set("user_nombre", nombre);
                 Preferences.Set("user_email", email);
                 Preferences.Set("user_esPropietario", _esPropietario);
