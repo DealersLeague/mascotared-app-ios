@@ -43,18 +43,24 @@
                     BackgroundColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}" TextColor="White"
                     CornerRadius="10" HeightRequest="50" FontAttributes="Bold"/>
 
-            <Grid ColumnDefinitions="*, Auto, *">
-                <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
-                <Label Grid.Column="1" Text=" o " Margin="10,0" VerticalOptions="Center" TextColor="Gray"/>
-                <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
-            </Grid>
+<Grid ColumnDefinitions="*,Auto,*"
+      Margin="0,18,0,18"
+      IsVisible="{OnPlatform iOS=False, Android=True, WinUI=True}">
+    <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
+    <Label Grid.Column="1" Text=" o " Margin="10,0" VerticalOptions="Center" TextColor="Gray"/>
+    <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#E0E0E0" VerticalOptions="Center"/>
+</Grid>
 
-            <Button Text="Iniciar sesión con Google" 
-                    ImageSource="google.png"
-                    Clicked="OnGoogleLoginClicked"
-                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}" TextColor="{AppThemeBinding Light=#444444, Dark=White}"
-                    BorderColor="#E0E0E0" BorderWidth="1"
-                    CornerRadius="10" HeightRequest="50" />
+<Button Text="Iniciar sesión con Google" 
+        ImageSource="google.png"
+        Clicked="OnGoogleLoginClicked"
+        BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A24}"
+        TextColor="{AppThemeBinding Light=#444444, Dark=White}"
+        BorderColor="#E0E0E0"
+        BorderWidth="1"
+        CornerRadius="10"
+        HeightRequest="50"
+        IsVisible="{OnPlatform iOS=False, Android=True, WinUI=True}" />
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Label Text="¿No tienes cuenta?" VerticalOptions="Center"/>
