@@ -293,13 +293,15 @@
 <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto"
       Padding="14,10" ColumnSpacing="14">
     <HorizontalStackLayout Grid.Column="0" Spacing="5">
-        <Label Text="{Binding MeGusta, Converter={StaticResource BoolToHeartConverter}}"
-               FontSize="24" TextColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnLikeFeedTapped"
-                                      CommandParameter="{Binding .}" />
-            </Label.GestureRecognizers>
-        </Label>
+        <Image Source="heart"
+       WidthRequest="22"
+       HeightRequest="22"
+       VerticalOptions="Center">
+    <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnLikeFeedTapped"
+                              CommandParameter="{Binding .}" />
+    </Image.GestureRecognizers>
+</Image>
         <Label Text="{Binding NumLikes}"
                FontFamily="OpenSansSemibold" FontSize="13"
                TextColor="{AppThemeBinding Light=#9AA0C4, Dark=#7B82B0}"
