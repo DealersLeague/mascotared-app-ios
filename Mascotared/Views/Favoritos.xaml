@@ -28,18 +28,24 @@
 
             <Grid Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center">
                 <Border BackgroundColor="{AppThemeBinding Light=#F4F6FA, Dark=#22222E}"
-                WidthRequest="38" HeightRequest="38"
-                Stroke="Transparent" StrokeThickness="0">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="19" />
-                    </Border.StrokeShape>
-                    <Label Text="💬" FontSize="16"
-                   HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnMensajesTapped" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                </Border>
+        WidthRequest="38"
+        HeightRequest="38"
+        Stroke="Transparent"
+        StrokeThickness="0">
+    <Border.StrokeShape>
+        <RoundRectangle CornerRadius="19" />
+    </Border.StrokeShape>
+
+    <Image Source="message"
+           WidthRequest="16"
+           HeightRequest="16"
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnMensajesTapped" />
+    </Border.GestureRecognizers>
+</Border>
                 <Border x:Name="BadgeNoLeidos"
                 BackgroundColor="{AppThemeBinding Light=#FE3D7D, Dark=#FF4F8F}"
                 StrokeShape="Ellipse"
