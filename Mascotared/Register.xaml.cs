@@ -17,7 +17,7 @@ public partial class Register : ContentPage
     {
         InitializeComponent();
         BindingContext = this;
-        DatePickerNacimiento.Date = EdadMinimaDate;
+        // DOB ya no es obligatoria: no preseleccionamos fecha
     }
 
     // ── Género ────────────────────────────────────────────────────────────
@@ -90,7 +90,6 @@ public partial class Register : ContentPage
         string password = PasswordEntry.Text ?? "";
         string confirmPassword = ConfirmPasswordEntry.Text ?? "";
 
-        // Campos obligatorios
         if (string.IsNullOrEmpty(nombre) ||
             string.IsNullOrEmpty(email) ||
             string.IsNullOrEmpty(password))
@@ -99,35 +98,18 @@ public partial class Register : ContentPage
             return;
         }
 
-        // Longitud mínima de contraseña
         if (password.Length < 8)
         {
             await DisplayAlert("Error", "La contrasena debe tener al menos 8 caracteres.", "OK");
             return;
         }
 
-        // Contraseñas coinciden
         if (password != confirmPassword)
         {
             await DisplayAlert("Error", "Las contrasenias no coinciden.", "OK");
             return;
         }
 
-        // Validación edad mínima 18 años
-        DateTime fechaNac = DatePickerNacimiento.Date ?? DateTime.Today;
-        int edad = DateTime.Today.Year - fechaNac.Year;
-        if (fechaNac > DateTime.Today.AddYears(-edad)) edad--;
-
-        if (edad < 18)
-        {
-            await DisplayAlert(
-                "Acceso restringido",
-                "Debes tener al menos 18 anios para registrarte en MascotaRed.",
-                "Entendido");
-            return;
-        }
-
-        // Al menos un rol
         if (!_esPropietario && !_esCuidador)
         {
             await DisplayAlert("Error", "Selecciona al menos un rol.", "OK");
@@ -136,13 +118,14 @@ public partial class Register : ContentPage
 
         try
         {
+            // DOB ya no es obligatoria
             bool ok = await _api.RegisterAsync(
-            nombre, email, password, _esPropietario, _esCuidador,
-            DatePickerNacimiento.Date ?? DateTime.Today, _genero);
+                nombre, email, password, _esPropietario, _esCuidador,
+                null, _genero);
 
             if (ok)
             {
-                Preferences.Set("user_fechaNacimiento", (DatePickerNacimiento.Date ?? DateTime.Today).Ticks);
+                // Ya no guardamos DOB en Preferences
                 Preferences.Set("user_genero", _genero);
                 Preferences.Set("user_nombre", nombre);
                 Preferences.Set("user_email", email);
