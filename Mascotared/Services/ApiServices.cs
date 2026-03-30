@@ -1,4 +1,4 @@
-﻿using Mascotared.Models;
+using Mascotared.Models;
 using Microsoft.Maui.Storage;
 using System.Net.Http.Headers;
 using System.Text;
@@ -796,7 +796,7 @@ namespace Mascotared.Services
             catch { return false; }
         }
 
-        public async Task<bool> EliminarCuentaAsync()
+         public async Task<bool> EliminarCuentaAsync()
         {
             try
             {
@@ -806,6 +806,7 @@ namespace Mascotared.Services
             }
             catch { return false; }
         }
+
         public async Task<LoginResult?> LoginConGoogleAsync(string idToken)
         {
             try

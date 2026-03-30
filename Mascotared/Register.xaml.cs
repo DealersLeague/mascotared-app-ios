@@ -138,7 +138,7 @@ else
                 Preferences.Set("es_primer_inicio", true);
 
                 await DisplayAlertAsync(
-                    "✉️ Verifica tu correo",
+                    "Verifica tu correo",
                     $"Te hemos enviado un correo de verificación a {email}.\n\nRevisa tu bandeja de entrada y también la carpeta de spam o correo no deseado.\n\nDebes verificar tu cuenta antes de iniciar sesión.",
                     "Entendido");
 

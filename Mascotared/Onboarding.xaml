@@ -92,10 +92,15 @@
                                      VerticalOptions="End"
                                      Margin="0,0,0,-70"/>
                             <Label Text="{Binding Emoji}"
-                                   FontSize="100"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="End"
-                                   Margin="0,0,0,8"/>
+       				FontFamily="Inter"
+       				FontSize="28"
+       				FontAttributes="Bold"
+       				TextColor="{AppThemeBinding Light=#455AEB, Dark=#5C6CFF}"
+       				Opacity="0.22"
+       				HorizontalOptions="Center"
+       				HorizontalTextAlignment="Center"
+       				VerticalOptions="End"
+       				Margin="0,0,0,20"/>
                         </Grid>
 
                     </Grid>

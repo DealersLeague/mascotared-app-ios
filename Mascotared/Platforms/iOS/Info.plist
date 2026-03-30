@@ -32,11 +32,6 @@
 	<string>MascotaRed usa tu ubicación para mostrar cuidadores, servicios y resultados cercanos a tu zona.</string>
 	<key>CFBundleIdentifier</key>
 	<string></string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
 </dict>

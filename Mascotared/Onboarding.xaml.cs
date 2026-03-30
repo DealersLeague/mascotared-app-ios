@@ -8,7 +8,7 @@ public partial class Onboarding : ContentPage
     {
         new OnboardingSlide
         {
-            Emoji = "🐾",
+            Emoji = "MR",
             Titulo = "Bienvenido a MascotaRed",
             Bullets = new()
             {
@@ -19,7 +19,7 @@ public partial class Onboarding : ContentPage
         },
         new OnboardingSlide
         {
-            Emoji = "🔍",
+            Emoji = "BUSCAR",
             Titulo = "Encuentra cuidadores",
             Bullets = new()
             {
@@ -30,7 +30,7 @@ public partial class Onboarding : ContentPage
         },
         new OnboardingSlide
         {
-            Emoji = "📋",
+            Emoji = "SOLICITUD",
             Titulo = "Publica tu solicitud",
             Bullets = new()
             {
@@ -43,7 +43,7 @@ public partial class Onboarding : ContentPage
         },
         new OnboardingSlide
         {
-            Emoji = "🐶",
+            Emoji = "MASCOTA",
             Titulo = "El perfil de tu mascota",
             Bullets = new()
             {
@@ -56,7 +56,7 @@ public partial class Onboarding : ContentPage
         },
         new OnboardingSlide
         {
-            Emoji = "🏢",
+            Emoji = "PRO",
             Titulo = "¿Empresa del sector animal?",
             Bullets = new()
             {
@@ -70,7 +70,7 @@ public partial class Onboarding : ContentPage
         },
         new OnboardingSlide
         {
-            Emoji = "💬",
+            Emoji = "MENSAJES",
             Titulo = "Conecta y gestiona",
             Bullets = new()
             {
@@ -96,7 +96,7 @@ public partial class Onboarding : ContentPage
         _indiceActual = Slides.IndexOf((OnboardingSlide)CarouselSlides.CurrentItem);
         bool esUltimo = _indiceActual == Slides.Count - 1;
 
-        BtnSiguiente.Text = esUltimo ? "¡Empezar! 🚀" : "Continuar";
+        BtnSiguiente.Text = esUltimo ? "¡Empezar!" : "Continuar";
 
         bool isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
         BtnSiguiente.BackgroundColor = esUltimo

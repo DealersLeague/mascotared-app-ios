@@ -523,28 +523,31 @@ public partial class PerfilConfigUser : ContentPage
         if (opcion != null && opcion != "Cancelar") { Preferences.Set("user_letra", opcion); LblLetraValor.Text = opcion; }
     }
 
-    private async void OnEliminarCuentaTapped(object? sender, TappedEventArgs e)
+private async void OnEliminarCuentaTapped(object? sender, TappedEventArgs e)
+{
+    bool confirmar = await DisplayAlertAsync("Eliminar cuenta",
+        "Esta acción es irreversible. Se borrarán todos tus datos, mascotas, mensajes y reseñas. ¿Estás seguro?",
+        "Sí, eliminar", "Cancelar");
+    if (!confirmar) return;
+
+    bool confirmar2 = await DisplayAlertAsync("Última confirmación",
+        "¿Realmente quieres eliminar tu cuenta de forma permanente?",
+        "Eliminar para siempre", "Cancelar");
+    if (!confirmar2) return;
+
+    bool ok = await _api.EliminarCuentaAsync();
+
+    if (ok)
     {
-        bool confirmar = await DisplayAlertAsync("⚠️ Eliminar cuenta",
-            "Esta acción es irreversible. Se borrarán todos tus datos, mascotas, mensajes y reseñas. ¿Estás seguro?",
-            "Sí, eliminar", "Cancelar");
-        if (!confirmar) return;
-
-        bool confirmar2 = await DisplayAlertAsync("Última confirmación",
-            "¿Realmente quieres eliminar tu cuenta de forma permanente?",
-            "Eliminar para siempre", "Cancelar");
-        if (!confirmar2) return;
-
-        bool ok = await _api.EliminarCuentaAsync();
-        if (ok)
-        {
-            Preferences.Clear();
-            Application.Current!.Dispatcher.Dispatch(() =>
-                Application.Current.MainPage = new NavigationPage(new LogIn()));
-        }
-        else
-            await DisplayAlertAsync("Error", "No se pudo eliminar la cuenta. Inténtalo de nuevo.", "OK");
+        Preferences.Clear();
+        Application.Current!.Dispatcher.Dispatch(() =>
+            Application.Current.MainPage = new NavigationPage(new LogIn()));
     }
+    else
+    {
+        await DisplayAlertAsync("Error", "No se pudo eliminar la cuenta. Inténtalo de nuevo.", "OK");
+    }
+}
 
     private void OnCerrarSesionTapped(object? sender, TappedEventArgs e)
     {

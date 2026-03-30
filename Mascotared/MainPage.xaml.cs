@@ -13,26 +13,40 @@ public partial class MainPage : ContentPage
     private List<MascotaDestacada> _mascotas = new();
     private List<MomentoItem> _feed = new();
     private Location? _ubicacionActual;
+	private bool _cargado = false;
 
     private readonly Mascotared.Services.ApiService _api = new();
 
     public MainPage()
     {
         InitializeComponent();
-        _ = CargarTodoAsync();
     }
 
-    protected override async void OnAppearing()
+protected override async void OnAppearing()
+{
+    base.OnAppearing();
+
+    if (!_cargado)
     {
-        base.OnAppearing();
+        _cargado = true;
         try
         {
-            var convs = await _api.GetConversacionesAsync();
-            BadgeNoLeidos.IsVisible = convs.Any(j =>
-                j.TryGetProperty("noLeidos", out var nl) && nl.GetInt32() > 0);
+            await CargarTodoAsync();
         }
-        catch { }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"[MainPage] Error carga inicial: {ex.Message}");
+        }
     }
+
+    try
+    {
+        var convs = await _api.GetConversacionesAsync();
+        BadgeNoLeidos.IsVisible = convs.Any(j =>
+            j.TryGetProperty("noLeidos", out var nl) && nl.GetInt32() > 0);
+    }
+    catch { }
+}
 
     // ── Carga inicial ─────────────────────────────────────────────────────────
 
@@ -48,30 +62,34 @@ public partial class MainPage : ContentPage
 
     // ── Ubicación + Cuidadores ────────────────────────────────────────────────
 
-    private async Task CargarCuidadoresYUbicacion()
+private async Task CargarCuidadoresYUbicacion()
+{
+    try
     {
-        try
-        {
-            var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (status != PermissionStatus.Granted)
-                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+        var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
 
-            if (status == PermissionStatus.Granted)
+        // NO pedir permiso automáticamente al abrir Home
+        if (status == PermissionStatus.Granted)
+        {
+            _ubicacionActual = await Geolocation.GetLocationAsync(new GeolocationRequest
             {
-                _ubicacionActual = await Geolocation.GetLocationAsync(new GeolocationRequest
-                {
-                    DesiredAccuracy = GeolocationAccuracy.Medium,
-                    Timeout = TimeSpan.FromSeconds(10)
-                });
-            }
+                DesiredAccuracy = GeolocationAccuracy.Medium,
+                Timeout = TimeSpan.FromSeconds(10)
+            });
         }
-        catch (Exception ex)
+        else
         {
-            System.Diagnostics.Debug.WriteLine($"[MainPage] Ubicación: {ex.Message}");
+            _ubicacionActual = null;
         }
-
-        await CargarCuidadoresCercanosAsync();
     }
+    catch (Exception ex)
+    {
+        System.Diagnostics.Debug.WriteLine($"[MainPage] Ubicación: {ex.Message}");
+        _ubicacionActual = null;
+    }
+
+    await CargarCuidadoresCercanosAsync();
+}
 
     private async Task CargarCuidadoresCercanosAsync()
     {
