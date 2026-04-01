@@ -24,7 +24,7 @@ namespace Mascotared.Services
     public class ApiService
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://91.98.163.114:5000/api";
+        private const string BaseUrl = "https://api.mascotared.es/api";
 
         // private const string BaseUrl = "https://10.0.2.2:7083/api";
 
