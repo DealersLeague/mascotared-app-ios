@@ -97,21 +97,25 @@ public partial class PerfilPublico : ContentPage
     // ── Avatar helper ─────────────────────────────────────────────────────────
 
     private void MostrarFoto(string foto)
+{
+    try
     {
-        try
-        {
-            ImgAvatar.Source = foto.StartsWith("http")
-                ? ImageSource.FromUri(new Uri(foto))
-                : ImageSource.FromStream(() =>
-                {
-                    var b64 = foto.StartsWith("data:") ? foto[(foto.IndexOf(',') + 1)..] : foto;
-                    return new MemoryStream(Convert.FromBase64String(b64.Trim()));
-                });
-            ImgAvatar.IsVisible = true;
-            LabelInicial.IsVisible = false;
-        }
-        catch { /* mantener la inicial si la foto falla */ }
+        if (foto.StartsWith("http://"))
+            foto = foto.Replace("http://", "https://");
+
+        ImgAvatar.Source = (foto.StartsWith("https://"))
+            ? ImageSource.FromUri(new Uri(foto))
+            : ImageSource.FromStream(() =>
+            {
+                var b64 = foto.StartsWith("data:") ? foto[(foto.IndexOf(',') + 1)..] : foto;
+                return new MemoryStream(Convert.FromBase64String(b64.Trim()));
+            });
+
+        ImgAvatar.IsVisible = true;
+        LabelInicial.IsVisible = false;
     }
+    catch { }
+}
 
     // ── Perfil ────────────────────────────────────────────────────────────────
 
@@ -130,20 +134,24 @@ public partial class PerfilPublico : ContentPage
                 // Leer foto directamente del DTO antes de serializar
                 string? fotoDirecta = perfil.FotoPerfil;
                 if (!string.IsNullOrEmpty(fotoDirecta))
-                {
-                    if (fotoDirecta.StartsWith("http"))
-                        ImgAvatar.Source = ImageSource.FromUri(new Uri(fotoDirecta));
-                    else
-                        ImgAvatar.Source = ImageSource.FromStream(() =>
-                        {
-                            var b64 = fotoDirecta.StartsWith("data:")
-                                ? fotoDirecta[(fotoDirecta.IndexOf(',') + 1)..]
-                                : fotoDirecta;
-                            return new MemoryStream(Convert.FromBase64String(b64));
-                        });
-                    ImgAvatar.IsVisible = true;
-                    LabelInicial.IsVisible = false;
-                }
+{
+    if (fotoDirecta.StartsWith("http://"))
+        fotoDirecta = fotoDirecta.Replace("http://", "https://");
+
+    if (fotoDirecta.StartsWith("https://"))
+        ImgAvatar.Source = ImageSource.FromUri(new Uri(fotoDirecta));
+    else
+        ImgAvatar.Source = ImageSource.FromStream(() =>
+        {
+            var b64 = fotoDirecta.StartsWith("data:")
+                ? fotoDirecta[(fotoDirecta.IndexOf(',') + 1)..]
+                : fotoDirecta;
+            return new MemoryStream(Convert.FromBase64String(b64));
+        });
+
+    ImgAvatar.IsVisible = true;
+    LabelInicial.IsVisible = false;
+}
                 else
                 {
                     // Fallback a Preferences
@@ -151,19 +159,23 @@ public partial class PerfilPublico : ContentPage
                     if (string.IsNullOrEmpty(fotoPrefs))
                         fotoPrefs = Preferences.Get("user_foto", string.Empty);
                     if (!string.IsNullOrEmpty(fotoPrefs))
-                    {
-                        ImgAvatar.Source = fotoPrefs.StartsWith("http")
-                            ? ImageSource.FromUri(new Uri(fotoPrefs))
-                            : ImageSource.FromStream(() =>
-                            {
-                                var b64 = fotoPrefs.StartsWith("data:")
-                                    ? fotoPrefs[(fotoPrefs.IndexOf(',') + 1)..]
-                                    : fotoPrefs;
-                                return new MemoryStream(Convert.FromBase64String(b64));
-                            });
-                        ImgAvatar.IsVisible = true;
-                        LabelInicial.IsVisible = false;
-                    }
+{
+    if (fotoPrefs.StartsWith("http://"))
+        fotoPrefs = fotoPrefs.Replace("http://", "https://");
+
+    ImgAvatar.Source = fotoPrefs.StartsWith("https://")
+        ? ImageSource.FromUri(new Uri(fotoPrefs))
+        : ImageSource.FromStream(() =>
+        {
+            var b64 = fotoPrefs.StartsWith("data:")
+                ? fotoPrefs[(fotoPrefs.IndexOf(',') + 1)..]
+                : fotoPrefs;
+            return new MemoryStream(Convert.FromBase64String(b64));
+        });
+
+    ImgAvatar.IsVisible = true;
+    LabelInicial.IsVisible = false;
+}
                 }
 
                 var json = JsonSerializer.Serialize(perfil);
@@ -296,13 +308,19 @@ public partial class PerfilPublico : ContentPage
                 // ── FIX: la API devuelve "imagen", no "imagenBase64" ni "imagenUrl" ──
                 string imagenUrl = string.Empty;
                 if (item.TryGetProperty("imagen", out var img) && img.ValueKind != JsonValueKind.Null)
-                {
-                    string? imgStr = img.GetString();
-                    if (!string.IsNullOrEmpty(imgStr))
-                        imagenUrl = imgStr.StartsWith("http") ? imgStr
-                            : imgStr.StartsWith("data:") ? imgStr
-                            : $"data:image/jpeg;base64,{imgStr}";
-                }
+{
+    string? imgStr = img.GetString();
+    if (!string.IsNullOrEmpty(imgStr))
+    {
+        imagenUrl = imgStr.StartsWith("http://")
+            ? imgStr.Replace("http://", "https://")
+            : imgStr.StartsWith("https://")
+                ? imgStr
+                : imgStr.StartsWith("data:")
+                    ? imgStr
+                    : $"data:image/jpeg;base64,{imgStr}";
+    }
+}
 
                 int comentarios = item.TryGetProperty("numComentarios", out var nc) ? nc.GetInt32() : 0;
                 bool meGusta = item.TryGetProperty("meGusta", out var mg) && mg.GetBoolean();
@@ -567,18 +585,21 @@ public partial class PerfilPublico : ContentPage
         // Imagen
         string url = post.ImagenUrl ?? string.Empty;
         if (!string.IsNullOrEmpty(url))
+{
+    if (url.StartsWith("http://"))
+        url = url.Replace("http://", "https://");
+
+    if (url.StartsWith("https://"))
+        VisorImagen.Source = ImageSource.FromUri(new Uri(url));
+    else if (url.StartsWith("data:"))
+        VisorImagen.Source = ImageSource.FromStream(() =>
         {
-            if (url.StartsWith("http"))
-                VisorImagen.Source = ImageSource.FromUri(new Uri(url));
-            else if (url.StartsWith("data:"))
-                VisorImagen.Source = ImageSource.FromStream(() =>
-                {
-                    var b64 = url[(url.IndexOf(',') + 1)..];
-                    return new MemoryStream(Convert.FromBase64String(b64));
-                });
-            else
-                VisorImagen.Source = ImageSource.FromFile(url);
-        }
+            var b64 = url[(url.IndexOf(',') + 1)..];
+            return new MemoryStream(Convert.FromBase64String(b64));
+        });
+    else
+        VisorImagen.Source = ImageSource.FromFile(url);
+}
         else
         {
             VisorImagen.Source = null;
@@ -828,22 +849,28 @@ public partial class PerfilPublico : ContentPage
         });
 
         // Foto encima si es URL http (igual que el feed For You)
-        if (!string.IsNullOrEmpty(foto) && foto.StartsWith("http"))
+        if (!string.IsNullOrEmpty(foto))
+{
+    if (foto.StartsWith("http://"))
+        foto = foto.Replace("http://", "https://");
+
+    if (foto.StartsWith("https://"))
+    {
+        grid.Children.Add(new Image
         {
-            grid.Children.Add(new Image
+            Source = ImageSource.FromUri(new Uri(foto)),
+            WidthRequest = size,
+            HeightRequest = size,
+            Aspect = Aspect.AspectFill,
+            Clip = new EllipseGeometry
             {
-                Source = ImageSource.FromUri(new Uri(foto)),
-                WidthRequest = size,
-                HeightRequest = size,
-                Aspect = Aspect.AspectFill,
-                Clip = new EllipseGeometry
-                {
-                    Center = new Point(size / 2.0, size / 2.0),
-                    RadiusX = size / 2.0,
-                    RadiusY = size / 2.0
-                }
-            });
-        }
+                Center = new Point(size / 2.0, size / 2.0),
+                RadiusX = size / 2.0,
+                RadiusY = size / 2.0
+            }
+        });
+    }
+}
 
         return grid;
     }

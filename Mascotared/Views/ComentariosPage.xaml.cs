@@ -144,7 +144,8 @@ public class ComentarioItem
     public string UsuarioNombre { get; set; } = string.Empty;
     public string UsuarioInicial { get; set; } = string.Empty;
     public string UsuarioFoto { get; set; } = string.Empty;
-    public bool TieneFoto => !string.IsNullOrEmpty(UsuarioFoto) && UsuarioFoto.StartsWith("http");
+    public bool TieneFoto => !string.IsNullOrEmpty(UsuarioFoto) &&
+                             (UsuarioFoto.StartsWith("http://") || UsuarioFoto.StartsWith("https://"));
     public bool NoTieneFoto => !TieneFoto;
     public string Texto { get; set; } = string.Empty;
     public string TiempoPublicado { get; set; } = string.Empty;

@@ -144,11 +144,16 @@ public partial class TaskPopup : ContentPage
         PopupProp.IsVisible = !t.caretaker;
         PopupCare.IsVisible = t.caretaker;
 
-        PopupFoto.Source = string.IsNullOrEmpty(t.photoPath)
-            ? "placeholder_pet.png"
-            : t.photoPath.StartsWith("http")
-                ? ImageSource.FromUri(new Uri(t.photoPath))
-                : ImageSource.FromFile(t.photoPath);
+        string photo = t.photoPath ?? "";
+
+if (photo.StartsWith("http://"))
+    photo = photo.Replace("http://", "https://");
+
+PopupFoto.Source = string.IsNullOrEmpty(photo)
+    ? "placeholder_pet.png"
+    : photo.StartsWith("https://")
+        ? ImageSource.FromUri(new Uri(photo))
+        : ImageSource.FromFile(photo);
 
         PopupTitle.Text = t.title;
         PopupLocation.Text = await BuildLocationAsync(t);

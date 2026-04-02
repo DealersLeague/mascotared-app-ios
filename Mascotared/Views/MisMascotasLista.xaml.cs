@@ -157,11 +157,16 @@ public partial class MisMascotasLista : ContentPage
     {
         _mascotaPopup = m;
 
-        PopupFoto.Source = string.IsNullOrEmpty(m.PhotoPath)
-            ? "placeholder_pet.png"
-            : m.PhotoPath.StartsWith("http")
-                ? ImageSource.FromUri(new Uri(m.PhotoPath))
-                : ImageSource.FromFile(m.PhotoPath);
+        string photo = m.PhotoPath ?? "";
+
+if (photo.StartsWith("http://"))
+    photo = photo.Replace("http://", "https://");
+
+PopupFoto.Source = string.IsNullOrEmpty(photo)
+    ? "placeholder_pet.png"
+    : photo.StartsWith("https://")
+        ? ImageSource.FromUri(new Uri(photo))
+        : ImageSource.FromFile(photo);
 
         PopupNombre.Text = m.Name;
         PopupEspecie.Text = BuildEspecieLinea(m);

@@ -166,15 +166,17 @@ private async Task CargarCuidadoresYUbicacion()
                 // ── FIX: la API devuelve el campo como "imagen", no "imagenBase64" ──
                 string imagenUrl = string.Empty;
                 if (p.TryGetProperty("imagen", out var imgProp)
-                    && imgProp.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
-                {
-                    if (imgStr.StartsWith("http"))
-                        imagenUrl = imgStr; // URL de Hetzner
-                    else
-                        imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
+    && imgProp.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
+{
+    if (imgStr.StartsWith("http://"))
+        imagenUrl = imgStr.Replace("http://", "https://");
+    else if (imgStr.StartsWith("https://"))
+        imagenUrl = imgStr;
+    else
+        imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
 
-                    System.Diagnostics.Debug.WriteLine($"[FEED] OK len={imagenUrl.Length} start={imagenUrl.Substring(0, Math.Min(60, imagenUrl.Length))}");
-                }
+    System.Diagnostics.Debug.WriteLine($"[FEED] OK len={imagenUrl.Length} start={imagenUrl.Substring(0, Math.Min(60, imagenUrl.Length))}");
+}
                 else
                 {
                     var props = string.Join(", ", p.EnumerateObject().Select(x => x.Name));
@@ -247,35 +249,42 @@ private async Task CargarCuidadoresYUbicacion()
 
             var todasMascotasLista = new List<MascotaDestacada>();
             foreach (var m in todasMascotas)
-            {
-                string nombre  = m.TryGetProperty("nombre", out var n) ? n.GetString() ?? "Mascota" : "Mascota";
-                string especie = m.TryGetProperty("especie", out var esp) ? esp.GetString() ?? "" : "";
+{
+    string nombre  = m.TryGetProperty("nombre", out var n) ? n.GetString() ?? "Mascota" : "Mascota";
+    string especie = m.TryGetProperty("especie", out var esp) ? esp.GetString() ?? "" : "";
 
-                string dueno = "";
-                if (m.TryGetProperty("duenoNombre", out var dn) && dn.ValueKind == System.Text.Json.JsonValueKind.String)
-                    dueno = dn.GetString() ?? "";
-                if (string.IsNullOrWhiteSpace(dueno)) dueno = "Propietario/a";
+    string dueno = "";
+    if (m.TryGetProperty("duenoNombre", out var dn) && dn.ValueKind == System.Text.Json.JsonValueKind.String)
+        dueno = dn.GetString() ?? "";
+    if (string.IsNullOrWhiteSpace(dueno)) dueno = "Propietario/a";
 
-                string duenoId = "";
-                if (m.TryGetProperty("duenoId", out var did))
-                    duenoId = did.ValueKind == System.Text.Json.JsonValueKind.String
-                        ? did.GetString() ?? "" : "";
+    string duenoId = "";
+    if (m.TryGetProperty("duenoId", out var did))
+        duenoId = did.ValueKind == System.Text.Json.JsonValueKind.String
+            ? did.GetString() ?? "" : "";
 
-                string imagenUrl = "";
-                if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
-                    imagenUrl = fotoStr.StartsWith("http") ? fotoStr
-                        : fotoStr.StartsWith("data:") ? fotoStr
-                        : $"data:image/jpeg;base64,{fotoStr}";
+    string imagenUrl = "";
+    if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
+    {
+        if (fotoStr.StartsWith("http://"))
+            imagenUrl = fotoStr.Replace("http://", "https://");
+        else if (fotoStr.StartsWith("https://"))
+            imagenUrl = fotoStr;
+        else if (fotoStr.StartsWith("data:"))
+            imagenUrl = fotoStr;
+        else
+            imagenUrl = $"data:image/jpeg;base64,{fotoStr}";
+    }
 
-                todasMascotasLista.Add(new MascotaDestacada
-                {
-                    Nombre     = nombre,
-                    Dueno      = dueno,
-                    DuenoId    = duenoId,
-                    TipoAnimal = especie,
-                    ImagenUrl  = imagenUrl,
-                });
-            }
+    todasMascotasLista.Add(new MascotaDestacada
+    {
+        Nombre     = nombre,
+        Dueno      = dueno,
+        DuenoId    = duenoId,
+        TipoAnimal = especie,
+        ImagenUrl  = imagenUrl,
+    });
+}
 
             // Deduplicar: si el backend tiene entradas repetidas del mismo dueño+mascota,
             // quedarse solo con la primera aparición (el backend ya ordena por FechaCreacion desc)

@@ -34,5 +34,11 @@
 	<string></string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>MascotaRed necesita permiso para guardar fotos en tu galería.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>MascotaRed necesita acceso a la cámara para tomar fotos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MascotaRed necesita acceso a tu galería para seleccionar fotos y publicarlas.</string>
 </dict>
 </plist>

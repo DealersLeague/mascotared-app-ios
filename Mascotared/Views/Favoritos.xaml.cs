@@ -62,9 +62,13 @@ public partial class Favoritos : ContentPage
                     if (p.TryGetProperty("imagen", out var img)
                         && img.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
                     {
-                        imagenUrl = imgStr.StartsWith("http")
-                            ? imgStr
-                            : imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
+                        imagenUrl = imgStr.StartsWith("http://")
+    ? imgStr.Replace("http://", "https://")
+    : imgStr.StartsWith("https://")
+        ? imgStr
+        : imgStr.StartsWith("data:")
+            ? imgStr
+            : $"data:image/jpeg;base64,{imgStr}";
                     }
                     else if (p.TryGetProperty("imagenBase64", out var b64)
                              && b64.GetString() is string b64str && !string.IsNullOrEmpty(b64str))

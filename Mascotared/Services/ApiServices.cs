@@ -91,8 +91,13 @@ namespace Mascotared.Services
                 if (!response.IsSuccessStatusCode) return null;
 
                 var json = await response.Content.ReadAsStringAsync();
-                var root = JsonDocument.Parse(json).RootElement;
-                return root.GetProperty("url").GetString();
+		var root = JsonDocument.Parse(json).RootElement;
+		var url = root.GetProperty("url").GetString();
+
+		if (!string.IsNullOrWhiteSpace(url) && url.StartsWith("http://"))
+		    url = url.Replace("http://", "https://");
+
+		return url;
             }
             catch { return null; }
         }

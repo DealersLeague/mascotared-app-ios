@@ -62,11 +62,16 @@ public partial class MascotasPorDuenoPage : ContentPage
 
                 // Foto de la mascota — el API devuelve "foto" (url o base64)
                 string imagenUrl = "";
-                if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
-                    imagenUrl = fotoStr.StartsWith("http") ? fotoStr
-                        : fotoStr.StartsWith("data:") ? fotoStr
-                        : $"data:image/jpeg;base64,{fotoStr}";
-
+if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
+{
+    imagenUrl = fotoStr.StartsWith("http://")
+        ? fotoStr.Replace("http://", "https://")
+        : fotoStr.StartsWith("https://")
+            ? fotoStr
+            : fotoStr.StartsWith("data:")
+                ? fotoStr
+                : $"data:image/jpeg;base64,{fotoStr}";
+}
                 _todasLasMascotas.Add(new MascotaDestacada
                 {
                     Nombre = nombre,
@@ -126,10 +131,16 @@ public partial class MascotasPorDuenoPage : ContentPage
                         : (m.TryGetProperty("tipoAnimal", out var ta) ? ta.GetString() ?? "" : "");
 
                     string imagenUrl = string.Empty;
-                    if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
-                        imagenUrl = fotoStr.StartsWith("http") ? fotoStr
-                            : fotoStr.StartsWith("data:") ? fotoStr
-                            : $"data:image/jpeg;base64,{fotoStr}";
+if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
+{
+    imagenUrl = fotoStr.StartsWith("http://")
+        ? fotoStr.Replace("http://", "https://")
+        : fotoStr.StartsWith("https://")
+            ? fotoStr
+            : fotoStr.StartsWith("data:")
+                ? fotoStr
+                : $"data:image/jpeg;base64,{fotoStr}";
+}
 
                     _todasLasMascotas.Add(new MascotaDestacada
                     {

@@ -49,20 +49,27 @@ public partial class EditarPerfil : ContentPage
     }
 
     private void MostrarFotoEnAvatar(string fotoUrlOBase64)
+{
+    if (fotoUrlOBase64.StartsWith("http://"))
+        fotoUrlOBase64 = fotoUrlOBase64.Replace("http://", "https://");
+
+    if (fotoUrlOBase64.StartsWith("https://"))
     {
-        if (fotoUrlOBase64.StartsWith("http"))
-            AvatarImg.Source = ImageSource.FromUri(new Uri(fotoUrlOBase64));
-        else
-        {
-            var b64 = fotoUrlOBase64.StartsWith("data:")
-                ? fotoUrlOBase64[(fotoUrlOBase64.IndexOf(',') + 1)..]
-                : fotoUrlOBase64;
-            AvatarImg.Source = ImageSource.FromStream(() =>
-                new MemoryStream(Convert.FromBase64String(b64)));
-        }
-        AvatarImg.IsVisible = true;
-        AvatarInicial.IsVisible = false;
+        AvatarImg.Source = ImageSource.FromUri(new Uri(fotoUrlOBase64));
     }
+    else
+    {
+        var b64 = fotoUrlOBase64.StartsWith("data:")
+            ? fotoUrlOBase64[(fotoUrlOBase64.IndexOf(',') + 1)..]
+            : fotoUrlOBase64;
+
+        AvatarImg.Source = ImageSource.FromStream(() =>
+            new MemoryStream(Convert.FromBase64String(b64)));
+    }
+
+    AvatarImg.IsVisible = true;
+    AvatarInicial.IsVisible = false;
+}
 
     private async void OnCambiarFotoTapped(object sender, EventArgs e)
     {
