@@ -40,7 +40,7 @@
 	<string>MascotaRed necesita acceso a la cámara para tomar fotos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MascotaRed necesita acceso a tu galería para seleccionar fotos y publicarlas.</string>
-<key>NSAppTransportSecurity</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoadsInMedia</key>
 		<true/>
@@ -63,5 +63,6 @@
 				<string>TLSv1.0</string>
 			</dict>
 		</dict>
-	</dict></dict>
+	</dict>
+</dict>
 </plist>
