@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace Mascotared.Converters
 {
@@ -38,7 +38,9 @@ namespace Mascotared.Converters
                 return ImageSource.FromStream(() => new MemoryStream(bytes));
             }
             catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"[IMG-CONVERTER] Error al convertir imagen. InputStart='{src[..Math.Min(60, src.Length)]}' Error='{ex.Message}'");
                 return null;
             }
         }

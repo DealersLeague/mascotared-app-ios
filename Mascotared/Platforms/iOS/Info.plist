@@ -40,5 +40,28 @@
 	<string>MascotaRed necesita acceso a la cámara para tomar fotos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MascotaRed necesita acceso a tu galería para seleccionar fotos y publicarlas.</string>
-</dict>
+<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInMedia</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>api.mascotared.es</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+			</dict>
+			<key>91.98.163.114</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+			</dict>
+		</dict>
+	</dict></dict>
 </plist>

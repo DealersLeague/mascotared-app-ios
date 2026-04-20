@@ -22,7 +22,7 @@
 
 	<!-- Versions -->
 	<ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
-	<ApplicationVersion>2</ApplicationVersion>
+	<ApplicationVersion>3</ApplicationVersion>
 
 	<WindowsPackageType>None</WindowsPackageType>
 
