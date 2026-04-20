@@ -32,17 +32,15 @@ namespace Mascotared.Converters
                 }
 
                 // Limpiar espacios/saltos de línea que a veces añaden algunos encoders
-                base64 = base64.Trim().Replace("\n", "").Replace("\r", "").Replace(" ", "");
+base64 = base64.Trim().Replace("\n", "").Replace("\r", "").Replace(" ", "");
 
-                byte[] bytes = System.Convert.FromBase64String(base64);
-                return ImageSource.FromStream(() => new MemoryStream(bytes));
-            }
-            catch
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[IMG-CONVERTER] Error al convertir imagen. InputStart='{src[..Math.Min(60, src.Length)]}' Error='{ex.Message}'");
-                return null;
-            }
+byte[] bytes = System.Convert.FromBase64String(base64);
+return ImageSource.FromStream(() => new MemoryStream(bytes));
+}
+catch
+{
+    return null;
+}
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
