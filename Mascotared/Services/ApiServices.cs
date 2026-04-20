@@ -94,9 +94,7 @@ namespace Mascotared.Services
 		var root = JsonDocument.Parse(json).RootElement;
 		var url = root.GetProperty("url").GetString();
 
-		if (!string.IsNullOrWhiteSpace(url) && url.StartsWith("http://"))
-		    url = url.Replace("http://", "https://");
-
+		
 		return url;
             }
             catch { return null; }

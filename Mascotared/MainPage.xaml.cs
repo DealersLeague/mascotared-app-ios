@@ -168,9 +168,7 @@ private async Task CargarCuidadoresYUbicacion()
                 if (p.TryGetProperty("imagen", out var imgProp)
     && imgProp.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
 {
-    if (imgStr.StartsWith("http://"))
-        imagenUrl = imgStr.Replace("http://", "https://");
-    else if (imgStr.StartsWith("https://"))
+    if (imgStr.StartsWith("http://") || imgStr.StartsWith("https://"))
         imagenUrl = imgStr;
     else
         imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
@@ -266,9 +264,7 @@ private async Task CargarCuidadoresYUbicacion()
     string imagenUrl = "";
     if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
     {
-        if (fotoStr.StartsWith("http://"))
-            imagenUrl = fotoStr.Replace("http://", "https://");
-        else if (fotoStr.StartsWith("https://"))
+        if (fotoStr.StartsWith("http://") || fotoStr.StartsWith("https://"))
             imagenUrl = fotoStr;
         else if (fotoStr.StartsWith("data:"))
             imagenUrl = fotoStr;
