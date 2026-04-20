@@ -59,8 +59,15 @@ public partial class Favoritos : ContentPage
                     string inicial = nombre.Length > 0 ? nombre[0].ToString().ToUpper() : "U";
 
                     string imagenUrl = string.Empty;
-                    if (p.TryGetProperty("imagen", out var img)
-                        && img.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
+                    string? imgStr = null;
+                    if (p.TryGetProperty("imagen", out var img) && img.ValueKind == System.Text.Json.JsonValueKind.String)
+                        imgStr = img.GetString();
+                    else if (p.TryGetProperty("imagenUrl", out var imgUrl) && imgUrl.ValueKind == System.Text.Json.JsonValueKind.String)
+                        imgStr = imgUrl.GetString();
+                    else if (p.TryGetProperty("imagenBase64", out var b64) && b64.ValueKind == System.Text.Json.JsonValueKind.String)
+                        imgStr = b64.GetString();
+
+                    if (!string.IsNullOrWhiteSpace(imgStr))
                     {
                         imagenUrl = (imgStr.StartsWith("http://") || imgStr.StartsWith("https://"))
     ? imgStr

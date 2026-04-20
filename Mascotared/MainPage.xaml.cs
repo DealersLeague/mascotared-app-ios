@@ -163,18 +163,24 @@ private async Task CargarCuidadoresYUbicacion()
                     ? n.GetString() ?? "Usuario" : "Usuario";
                 string inicial = nombre.Length > 0 ? nombre[0].ToString().ToUpper() : "U";
 
-                // ── FIX: la API devuelve el campo como "imagen", no "imagenBase64" ──
                 string imagenUrl = string.Empty;
-                if (p.TryGetProperty("imagen", out var imgProp)
-    && imgProp.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
-{
-    if (imgStr.StartsWith("http://") || imgStr.StartsWith("https://"))
-        imagenUrl = imgStr;
-    else
-        imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
+                string? imgStr = null;
+                if (p.TryGetProperty("imagen", out var imgProp) && imgProp.ValueKind == System.Text.Json.JsonValueKind.String)
+                    imgStr = imgProp.GetString();
+                else if (p.TryGetProperty("imagenUrl", out var imgUrlProp) && imgUrlProp.ValueKind == System.Text.Json.JsonValueKind.String)
+                    imgStr = imgUrlProp.GetString();
+                else if (p.TryGetProperty("imagenBase64", out var imgB64Prop) && imgB64Prop.ValueKind == System.Text.Json.JsonValueKind.String)
+                    imgStr = imgB64Prop.GetString();
 
-    System.Diagnostics.Debug.WriteLine($"[FEED] OK len={imagenUrl.Length} start={imagenUrl.Substring(0, Math.Min(60, imagenUrl.Length))}");
-}
+                if (!string.IsNullOrWhiteSpace(imgStr))
+                {
+                    if (imgStr.StartsWith("http://") || imgStr.StartsWith("https://"))
+                        imagenUrl = imgStr;
+                    else
+                        imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
+
+                    System.Diagnostics.Debug.WriteLine($"[FEED] OK len={imagenUrl.Length} start={imagenUrl.Substring(0, Math.Min(60, imagenUrl.Length))}");
+                }
                 else
                 {
                     var props = string.Join(", ", p.EnumerateObject().Select(x => x.Name));
@@ -262,7 +268,15 @@ private async Task CargarCuidadoresYUbicacion()
             ? did.GetString() ?? "" : "";
 
     string imagenUrl = "";
-    if (m.TryGetProperty("foto", out var foto) && foto.GetString() is string fotoStr && !string.IsNullOrEmpty(fotoStr))
+    string? fotoStr = null;
+    if (m.TryGetProperty("foto", out var foto) && foto.ValueKind == System.Text.Json.JsonValueKind.String)
+        fotoStr = foto.GetString();
+    else if (m.TryGetProperty("fotoUrl", out var fotoUrlProp) && fotoUrlProp.ValueKind == System.Text.Json.JsonValueKind.String)
+        fotoStr = fotoUrlProp.GetString();
+    else if (m.TryGetProperty("imagen", out var imagenProp) && imagenProp.ValueKind == System.Text.Json.JsonValueKind.String)
+        fotoStr = imagenProp.GetString();
+
+    if (!string.IsNullOrWhiteSpace(fotoStr))
     {
         if (fotoStr.StartsWith("http://") || fotoStr.StartsWith("https://"))
             imagenUrl = fotoStr;
@@ -357,7 +371,11 @@ private async Task CargarCuidadoresYUbicacion()
             }
             else
             {
-                using var http = new HttpClient();
+                using var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
+                };
+                using var http = new HttpClient(handler);
                 imageBytes = await http.GetByteArrayAsync(momento.ImagenUrl);
             }
 
