@@ -4,6 +4,7 @@ namespace Mascotared.Views;
 
 public partial class Favoritos : ContentPage
 {
+    private const string MediaBaseUrl = "https://api.mascotared.es";
     private readonly ApiService _api = new();
     private readonly List<MomentoItem> _posts = new();
     private readonly string _miId = Preferences.Get("user_id", "");

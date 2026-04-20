@@ -9,6 +9,7 @@ namespace Mascotared;
 
 public partial class MainPage : ContentPage
 {
+    private const string MediaBaseUrl = "https://api.mascotared.es";
     private List<CuidadorItem> _cuidadores = new();
     private List<MascotaDestacada> _mascotas = new();
     private List<MomentoItem> _feed = new();
@@ -176,6 +177,8 @@ private async Task CargarCuidadoresYUbicacion()
                 {
                     if (imgStr.StartsWith("http://") || imgStr.StartsWith("https://"))
                         imagenUrl = imgStr;
+                    else if (imgStr.StartsWith("/") || imgStr.StartsWith("uploads/", StringComparison.OrdinalIgnoreCase))
+                        imagenUrl = $"{MediaBaseUrl}/{imgStr.TrimStart('/')}";
                     else
                         imagenUrl = imgStr.StartsWith("data:") ? imgStr : $"data:image/jpeg;base64,{imgStr}";
 
@@ -280,6 +283,8 @@ private async Task CargarCuidadoresYUbicacion()
     {
         if (fotoStr.StartsWith("http://") || fotoStr.StartsWith("https://"))
             imagenUrl = fotoStr;
+        else if (fotoStr.StartsWith("/") || fotoStr.StartsWith("uploads/", StringComparison.OrdinalIgnoreCase))
+            imagenUrl = $"{MediaBaseUrl}/{fotoStr.TrimStart('/')}";
         else if (fotoStr.StartsWith("data:"))
             imagenUrl = fotoStr;
         else
@@ -376,7 +381,10 @@ private async Task CargarCuidadoresYUbicacion()
                     ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
                 };
                 using var http = new HttpClient(handler);
-                imageBytes = await http.GetByteArrayAsync(momento.ImagenUrl);
+                var remoteUrl = momento.ImagenUrl.StartsWith("/") || momento.ImagenUrl.StartsWith("uploads/", StringComparison.OrdinalIgnoreCase)
+                    ? $"{MediaBaseUrl}/{momento.ImagenUrl.TrimStart('/')}"
+                    : momento.ImagenUrl;
+                imageBytes = await http.GetByteArrayAsync(remoteUrl);
             }
 
             var fileName = $"mascotared_{momento.Id}_{DateTime.Now:yyyyMMddHHmmss}.jpg";
