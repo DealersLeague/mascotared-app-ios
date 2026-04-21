@@ -36,8 +36,9 @@ public partial class NuevoMomento : ContentPage
 
             if (resultado != null)
             {
-                _rutaImagenSeleccionada = resultado.FullPath;
-                ImagenPreview.Source = ImageSource.FromFile(_rutaImagenSeleccionada);
+                var (dataUri, bytes) = await FileResultToDataUriAsync(resultado);
+                _rutaImagenSeleccionada = dataUri;
+                ImagenPreview.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
                 FramePlaceholder.IsVisible = false;
                 ImagenPreview.IsVisible = true;
                 BtnCambiarFoto.IsVisible = true;
@@ -59,8 +60,9 @@ public partial class NuevoMomento : ContentPage
             var resultado = await MediaPicker.PickPhotoAsync();
             if (resultado != null)
             {
-                _rutaImagenSeleccionada = resultado.FullPath;
-                ImagenPreview.Source = ImageSource.FromFile(_rutaImagenSeleccionada);
+                var (dataUri, bytes) = await FileResultToDataUriAsync(resultado);
+                _rutaImagenSeleccionada = dataUri;
+                ImagenPreview.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
             }
         }
         catch
@@ -128,4 +130,24 @@ public partial class NuevoMomento : ContentPage
 
     private async void OnCancelarClicked(object sender, EventArgs e)
         => await Navigation.PopAsync(animated: true);
+
+    private static async Task<(string dataUri, byte[] bytes)> FileResultToDataUriAsync(FileResult file)
+    {
+        await using var stream = await file.OpenReadAsync();
+        using var ms = new MemoryStream();
+        await stream.CopyToAsync(ms);
+        var bytes = ms.ToArray();
+
+        var ext = Path.GetExtension(file.FileName)?.ToLowerInvariant();
+        var mime = ext switch
+        {
+            ".png" => "image/png",
+            ".gif" => "image/gif",
+            ".webp" => "image/webp",
+            _ => "image/jpeg"
+        };
+
+        var dataUri = $"data:{mime};base64,{Convert.ToBase64String(bytes)}";
+        return (dataUri, bytes);
+    }
 }
