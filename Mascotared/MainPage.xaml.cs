@@ -478,26 +478,8 @@ private async Task CargarCuidadoresYUbicacion()
     {
         await Navigation.PushAsync(new NuevoMomento(async momento =>
         {
-            string imagenParaApi = momento.ImagenUrl ?? string.Empty;
-            if (!string.IsNullOrEmpty(imagenParaApi))
-            {
-                if (imagenParaApi.StartsWith("data:"))
-                {
-                    var b64 = imagenParaApi[(imagenParaApi.IndexOf(',') + 1)..];
-                    var bytes = Convert.FromBase64String(b64);
-                    imagenParaApi = await ComprimirImagenBase64Async(bytes);
-                }
-                else if (imagenParaApi.StartsWith("/") || imagenParaApi.StartsWith("file://"))
-                {
-                    var path = imagenParaApi.Replace("file://", "");
-                    var bytes = await File.ReadAllBytesAsync(path);
-                    imagenParaApi = await ComprimirImagenBase64Async(bytes);
-                }
-            }
-            var idReal = await _api.CrearPublicacionAsync(imagenParaApi, momento.Descripcion);
-            if (idReal > 0) momento.Id = idReal;
-
-            // Recargar feed completo para mostrar la publicación real de BD
+            // La publicación ya se crea dentro de NuevoMomento.
+            // Aquí solo refrescamos el feed para traer el item real desde backend.
             await CargarFeedAsync();
 
         }), animated: true);

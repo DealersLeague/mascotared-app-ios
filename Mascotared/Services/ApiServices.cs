@@ -88,16 +88,36 @@ namespace Mascotared.Services
                 var body = JsonSerializer.Serialize(new { base64, carpeta });
                 var content = new StringContent(body, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync($"{BaseUrl}/Imagenes/subir", content);
-                if (!response.IsSuccessStatusCode) return null;
+                if (!response.IsSuccessStatusCode)
+                {
+                    var err = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine($"[API][UPLOAD] HTTP {(int)response.StatusCode}: {err}");
+                    return null;
+                }
 
                 var json = await response.Content.ReadAsStringAsync();
-		var root = JsonDocument.Parse(json).RootElement;
-		var url = root.GetProperty("url").GetString();
+                var root = JsonDocument.Parse(json).RootElement;
 
+                if (root.TryGetProperty("url", out var urlProp) && urlProp.ValueKind == JsonValueKind.String)
+                    return urlProp.GetString();
+
+                if (root.TryGetProperty("imagenUrl", out var imagenUrlProp) && imagenUrlProp.ValueKind == JsonValueKind.String)
+                    return imagenUrlProp.GetString();
+
+                if (root.TryGetProperty("imagen", out var imagenProp) && imagenProp.ValueKind == JsonValueKind.String)
+                    return imagenProp.GetString();
+                if (root.TryGetProperty("path", out var pathProp) && pathProp.ValueKind == JsonValueKind.String)
+                    return pathProp.GetString();
 		
 		return url;
+                System.Diagnostics.Debug.WriteLine($"[API][UPLOAD] Respuesta sin url conocida: {json}");
+                return null;
             }
-            catch { return null; }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[API][UPLOAD] Excepción: {ex.Message}");
+                return null;
+            }
         }
 
         // ── AUTH ─────────────────────────────────────────────────────────────
@@ -392,15 +412,42 @@ namespace Mascotared.Services
                 var imagenUrl = await SubirImagenAsync(rutaLocalOBase64, "publicaciones");
                 if (imagenUrl == null) return 0;
 
-                var body = JsonSerializer.Serialize(new { imagenUrl, descripcion });
+                var body = JsonSerializer.Serialize(new
+                {
+                    imagenUrl,
+                    imagen = imagenUrl,
+                    descripcion
+                });
                 var content = new StringContent(body, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync($"{BaseUrl}/Publicaciones", content);
-                if (!response.IsSuccessStatusCode) return 0;
+                if (!response.IsSuccessStatusCode)
+                {
+                    var err = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine($"[API][PUBLICAR] HTTP {(int)response.StatusCode}: {err}");
+                    return 0;
+                }
 
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonDocument.Parse(json).RootElement.GetProperty("id").GetInt32();
+                if (string.IsNullOrWhiteSpace(json))
+                    return 1;
+
+                var root = JsonDocument.Parse(json).RootElement;
+                if (root.ValueKind == JsonValueKind.Object)
+                {
+                    if (root.TryGetProperty("id", out var idProp) && idProp.ValueKind == JsonValueKind.Number)
+                        return idProp.GetInt32();
+
+                    if (root.TryGetProperty("publicacionId", out var pubIdProp) && pubIdProp.ValueKind == JsonValueKind.Number)
+                        return pubIdProp.GetInt32();
+                }
+
+                return 1;
             }
-            catch { return 0; }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[API][PUBLICAR] Excepción: {ex.Message}");
+                return 0;
+            }
         }
 
         public async Task<(bool meGusta, int numLikes)> ToggleLikePublicacionAsync(int publicacionId)

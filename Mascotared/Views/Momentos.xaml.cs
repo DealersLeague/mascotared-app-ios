@@ -4,6 +4,7 @@ namespace Mascotared;
 
 public partial class Momentos : ContentPage
 {
+    private const string MediaBaseUrl = "https://api.mascotared.es";
     private List<MomentoItem> _publicados = new();
     private List<MomentoItem> _relacionados = new();
     private bool _mostrandoPublicados = true;
@@ -45,10 +46,25 @@ public partial class Momentos : ContentPage
                     string inicial = nombre.Length > 0 ? nombre[0].ToString().ToUpper() : "U";
 
                     string imagenUrl = string.Empty;
-                    if (p.TryGetProperty("imagen", out var img) && img.GetString() is string imgStr && !string.IsNullOrEmpty(imgStr))
-                        imagenUrl = imgStr;
-                    else if (p.TryGetProperty("imagenBase64", out var b64) && b64.GetString() is string b64str && !string.IsNullOrEmpty(b64str))
-                        imagenUrl = b64str.StartsWith("data:") ? b64str : $"data:image/jpeg;base64,{b64str}";
+                    string? rawImagen = null;
+
+                    if (p.TryGetProperty("imagen", out var img) && img.ValueKind == System.Text.Json.JsonValueKind.String)
+                        rawImagen = img.GetString();
+                    else if (p.TryGetProperty("imagenUrl", out var imgUrl) && imgUrl.ValueKind == System.Text.Json.JsonValueKind.String)
+                        rawImagen = imgUrl.GetString();
+                    else if (p.TryGetProperty("imagenBase64", out var b64) && b64.ValueKind == System.Text.Json.JsonValueKind.String)
+                        rawImagen = b64.GetString();
+
+                    if (!string.IsNullOrWhiteSpace(rawImagen))
+                    {
+                        var valor = rawImagen.Trim();
+                        if (valor.StartsWith("http://") || valor.StartsWith("https://") || valor.StartsWith("data:"))
+                            imagenUrl = valor;
+                        else if (valor.StartsWith("/") || valor.StartsWith("uploads/", StringComparison.OrdinalIgnoreCase))
+                            imagenUrl = $"{MediaBaseUrl}/{valor.TrimStart('/')}";
+                        else
+                            imagenUrl = $"data:image/jpeg;base64,{valor}";
+                    }
 
                     string descripcion = p.TryGetProperty("descripcion", out var desc)
                         ? desc.GetString() ?? "" : "";
