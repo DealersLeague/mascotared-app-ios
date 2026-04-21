@@ -106,12 +106,12 @@ namespace Mascotared.Services
 
                 if (root.TryGetProperty("imagen", out var imagenProp) && imagenProp.ValueKind == JsonValueKind.String)
                     return imagenProp.GetString();
-                if (root.TryGetProperty("path", out var pathProp) && pathProp.ValueKind == JsonValueKind.String)
-                    return pathProp.GetString();
-		
-		return url;
-                System.Diagnostics.Debug.WriteLine($"[API][UPLOAD] Respuesta sin url conocida: {json}");
-                return null;
+                
+		if (root.TryGetProperty("path", out var pathProp) && pathProp.ValueKind == JsonValueKind.String)
+    return pathProp.GetString();
+
+		System.Diagnostics.Debug.WriteLine($"[API][UPLOAD] Respuesta sin url conocida: {json}");
+return null;
             }
             catch (Exception ex)
             {
